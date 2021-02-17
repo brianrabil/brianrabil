@@ -2,7 +2,7 @@ import React from 'react';
 
 export default () => {
     return (
-        <div className="py-24">
+        <div className="py-12 md:py-24">
             <div className={`max-w-2xl`}>
                 <h4 className={`text-lg font-medium mb-3 flex items-center`}><span className={`bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-red-400 block`}>Hello!</span> <span>👋</span></h4>
                 <h2 className={`text-2xl text-black dark:text-white leading-tight`}>

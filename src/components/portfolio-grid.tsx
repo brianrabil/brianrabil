@@ -55,7 +55,7 @@ export default () => {
 
     function renderPhotoViewer() {
         return (
-            <div className={`fixed inset-0 z-50`}>
+            <div className={`fixed inset-0 z-50 hidden md:block`}>
                 <div className={`relative h-full w-full`}>
                     <div className={`absolute inset-0 z-30`}>
                         <div className={`h-16 border-b border-gray-600 flex items-center justify-between px-4`}>
