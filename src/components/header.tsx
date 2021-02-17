@@ -17,7 +17,7 @@ const Header = ({ siteTitle }) => (
           <span className={`italic font-light`}>Rabil</span>
         </Link>
       </h1>
-      <a className={`text-lg text-black dark:text-white`}>🚀 brianrabil@gmail.com</a>
+      <a className={`text-base text-black dark:text-white`}>🚀 brianrabil@gmail.com</a>
     </div>
   </header>
 )
