@@ -25,12 +25,12 @@ export default () => {
             { renderCard('Warrior Academy (Desktop)', 'warrior-academy-mockup.png') }
             { renderCard('MyFinancial', 'my-financial-mockup.png') }
             { renderCard('The Opendoor', 'opendoor-mockup.png') }
-            { renderCard('Warrior Academy – Learning Platform', 'warrior-academy-learning-mockup.png') }
-            { renderCard() }
-            { renderCard() }
-            { renderCard() }
-            { renderCard() }
-            { renderCard() }
+            { renderCard('Warrior Academy (Learning Platform)', 'warrior-academy-learning-mockup.png') }
+            { renderCard('Data Studio (Wireframe)', 'data-studio-wireframe.png') }
+            { renderCard('Synthetic Analyst (Editor)', 'sa-module-builder-mockup.png') }
+            { renderCard('Compeat', 'compeat-mockup.png') }
+            { renderCard('CAP Map', 'cap-map-mockup.png') }
+            { renderCard('GMARS Logo', 'gmars-logo.png') }
         </div>
     )
 }

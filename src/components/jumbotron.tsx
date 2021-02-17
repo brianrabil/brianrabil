@@ -5,8 +5,10 @@ export default () => {
         <div className="py-24">
             <div className={`max-w-2xl`}>
                 <h4 className={`text-lg font-medium mb-3 text-blue-600 dark:text-blue-300`}>Hello! 👋</h4>
-                <h2 className={`text-3xl text-black dark:text-white leading-tight`}>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore, velit sed quo a quaerat consequatur porro, saepe recusandae reiciendis, laudantium eaque ipsa quasi cumque et.
+                <h2 className={`text-2xl text-black dark:text-white leading-tight`}>
+                    <p className={`mb-4`}>
+                        I'm a UI/UX designer and developer based in the Washington DC area. Ever since a young age, I've been interested in the power of good design for creating impactful and meaningful experiences for users. My style is clean, functional, intuitive, corporate design. Over the course of my career, I've designed/developed solutions for the CIA, Department of Defense, the Marines, Foxconn, SAIC, several banks and hospitals, and entrepreneurs just starting out.
+                    </p>
                 </h2>
             </div>
         
