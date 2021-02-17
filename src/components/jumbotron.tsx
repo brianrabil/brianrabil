@@ -11,7 +11,6 @@ export default () => {
                     </p>
                 </h2>
             </div>
-        
         </div>
     )
 }

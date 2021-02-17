@@ -7,7 +7,8 @@ export default () => (
                 <span>Lets work together.</span>
                 <span>BrianRabil@gmail.com</span>
             </div>
-            <img src={`http://placehold.it/100x50`} />
+            <span className={`text-5xl`}>🚀</span>
+            
         </div>
         <div className={`text-sm py-4 px-4 sm:px-6 lg:px-8 text-purple-200`}>
             © {new Date().getFullYear()} <a href="https://www.brianrabil.com">Brian Rabil</a>
