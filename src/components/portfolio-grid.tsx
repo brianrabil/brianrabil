@@ -5,15 +5,15 @@ import * as React from 'react'
 export default () => {
 
     const portfolioItems = [
-        {title: 'Warrior Academy (Desktop)', path: 'warrior-academy-mockup.png'},
-        {title: 'MyFinancial', path:'my-financial-mockup.png' },
-        {title: 'The Opendoor', path: 'opendoor-mockup.png' },
-        {title: 'Warrior Academy (Learning Platform)', path: 'warrior-academy-learning-mockup.png' },
+        {title: 'Warrior Academy (Mockup)', path: 'warrior-academy-mockup.png'},
+        {title: 'MyFinancial (Mockup)', path:'my-financial-mockup.png' },
+        {title: 'The Opendoor (Mockup)', path: 'opendoor-mockup.png' },
+        {title: 'Warrior Academy (Mockup)', path: 'warrior-academy-learning-mockup.png' },
         {title: 'Data Studio (Wireframe)', path: 'data-studio-wireframe.png' },
-        {title: 'Synthetic Analyst (Editor)', path: 'sa-module-builder-mockup.png' },
-        {title: 'Compeat', path: 'compeat-mockup.png' },
-        {title: 'CAP Map', path: 'cap-map-mockup.png' },
-        {title: 'GMARS Logo', path: 'gmars-logo.png' },
+        {title: 'Synthetic Analyst (Mockup)', path: 'sa-module-builder-mockup.png' },
+        {title: 'Compeat (Mockup)', path: 'compeat-mockup.png' },
+        {title: 'CAP Map (App Screenshot)', path: 'cap-map-mockup.png' },
+        {title: 'GMARS Logo (Branding)', path: 'gmars-logo.png' },
     ]
 
     const [viewingImage, setViewingImage] = React.useState<number | null>();
