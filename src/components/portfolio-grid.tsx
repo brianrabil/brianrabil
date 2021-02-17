@@ -20,7 +20,7 @@ export default () => {
 
     function renderCard(title: string, url: string, index: number) {
         return (
-            <div onClick={() => setViewingImage(index)} key={title} className={`flex flex-col`}>
+            <div onClick={() => setViewingImage(index)} key={title} className={`flex flex-col cursor-pointer`}>
                 <img className={`object-cover`} src={url} />
                 <div className={`flex items-center justify-between py-2`}>
                     <span className={`text-sm text-black dark:text-gray-400`}>
