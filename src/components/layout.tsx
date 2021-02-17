@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <div className={`bg-white dark:bg-black`}>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div>
         <main>
@@ -34,7 +34,7 @@ const Layout = ({ children }) => {
         </main>
         <Footer />
       </div>
-    </>
+    </div>
   )
 }
 
