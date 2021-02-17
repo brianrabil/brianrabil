@@ -16,7 +16,7 @@ export default () => {
         {title: 'GMARS Logo', path: 'gmars-logo.png' },
     ]
 
-    const [viewingImage, setViewingImage] = React.useState<number | null>(0);
+    const [viewingImage, setViewingImage] = React.useState<number | null>();
 
     function renderCard(title: string, url: string, index: number) {
         return (
