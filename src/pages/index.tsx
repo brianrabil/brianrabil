@@ -9,7 +9,6 @@ import Jumbotron from '../components/jumbotron';
 const IndexPage = (props: PageProps) => (
   <Layout>
     <SEO title="Home" />
-    <div className={`text-red-400`}>Test test</div>
     <Jumbotron />
   </Layout>
 )
