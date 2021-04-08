@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { StaticImage } from "gatsby-plugin-image"
 
 const Header = ({ siteTitle }) => (
   <header
@@ -12,7 +13,17 @@ const Header = ({ siteTitle }) => (
           to="/"
           className={`text-lg text-black dark:text-white flex items-center`}
         >
-          <img className={`h-8 w-8 rounded-full mr-3`} src={`bdr-avatar.jpeg`} />
+          <div className={`rounded-full overflow-hidden flex items-center justify-center mr-3`} style={{height: 36, width: 36}}>
+            <StaticImage
+              src="../images/bdr-avatar.jpeg"
+              alt="BDR"
+              layout="fixed"
+              placeholder="tracedSVG"
+              loading="lazy"
+              height={36}
+              width={36}
+            />
+          </div>
           <span className={`font-bold italic`}>Brian</span>
           <span className={`italic font-light`}>Rabil</span>
         </Link>
