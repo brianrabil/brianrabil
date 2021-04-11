@@ -15,6 +15,7 @@ const Header = ({ siteTitle }) => (
         >
           <div className={`rounded-full overflow-hidden flex items-center justify-center mr-3`} style={{height: 36, width: 36}}>
             <StaticImage
+              className={`rounded-full overflow-hidden`}
               src="../images/bdr-avatar.jpeg"
               alt="BDR"
               layout="fixed"
