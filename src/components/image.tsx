@@ -1,22 +1,29 @@
-import * as React from 'react'
+import * as React from "react"
+import Fade from "react-reveal/Fade"
 
 interface ImageCardProps {
-  title?: string;
-  image?: React.ReactNode; // Gatsby Static Image
-  onClick?: (id: string) => void;
+  title?: string
+  image?: React.ReactNode // Gatsby Static Image
+  onClick?: (id: string) => void
 }
 
 const Image: React.FC<ImageCardProps> = ({ image, title, onClick }) => {
   return (
-    <div onClick={() => onClick && onClick(title)} key={title} className={`flex flex-col cursor-pointer`}>
-      { image }
-      <div className={`flex items-center justify-between py-2`}>
+    <Fade>
+      <div
+        onClick={() => onClick && onClick(title)}
+        key={title}
+        className={`flex flex-col cursor-pointer`}
+      >
+        {image}
+        <div className={`flex items-center justify-between py-2`}>
           <span className={`text-sm text-black dark:text-gray-400`}>
-              {title}
+            {title}
           </span>
+        </div>
       </div>
-  </div>
+    </Fade>
   )
 }
 
-export default Image;
+export default Image

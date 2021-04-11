@@ -1,17 +1,21 @@
 import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import Image from "./image"
+import Fade from "react-reveal/Fade"
 
 export default () => {
   return (
     <div className={`py-12`}>
-      <h2 className={`text-3xl font-medium mb-8 flex items-center`}>
-        <span
-          className={`bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-red-400 block`}
-        >
-          Latest works
-        </span>
-      </h2>
+      <Fade>
+        <h2 className={`text-3xl font-medium mb-8 flex items-center`}>
+          <span
+            className={`bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-400 block`}
+          >
+            Latest works
+          </span>
+        </h2>
+      </Fade>
+
       <div className={`grid grid-cols-1 md:grid-cols-2 gap-6`}>
         <Image
           title="Warrior Academy"
