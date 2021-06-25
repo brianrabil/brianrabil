@@ -7,21 +7,26 @@ export default () => {
       <Fade>
         <div className={`max-w-2xl`}>
           <h4 className={`text-2xl font-medium mb-3 flex items-center`}>
+            <span>👋 	&nbsp;</span>
             <span
               className={`bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-400 block`}
             >
-              Welcome!
-            </span>{" "}
-            <span>👋</span>
+             Hello!
+            </span>
+            
           </h4>
-          <h2 className={`text-xl text-black dark:text-white leading-relaxed`}>
-            <p className={`mb-4`}>
-              I'm a UI/UX engineer based in the Washington D.C. area. I
-              specialize in web application development with Typescript, React,
-              and Redux. Over the course of my career, I've had the privilege of
-              working with the CIA, Department of Defense, the Marines, Foxconn,
-              SAIC, banks, hospitals, and entrepreneurs. I plan on adding more
-              content to this site soon. Stay tuned!
+          <h2 className={`text-xl text-black dark:text-white leading-loose`}>
+            <p className={`mb-5`}>
+                My name is Brian Rabil, and I am UI/UX engineer based in Washington D.C. with over 5 years of experience in designing, planning, and developing digital user interfaces and user experiences. Over the course of my career, I have enjoyed the privilege of working with some of the world's most recognized brands.
+            </p>
+            <p className={`mb-5`}>
+              Currently, I work for Schema Driven, a startup that provides enterprise-level automation software. As the lead UX Architect, I work closely with the engineering team to design and build powerful &amp; easy-to-use low-code tooling.
+            </p>
+            <p className={`mb-5`}>
+              When I'm not busy working on my various projects, I like to enjoy some well-deserved leisure time by reading books and watching low-grade reality TV with my wife and Yorkie puppy.
+            </p>
+            <p className={`mb-5`}>
+              If you need an app developer for your next project, please don't hesitate to get in touch. I live for the days spent solving problems with technology - it's my passion.
             </p>
           </h2>
         </div>

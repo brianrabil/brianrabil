@@ -11,7 +11,7 @@ export default () => {
           <span
             className={`bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-400 block`}
           >
-            Latest works
+            Recent works
           </span>
         </h2>
       </Fade>

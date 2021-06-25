@@ -22,7 +22,7 @@ const TechnologiesGrid = () => {
           <span
             className={`bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-400 block`}
           >
-            I work with the latest and greatest
+            I work with the latest and most advanced
           </span>
         </h2>
       </Fade>
