@@ -5,27 +5,30 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import Container from './container'
-import Header from "./header"
-import Footer from './footer'
+import * as React from "react"
+import { Container } from './container'
+import { Header } from "./header"
+import { Footer } from './footer'
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+interface LayoutProps {
+  children?: React.ReactNode;
+}
+
+export function Layout({ children }: LayoutProps) {
+  // const data = useStaticQuery(graphql`
+  //   query SiteTitleQuery {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `)
+  const data = {} as any;
 
   return (
     <div className={`bg-white dark:bg-black`}>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header siteTitle={"Brian Rabil"} />
       <div>
         <main>
           <Container>
@@ -38,8 +41,3 @@ const Layout = ({ children }) => {
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-export default Layout
