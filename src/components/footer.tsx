@@ -1,6 +1,6 @@
 import * as React from "react"
 
-export function Footer() {
+export default function Footer() {
   return (
     <footer className={`flex flex-col bg-gradient-to-r bg-white dark:bg-black`}>
       <div className={`flex flex-col items-center py-16`}>

@@ -6,7 +6,7 @@ interface ImageCardProps {
   onClick?: (id?: string) => void
 }
 
-export function Image({ image, title, onClick }: ImageCardProps) {
+export default function Image({ image, title, onClick }: ImageCardProps) {
   return (
     <div
       onClick={() => onClick?.(title)}

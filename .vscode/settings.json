@@ -1,0 +1,7 @@
+{
+  "editor.tabSize": 2,
+  "editor.indentSize": "tabSize",
+  "editor.detectIndentation": true,
+  "editor.renderWhitespace": "all",
+  "editor.formatOnSave": true
+}

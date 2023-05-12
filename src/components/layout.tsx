@@ -6,15 +6,15 @@
  */
 
 import * as React from "react"
-import { Container } from './container'
-import { Header } from "./header"
-import { Footer } from './footer'
+import  Container  from './container'
+import  Header  from "./header"
+import  Footer  from './footer'
 
 interface LayoutProps {
   children?: React.ReactNode;
 }
 
-export function Layout({ children }: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
   //     site {

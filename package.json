@@ -21,6 +21,7 @@
     "lint": "next lint"
   },
   "devDependencies": {
+    "@tryghost/content-api": "^1.11.9",
     "@types/node": "18.16.2",
     "@types/react": "^18.2.0",
     "autoprefixer": "^10.4.14",
