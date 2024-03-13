@@ -1,10 +1,9 @@
-import * as React from "react"
-import { Layout } from "../components"
+import * as React from "react";
 
 interface SVGWrapperProps {
-  el: React.ReactNode
-  label: string
-  className?: string
+  el: React.ReactNode;
+  label: string;
+  className?: string;
 }
 
 function SVGWrapper({ el, label, className }: SVGWrapperProps) {
@@ -19,14 +18,12 @@ function SVGWrapper({ el, label, className }: SVGWrapperProps) {
         {label}
       </span>
     </div>
-  )
+  );
 }
 
 export default function App() {
   return (
-    <Layout>
-      {/* <SEO title="Home" /> */}
-     
+    <>
       <div className={`py-12`}>
         {/* <Fade> */}
         <h2 className={`text-3xl font-medium mb-8 flex items-center`}>
@@ -662,6 +659,6 @@ export default function App() {
         /> */}
         </div>
       </div>
-    </Layout>
-  )
+    </>
+  );
 }

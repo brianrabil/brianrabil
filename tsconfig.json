@@ -26,7 +26,12 @@
         "types/*"
       ]
     },
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "exclude": [
     "node_modules"
@@ -34,6 +39,8 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/pages/_app.js"  ]
+    "**/*.tsx",
+    "src/pages/_app.js",
+    ".next/types/**/*.ts"
+  ]
 }

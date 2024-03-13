@@ -3,5 +3,6 @@
   "editor.indentSize": "tabSize",
   "editor.detectIndentation": true,
   "editor.renderWhitespace": "all",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "cSpell.words": ["Rabil", "tailwindcss"]
 }

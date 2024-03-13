@@ -1,10 +1,9 @@
-import * as React from "react"
-import Layout from "../components/layout"
-import Link from "next/link"
+import * as React from "react";
+import Link from "next/link";
 
 export default function About(props: any) {
   return (
-    <Layout>
+    <>
       {/* <SEO title="Page two" /> */}
       <div className="py-12 md:pt-24 md:pb-12">
         <div className={`max-w-2xl mx-auto`}>
@@ -45,6 +44,6 @@ export default function About(props: any) {
         </div>
       </div>
       <Link href="/">Go back to the homepage</Link>
-    </Layout>
-  )
+    </>
+  );
 }

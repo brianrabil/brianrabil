@@ -1,8 +1,8 @@
-import React from "react"
+import React from "react";
 import Container from "./container";
 
 export interface MainProps {
-  children?: React.ReactNode
+  children?: React.ReactNode;
 }
 
 export default function Main(props: MainProps) {
@@ -14,5 +14,5 @@ export default function Main(props: MainProps) {
         {props.children}
       </div>
     </main>
-  )
+  );
 }
