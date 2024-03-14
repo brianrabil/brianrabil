@@ -1,6 +1,5 @@
 import React from "react";
 import { Metadata } from "next";
-import Container from "@/components/container";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import "@/app/globals.css";
@@ -24,9 +23,7 @@ export default function RootLayout({
           <Header />
 
           <div>
-            <main className=" container px-6 max-w-4xl">
-              <Container>{children}</Container>
-            </main>
+            <main>{children}</main>
             <Footer />
             <footer className="bg-gray-800 text-white py-8">
               <div className="container mx-auto px-4 text-center">

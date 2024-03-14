@@ -54,7 +54,7 @@ export default function DotMatrix() {
     if (!ctx) return;
 
     const spacing = 10;
-    const dotSize = 4;
+    const dotSize = 2;
     const cursorRadius = 10;
     const cursorForce = 0.5;
     const returnSpeed = 0.2;
