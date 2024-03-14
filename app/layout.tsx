@@ -1,9 +1,9 @@
 import React from "react";
 import { Metadata } from "next";
-import Container from "../components/container";
-import Header from "../components/header";
-import Footer from "../components/footer";
-import "../global.css";
+import Container from "@/components/container";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import "./global.css";
 
 export const metadata: Metadata = {
   title: "Brian Rabil",
