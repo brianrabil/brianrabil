@@ -1,15 +1,15 @@
-import * as React from "react"
+import React from "react";
 
 interface ImageCardProps {
-  title?: string
-  image?: React.ReactNode 
-  onClick?: (id?: string) => void
+  title?: string;
+  image?: React.ReactNode;
+  onClick?: () => void;
 }
 
 export default function Image({ image, title, onClick }: ImageCardProps) {
   return (
     <div
-      onClick={() => onClick?.(title)}
+      onClick={onClick}
       key={title}
       className={`flex flex-col cursor-pointer`}
     >
@@ -18,6 +18,5 @@ export default function Image({ image, title, onClick }: ImageCardProps) {
         <span className={`text-sm text-black dark:text-gray-400`}>{title}</span>
       </div>
     </div>
-  )
+  );
 }
-

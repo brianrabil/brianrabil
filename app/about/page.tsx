@@ -1,7 +1,7 @@
 import * as React from "react";
 import Link from "next/link";
 
-export default function About(props: any) {
+export default function About() {
   return (
     <>
       {/* <SEO title="Page two" /> */}
@@ -21,7 +21,7 @@ export default function About(props: any) {
               Washington D.C. with over 5 years of experience in designing,
               planning, and developing digital user interfaces and user
               experiences. Over the course of my career, I have enjoyed the
-              privilege of working with some of the world's most recognized
+              privilege of working with some of the world&apos;s most recognized
               brands.
             </p>
             <p className={`mb-5`}>
@@ -31,14 +31,14 @@ export default function About(props: any) {
               powerful &amp; easy-to-use low-code tooling.
             </p>
             <p className={`mb-5`}>
-              When I'm not busy working on my various projects, I like to enjoy
-              some well-deserved leisure time by reading books and watching
-              low-grade reality TV with my wife and Yorkie puppy.
+              When I&apos;m not busy working on my various projects, I like to
+              enjoy some well-deserved leisure time by reading books and
+              watching low-grade reality TV with my wife and Yorkie puppy.
             </p>
             <p className={`mb-5`}>
-              If you need an app developer for your next project, please don't
-              hesitate to get in touch. I live for the days spent solving
-              problems with technology - it's my passion.
+              If you need an app developer for your next project, please
+              don&apos;t hesitate to get in touch. I live for the days spent
+              solving problems with technology - it&apos;s my passion.
             </p>
           </h2>
         </div>

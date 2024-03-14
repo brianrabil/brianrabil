@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import Container from "@/components/container";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import "./global.css";
+import "@/app/globals.css";
 
 export const metadata: Metadata = {
   title: "Brian Rabil",
@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className={`bg-white dark:bg-black`}>
-          <Header siteTitle={"Brian Rabil"} />
+          <Header />
 
           <div>
             <main className=" container px-6 max-w-4xl">

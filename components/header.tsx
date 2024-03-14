@@ -1,12 +1,8 @@
-import * as React from "react"
-import Link from "next/link"
-import Image from "next/image"
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 
-interface HeaderProps {
-  siteTitle?: string
-}
-
-export default function Header({ siteTitle }: HeaderProps) {
+export default function Header() {
   return (
     <header className={`mx-auto px-4 sm:px-6 lg:px-8`}>
       <div className={`flex items-center justify-between h-24`}>
@@ -62,5 +58,5 @@ export default function Header({ siteTitle }: HeaderProps) {
         </div>
       </div>
     </header>
-  )
+  );
 }

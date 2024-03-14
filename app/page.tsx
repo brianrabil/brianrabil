@@ -1,4 +1,3 @@
-import * as React from "react";
 import DotMatrix from "@/components/dot-matrix";
 import Card, { CardGrid } from "@/components/card";
 import * as Icon from "@/components/icon";
