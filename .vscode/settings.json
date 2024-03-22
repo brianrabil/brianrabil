@@ -4,5 +4,12 @@
   "editor.detectIndentation": true,
   "editor.renderWhitespace": "all",
   "editor.formatOnSave": true,
-  "cSpell.words": ["clsx", "nextra", "Rabil", "sonarjs", "tailwindcss"]
+  "cSpell.words": [
+    "clsx",
+    "devicons",
+    "nextra",
+    "Rabil",
+    "sonarjs",
+    "tailwindcss"
+  ]
 }

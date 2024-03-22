@@ -21,7 +21,7 @@ import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 
-export default function App() {
+export default async function App() {
   return (
     <>
       <Section>
@@ -138,16 +138,19 @@ export default function App() {
           <TypographyH2>My Tech Stack</TypographyH2>
           <TypographyLarge>Languages</TypographyLarge>
           <div
-            className={`grid grid-cols-5 gap-5 md:flex md:justify-start md:flex-wrap`}
+            className={`grid grid-cols-5 gap-3 md:flex md:justify-start md:flex-wrap`}
           >
             <Icon.TypescriptIcon />
+            <Icon.PythonIcon />
+            <Icon.JavascriptIcon />
             <Icon.GoIcon />
             <Icon.RustIcon />
+            <Icon.BashIcon />
           </div>
 
           <TypographyLarge>Libraries</TypographyLarge>
           <div
-            className={`grid grid-cols-5 gap-5 md:flex md:justify-start md:flex-wrap`}
+            className={`grid grid-cols-5 gap-3 md:flex md:justify-start md:flex-wrap`}
           >
             <Icon.NextIcon />
             <Icon.PrismaIcon />
@@ -158,20 +161,24 @@ export default function App() {
             <Icon.TailwindIcon />
             <Icon.PostgresIcon />
             <Icon.WebpackIcon />
+            <Icon.GraphQL />
           </div>
 
           <TypographyLarge>Services</TypographyLarge>
           <div
-            className={`grid grid-cols-5 gap-5 md:flex md:justify-start md:flex-wrap`}
+            className={`grid grid-cols-5 gap-3 md:flex md:justify-start md:flex-wrap`}
           >
             <Icon.VercelIcon />
             <Icon.FigmaIcon />
             <Icon.AWSIcon />
+            <Icon.DockerIcon />
+            <Icon.GitlabIcon />
+            <Icon.GithubIcon />
           </div>
 
           <TypographyLarge>Operating Systems</TypographyLarge>
           <div
-            className={`grid grid-cols-5 gap-5 md:flex md:justify-start md:flex-wrap`}
+            className={`grid grid-cols-5 gap-3 md:flex md:justify-start md:flex-wrap`}
           >
             <Icon.AppleIcon />
             <Icon.ArchLinuxIcon />

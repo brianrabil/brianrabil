@@ -37,12 +37,18 @@ export default function Header() {
                       <a
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                         href="/"
+                        style={{
+                          backgroundImage: `url("images/IMG_2056.jpeg")`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "bottom",
+                          backgroundRepeat: "no-repeat",
+                        }}
                       >
                         {/* <Icons.logo className="h-6 w-6" /> */}
-                        <div className="mb-2 mt-4 text-lg font-medium">
+                        <div className="mb-2 mt-4 text-white text-lg font-medium">
                           Brian Rabil
                         </div>
-                        <p className="text-sm leading-tight text-muted-foreground">
+                        <p className="text-sm leading-tight text-white text-muted-foreground">
                           UX Engineer
                         </p>
                       </a>
