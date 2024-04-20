@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Container } from "@/components/container";
@@ -6,16 +8,18 @@ import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { meta } from "@/lib/meta";
 
 export default function Header() {
   return (
-    <header className={`w-screen bg-white dark:bg-black `}>
+    <header
+      className={`w-screen overflow-y-hidden sticky top-0 bg-white/90 dark:bg-black z-20 backdrop-blur-sm dark:backdrop-blur-sm-lg backdrop-filter backdrop-saturate-150 dark:backdrop-saturate-150  transition-all duration-200`}
+    >
       <Container className="py-5 flex items-center justify-between">
         <Link
           href="/"
@@ -28,51 +32,17 @@ export default function Header() {
         </Link>
         <NavigationMenu>
           <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>About</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                  <li className="row-span-3">
-                    <NavigationMenuLink asChild>
-                      <a
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                        href="/"
-                        style={{
-                          backgroundImage: `url("images/IMG_2056.jpeg")`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "bottom",
-                          backgroundRepeat: "no-repeat",
-                        }}
-                      >
-                        {/* <Icons.logo className="h-6 w-6" /> */}
-                        <div className="mb-2 mt-4 text-white text-lg font-medium">
-                          Brian Rabil
-                        </div>
-                        <p className="text-sm leading-tight text-white text-muted-foreground">
-                          UX Engineer
-                        </p>
-                      </a>
-                    </NavigationMenuLink>
-                  </li>
-                  <ListItem href="/docs" title="Biography">
-                    My story and philosophy
-                  </ListItem>
-
-                  <ListItem href="/docs/primitives/typography" title="Resume">
-                    Explore my work experience
-                  </ListItem>
-                  <ListItem
-                    href="/docs/installation"
-                    title="Chat with AI Clone"
-                  >
-                    Get help with your project
-                  </ListItem>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
+            {meta.main.map((item) => (
+              <NavigationMenuItem key={item.name}>
+                <Link href={item.href} legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    {item.name}
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            ))}
           </NavigationMenuList>
         </NavigationMenu>
-        <div></div>
       </Container>
       <Container>
         <Separator />

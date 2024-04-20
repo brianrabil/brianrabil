@@ -1,25 +1,19 @@
 import DotMatrix from "@/components/dot-matrix";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Section } from "@/components/section";
 import { Container } from "@/components/container";
-import * as Icon from "@/components/icon";
-import { CardGrid } from "@/components/card-grid";
+import * as Icon from "@/components/dev-icons";
 import {
   TypographyH1,
   TypographyH2,
+  TypographyD2,
   TypographyLarge,
   TypographyP,
+  TypographyLead,
 } from "@/components/typography";
-import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
+import { BlogSection } from "@/components/blog-section";
+import { RSSButton } from "@/components/rss-button";
 
 export default async function App() {
   return (
@@ -63,55 +57,17 @@ export default async function App() {
       </Section>
 
       <Section>
-        <Container className="flex flex-col gap-6">
-          <TypographyH2>Latest Articles</TypographyH2>
-          <CardGrid>
-            <Card>
-              <CardHeader>
-                <CardTitle>Review: Apple Vision Pro</CardTitle>
-                <CardDescription>
-                  Deploy your new project in one-click.
-                </CardDescription>
-              </CardHeader>
-              <CardContent></CardContent>
-              <CardFooter>
-                <div className="flex flex-row items-center gap-x-1">
-                  <Badge variant="outline">Review</Badge>
-                  <Badge variant="outline">Technology</Badge>
-                </div>
-              </CardFooter>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>My Every Day Carry (EDC)</CardTitle>
-                <CardDescription>
-                  Deploy your new project in one-click.
-                </CardDescription>
-              </CardHeader>
-              <CardContent></CardContent>
-              <CardFooter>
-                <div className="flex flex-row items-center gap-x-1">
-                  <Badge variant="outline">Guide</Badge>
-                  <Badge variant="outline">EDC</Badge>
-                </div>
-              </CardFooter>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>My Battle Station</CardTitle>
-                <CardDescription>
-                  Deploy your new project in one-click.
-                </CardDescription>
-              </CardHeader>
-              <CardContent></CardContent>
-              <CardFooter>
-                <div className="flex flex-row items-center gap-x-1">
-                  <Badge variant="outline">Guide</Badge>
-                  <Badge variant="outline">EDC</Badge>
-                </div>
-              </CardFooter>
-            </Card>
-          </CardGrid>
+        <Container className="flex flex-col">
+          <div className="w-full flex justify-between items-end">
+            <div>
+              <TypographyD2>Latest Articles</TypographyD2>
+              <TypographyLead>
+                Read the latest articles from my blog
+              </TypographyLead>
+            </div>
+            <RSSButton />
+          </div>
+          <BlogSection />
         </Container>
       </Section>
 
@@ -188,16 +144,6 @@ export default async function App() {
       </Section>
 
       <div className={`py-12`}>
-        {/* <Fade> */}
-        <h2 className={`text-3xl font-medium mb-8 flex items-center`}>
-          <span
-            className={`bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-400 block`}
-          >
-            Recent works
-          </span>
-        </h2>
-        {/* </Fade> */}
-
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-6`}>
           {/* <Image
           title="Warrior Academy"

@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Badge } from "@/components/ui/badge";
-import { TypographySmall } from "@/components/typography";
 
 interface IconBaseProps {
   el: React.ReactNode;

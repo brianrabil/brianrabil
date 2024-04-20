@@ -1,7 +1,17 @@
 import * as React from "react";
+import { cn } from "@/lib/utils";
 
 interface TypographyProps {
   children: React.ReactNode;
+  className?: string;
+}
+
+export function TypographyD2({ children }: TypographyProps) {
+  return (
+    <h2 className="text-3xl font-bold mb-2 tracking-tight text-gray-900 sm:text-4xl">
+      {children}
+    </h2>
+  );
 }
 
 export function TypographyH1({ children }: TypographyProps) {
@@ -48,6 +58,10 @@ export function TypographyInlineCode({ children }: TypographyProps) {
   );
 }
 
-export function TypographyLead({ children }: TypographyProps) {
-  return <p className="text-xl text-muted-foreground">{children}</p>;
+export function TypographyLead({ children, className }: TypographyProps) {
+  return (
+    <p className={cn("text-xl leading-8 text-muted-foreground", className)}>
+      {children}
+    </p>
+  );
 }

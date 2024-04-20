@@ -1,26 +1,55 @@
-import * as React from "react"
+import * as React from "react";
+import Link from "next/link";
+import { meta } from "@/lib/meta";
+import { GithubIcon, XIcon } from "@/components/social-icons";
+import { RssIcon } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className={`flex flex-col bg-gradient-to-r bg-white dark:bg-black`}>
-      <div className={`flex flex-col items-center py-16`}>
-        <div
-          className={`text-center text-4xl flex flex-col leading-relaxed mb-8 text-white`}
+    <footer className="bg-white">
+      <div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
+        <nav
+          className="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12"
+          aria-label="Footer"
         >
-          <span
-            className={`font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-400 block`}
+          {meta.main.map((item) => (
+            <div key={item.name} className="pb-6">
+              <a
+                href={item.href}
+                className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+              >
+                {item.name}
+              </a>
+            </div>
+          ))}
+        </nav>
+        <div className="mt-10 flex justify-center space-x-10">
+          <Link
+            href={meta.social.github.href}
+            className="text-gray-400 hover:text-gray-500"
           >
-            Lets make history.
-          </span>
-          <span className={`text-2xl`}>BrianRabil@gmail.com</span>
+            <span className="sr-only">{meta.social.github.name}</span>
+            <GithubIcon className="h-6 w-6" aria-hidden="true" />
+          </Link>
+          <Link
+            href={meta.social.x.href}
+            className="text-gray-400 hover:text-gray-500"
+          >
+            <span className="sr-only">{meta.social.x.name}</span>
+            <XIcon className="h-6 w-6" aria-hidden="true" />
+          </Link>
+          <Link
+            href={meta.social.rss.href}
+            className="text-gray-400 hover:text-gray-500"
+          >
+            <span className="sr-only">{meta.social.rss.name}</span>
+            <RssIcon className="h-6 w-6" aria-hidden="true" />
+          </Link>
         </div>
-        <span className={`text-5xl`}>🚀</span>
-      </div>
-
-      <div className={`text-sm py-4 px-4 sm:px-6 lg:px-8 text-purple-200`}>
-        © {new Date().getFullYear()}{" "}
-        <a href="https://www.brianrabil.com">Brian Rabil</a>
+        <p className="mt-10 text-center text-xs leading-5 text-gray-500">
+          &copy; {new Date().getFullYear()} {meta.title}. All rights reserved.
+        </p>
       </div>
     </footer>
-  )
+  );
 }
