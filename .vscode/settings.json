@@ -1,16 +1,29 @@
 {
-  "editor.tabSize": 2,
-  "editor.indentSize": "tabSize",
-  "editor.detectIndentation": true,
-  "editor.renderWhitespace": "all",
-  "editor.formatOnSave": true,
-  "cSpell.words": [
-    "clsx",
-    "devicons",
-    "lucide",
-    "nextra",
-    "Rabil",
-    "sonarjs",
-    "tailwindcss"
-  ]
+	"editor.tabSize": 2,
+	"editor.indentSize": "tabSize",
+	"editor.detectIndentation": true,
+	"editor.renderWhitespace": "all",
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "biomejs.biome",
+	"editor.codeActionsOnSave": {
+		"quickfix.biome": "explicit"
+	},
+	"cSpell.words": [
+		"biomejs",
+		"bunx",
+		"clsx",
+		"dall",
+		"devcontainer",
+		"devcontainers",
+		"devicons",
+		"lucide",
+		"nextra",
+		"Rabil",
+		"sonarjs",
+		"sonner",
+		"tailwindcss"
+	],
+	"[jsonc]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	}
 }

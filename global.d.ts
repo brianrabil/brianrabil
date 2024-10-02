@@ -1,4 +1,5 @@
 declare module "*.json" {
-  const value: any;
-  export default value;
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	const value: any;
+	export default value;
 }
