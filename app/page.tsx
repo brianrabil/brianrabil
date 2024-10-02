@@ -1,3 +1,5 @@
+"use server";
+
 import { BlogSection } from "@/components/blog-section";
 import { Container } from "@/components/container";
 import * as Icon from "@/components/dev-icons";
@@ -15,6 +17,9 @@ import {
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
+import config from "@/lib/config";
+import { CardGrid } from "@/components/card-grid";
+import { BlogPostCard } from "@/components/blog-post-card";
 
 export default async function App() {
 	return (
@@ -71,7 +76,11 @@ export default async function App() {
 							<ArrowRightIcon className="h-4 w-4" />
 						</Button>
 					</div>
-					<BlogSection />
+					<CardGrid>
+						{config.posts.map((post) => (
+							<BlogPostCard key={post.id} {...post} />
+						))}
+					</CardGrid>
 				</Container>
 			</Section>
 

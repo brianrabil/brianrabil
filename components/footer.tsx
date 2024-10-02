@@ -1,7 +1,6 @@
 import { GithubIcon, XIcon } from "@/components/social-icons";
-import { config } from "@/lib/config";
+import config from "@/lib/config";
 import { RssIcon } from "lucide-react";
-import Link from "next/link";
 import * as React from "react";
 
 export default function Footer() {
@@ -24,27 +23,27 @@ export default function Footer() {
 					))}
 				</nav>
 				<div className="mt-10 flex justify-center space-x-10">
-					<Link
+					<a
 						href={config.social.github.href}
 						className="text-gray-400 hover:text-gray-500"
 					>
 						<span className="sr-only">{config.social.github.name}</span>
 						<GithubIcon className="h-6 w-6" aria-hidden="true" />
-					</Link>
-					<Link
+					</a>
+					<a
 						href={config.social.x.href}
 						className="text-gray-400 hover:text-gray-500"
 					>
 						<span className="sr-only">{config.social.x.name}</span>
 						<XIcon className="h-6 w-6" aria-hidden="true" />
-					</Link>
-					<Link
+					</a>
+					<a
 						href={config.social.rss.href}
 						className="text-gray-400 hover:text-gray-500"
 					>
 						<span className="sr-only">{config.social.rss.name}</span>
 						<RssIcon className="h-6 w-6" aria-hidden="true" />
-					</Link>
+					</a>
 				</div>
 				<p className="mt-10 text-center text-xs leading-5 text-gray-500">
 					&copy; {new Date().getFullYear()} {config.title}. All rights reserved.

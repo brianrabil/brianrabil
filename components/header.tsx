@@ -10,7 +10,7 @@ import {
 	navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Separator } from "@/components/ui/separator";
-import { config } from "@/lib/config";
+import config from "@/lib/config";
 import cn from "clsx";
 import Link from "next/link";
 import React from "react";

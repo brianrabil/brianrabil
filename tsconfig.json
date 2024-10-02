@@ -17,7 +17,8 @@
 		"paths": {
 			"@/app/*": ["app/*"],
 			"@/components/*": ["components/*"],
-			"@/lib/*": ["lib/*"]
+			"@/lib/*": ["lib/*"],
+			"@/markdown/*": ["markdown/*"]
 		},
 		"incremental": true,
 		"plugins": [
