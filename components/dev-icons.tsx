@@ -219,8 +219,8 @@ export function JiraIcon() {
 							y2="14.842"
 							gradientTransform="scale(4)"
 						>
-							<stop offset=".176" stop-color="#0052cc" />
-							<stop offset="1" stop-color="#2684ff" />
+							<stop offset=".176" stopColor="#0052cc" />
+							<stop offset="1" stopColor="#2684ff" />
 						</linearGradient>
 						<linearGradient
 							id="jira-original-b"
@@ -231,8 +231,8 @@ export function JiraIcon() {
 							y2="21.094"
 							gradientTransform="scale(4)"
 						>
-							<stop offset=".176" stop-color="#0052cc" />
-							<stop offset="1" stop-color="#2684ff" />
+							<stop offset=".176" stopColor="#0052cc" />
+							<stop offset="1" stopColor="#2684ff" />
 						</linearGradient>
 					</defs>
 					<path
@@ -269,9 +269,9 @@ export function CypressIcon() {
 							gradientTransform="translate(-.876 -.754) scale(.13472)"
 							gradientUnits="userSpaceOnUse"
 						>
-							<stop offset="0" stop-color="#69d3a7" />
-							<stop offset=".823" stop-color="#2ab586" />
-							<stop offset="1" stop-color="#1cae7f" />
+							<stop offset="0" stopColor="#69d3a7" />
+							<stop offset=".823" stopColor="#2ab586" />
+							<stop offset="1" stopColor="#1cae7f" />
 						</linearGradient>
 						<linearGradient
 							id="a"
@@ -282,8 +282,8 @@ export function CypressIcon() {
 							gradientTransform="translate(-.876 -.754) scale(.13472)"
 							gradientUnits="userSpaceOnUse"
 						>
-							<stop offset=".081" stop-color="#69d3a7" />
-							<stop offset="1" stop-color="#69d3a7" stop-opacity="0" />
+							<stop offset=".081" stopColor="#69d3a7" />
+							<stop offset="1" stopColor="#69d3a7" stopOpacity="0" />
 						</linearGradient>
 						<linearGradient
 							id="c"
@@ -294,11 +294,11 @@ export function CypressIcon() {
 							gradientTransform="translate(-.876 -.754) scale(.13472)"
 							gradientUnits="userSpaceOnUse"
 						>
-							<stop offset=".077" stop-color="#1cae7f" />
-							<stop offset=".164" stop-color="#1ca379" />
-							<stop offset=".316" stop-color="#1c8568" />
-							<stop offset=".516" stop-color="#1b554d" />
-							<stop offset=".719" stop-color="#1b1e2e" />
+							<stop offset=".077" stopColor="#1cae7f" />
+							<stop offset=".164" stopColor="#1ca379" />
+							<stop offset=".316" stopColor="#1c8568" />
+							<stop offset=".516" stopColor="#1b554d" />
+							<stop offset=".719" stopColor="#1b1e2e" />
 						</linearGradient>
 					</defs>
 					<path
@@ -339,10 +339,10 @@ export function ChromeIcon() {
 				<>
 					<circle fill="#fff" cx="64.149" cy="64.236" r="60.999" />
 					<path
-						fill-opacity=".1"
+						fillOpacity=".1"
 						d="M102.966 75.327c0-21.439-17.379-38.819-38.817-38.819s-38.818 17.38-38.818 38.819h11.09c0-15.314 12.415-27.727 27.727-27.727 15.313 0 27.727 12.413 27.727 27.727"
 					/>
-					<circle fill-opacity=".1" cx="66.922" cy="71.999" r="21.072" />
+					<circle fillOpacity=".1" cx="66.922" cy="71.999" r="21.072" />
 					<linearGradient
 						id="chrome-original-a"
 						gradientUnits="userSpaceOnUse"
@@ -352,8 +352,8 @@ export function ChromeIcon() {
 						y2="484.723"
 						gradientTransform="matrix(82 0 0 82 -32341.5 -39660.313)"
 					>
-						<stop offset="0" stop-color="#81B4E0" />
-						<stop offset="1" stop-color="#0C5A94" />
+						<stop offset="0" stopColor="#81B4E0" />
+						<stop offset="1" stopColor="#0C5A94" />
 					</linearGradient>
 					<circle
 						fill="url(#chrome-original-a)"
@@ -370,8 +370,8 @@ export function ChromeIcon() {
 						y2="-547.185"
 						gradientTransform="translate(675 599.775)"
 					>
-						<stop offset="0" stop-color="#F06B59" />
-						<stop offset="1" stop-color="#DF2227" />
+						<stop offset="0" stopColor="#F06B59" />
+						<stop offset="1" stopColor="#DF2227" />
 					</linearGradient>
 					<path
 						fill="url(#chrome-original-b)"
@@ -386,8 +386,8 @@ export function ChromeIcon() {
 						y2="-533.537"
 						gradientTransform="translate(675 599.775)"
 					>
-						<stop offset="0" stop-color="#388B41" />
-						<stop offset="1" stop-color="#4CB749" />
+						<stop offset="0" stopColor="#388B41" />
+						<stop offset="1" stopColor="#4CB749" />
 					</linearGradient>
 					<path
 						fill="url(#chrome-original-c)"
@@ -402,8 +402,8 @@ export function ChromeIcon() {
 						y2="-552.345"
 						gradientTransform="translate(675 599.775)"
 					>
-						<stop offset="0" stop-color="#E4B022" />
-						<stop offset=".3" stop-color="#FCD209" />
+						<stop offset="0" stopColor="#E4B022" />
+						<stop offset=".3" stopColor="#FCD209" />
 					</linearGradient>
 					<path
 						fill="url(#chrome-original-d)"
@@ -418,9 +418,9 @@ export function ChromeIcon() {
 						y2="-573.247"
 						gradientTransform="translate(675 599.775)"
 					>
-						<stop offset="0" stop-opacity=".15" />
-						<stop offset=".3" stop-opacity=".06" />
-						<stop offset="1" stop-opacity=".03" />
+						<stop offset="0" stopOpacity=".15" />
+						<stop offset=".3" stopOpacity=".06" />
+						<stop offset="1" stopOpacity=".03" />
 					</linearGradient>
 					<path
 						fill="url(#chrome-original-e)"
@@ -435,9 +435,9 @@ export function ChromeIcon() {
 						y2="-483.505"
 						gradientTransform="translate(675 599.775)"
 					>
-						<stop offset="0" stop-opacity=".15" />
-						<stop offset=".3" stop-opacity=".06" />
-						<stop offset="1" stop-opacity=".03" />
+						<stop offset="0" stopOpacity=".15" />
+						<stop offset=".3" stopOpacity=".06" />
+						<stop offset="1" stopOpacity=".03" />
 					</linearGradient>
 					<path
 						fill="url(#chrome-original-f)"
@@ -452,9 +452,9 @@ export function ChromeIcon() {
 						y2="-549.431"
 						gradientTransform="translate(675 599.775)"
 					>
-						<stop offset="0" stop-opacity=".15" />
-						<stop offset=".3" stop-opacity=".06" />
-						<stop offset="1" stop-opacity=".03" />
+						<stop offset="0" stopOpacity=".15" />
+						<stop offset=".3" stopOpacity=".06" />
+						<stop offset="1" stopOpacity=".03" />
 					</linearGradient>
 					<path
 						fill="url(#chrome-original-g)"
@@ -772,13 +772,13 @@ export function FedoraIcon() {
 					<path
 						d="M36.973 68.12H59.91V91.06c0 12.66-10.273 22.937-22.937 22.937-12.66 0-22.934-10.277-22.934-22.937 0-12.66 10.274-22.938 22.934-22.938zm0 0"
 						fill="none"
-						stroke-width="14.003274"
+						strokeWidth="14.003274"
 						stroke="#3c6eb4"
 					/>
 					<path
 						d="M82.738 68.164H59.801V45.231c0-12.66 10.277-22.938 22.937-22.938 12.66 0 22.938 10.274 22.938 22.938 0 12.66-10.278 22.933-22.938 22.933zm0 0"
 						fill="none"
-						stroke-width="14.003274"
+						strokeWidth="14.003274"
 						stroke="#3c6eb4"
 					/>
 					<path
@@ -855,190 +855,190 @@ export function GoIcon() {
 						<use xlinkHref="#go-original-a" overflow="visible" />
 					</clipPath>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#F6D2A2"
 						d="M21.1 68.7c.2 3.5 3.7 1.9 5.3.8 1.5-1.1 2-.2 2.1-2.3.1-1.4.2-2.7.2-4.1-2.3-.2-4.8.3-6.7 1.7-.9.7-2.8 3-.9 3.9"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
 						d="M23 71.2c-.7 0-2-.3-2.2-2.3-.6-.4-.8-.9-.8-1.2-.1-1.2 1.2-2.6 1.9-3.1 1.6-1.2 3.7-1.8 5.9-1.8h1.3v.3c.1 1.1 0 2.2-.1 3.2 0 .3 0 .6-.1.9-.1 1.5-.4 1.7-1.1 2-.3.1-.6.2-1.1.6-.5.3-2.2 1.4-3.7 1.4zm4.8-7.8c-2.1 0-4 .6-5.5 1.7-.7.5-1.7 1.7-1.6 2.5 0 .3.2.6.6.8l.2.1v.2c.1 1.6.9 1.8 1.5 1.8 1 0 2.4-.7 3.3-1.3.6-.4 1-.5 1.3-.6.5-.2.6-.2.7-1.4 0-.3 0-.6.1-.9.1-.9.1-1.9.1-2.8-.3-.1-.5-.1-.7-.1z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#C6B198"
 						d="M21.1 68.7c.5-.2 1.1-.3 1.4-.8"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
 						d="M21.1 69c-.1 0-.3-.1-.3-.2-.1-.2 0-.4.2-.4.1 0 .2-.1.2-.1.4-.2.8-.3 1-.6.1-.1.3-.2.5-.1.1.1.2.3.1.5-.4.5-.9.7-1.3.8l-.2.1h-.2z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#6AD7E5"
 						d="M29.3 26.4c-13.6-3.8-3.5-21.1 7.4-14l-7.4 14z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
 						d="M29.5 26.8l-.3-.1c-7-2-6.9-7-6.7-8.5.5-3.8 4.1-7.8 8.9-7.8 1.9 0 3.7.6 5.5 1.8l.3.2-7.7 14.4zm1.9-15.7c-4.5 0-7.8 3.7-8.3 7.2-.5 3.6 1.7 6.4 6 7.7l7.1-13.5c-1.5-.9-3.1-1.4-4.8-1.4z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#6AD7E5"
 						d="M89.6 11.1c10.7-7.5 20.5 9.5 8 13.8l-8-13.8z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
 						d="M97.5 25.3L89.2 11l.3-.2c1.9-1.3 3.8-2 5.7-2 4.6 0 7.9 3.8 8.6 7.5.3 1.5.6 6.6-6 8.8l-.3.2zm-7.4-14l7.7 13.3c3.9-1.4 5.9-4.4 5.3-8-.6-3.4-3.7-6.9-7.9-6.9-1.7-.1-3.4.4-5.1 1.6z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#F6D2A2"
 						d="M92 112.3c2.7 1.7 7.7 6.8 3.6 9.3-3.9 3.6-6.1-4-9.6-5 1.5-2 3.4-3.9 6-4.3"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
 						d="M93.5 122.9c-1.6 0-3-1.6-4.2-3.1-1.1-1.2-2.2-2.5-3.4-2.9l-.5-.1.3-.4c1.2-1.7 3.2-3.9 6.2-4.4h.1l.1.1c1.7 1.1 5.4 4.2 5.3 7.1 0 1.1-.6 2-1.7 2.7-.7.7-1.4 1-2.2 1zm-7-6.5c1.2.5 2.2 1.8 3.2 2.9 1.2 1.5 2.4 2.8 3.7 2.8.6 0 1.2-.3 1.8-.9h.1c.9-.6 1.4-1.3 1.4-2.2 0-2.3-2.9-5.2-4.9-6.5-1.8.5-3.6 1.7-5.3 3.9zm9.1 5.5c-.1 0-.2-.1-.3-.2-.2-.4-.4-.9-.5-1.3-.3-.8-.6-1.6-1.2-2.2-.1-.1-.1-.3 0-.5.1-.1.3-.1.5 0 .7.7 1.1 1.6 1.4 2.5l.5 1.2c.1.2 0 .4-.1.5h-.3z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#F6D2A2"
 						d="M43.2 118.1c-3.2.5-5 3.4-7.7 4.9-2.5 1.5-3.5-.5-3.7-.9-.4-.2-.4.2-1-.4-2.3-3.7 2.4-6.4 4.9-8.2 3.5-.8 5.7 2.2 7.5 4.6"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
 						d="M33.8 123.8c-1.3 0-2-1.1-2.2-1.5h-.1c-.3 0-.5-.1-.9-.5v-.1c-2.2-3.5 1.6-6.2 4.1-8l.9-.6h.2c.4-.1.7-.1 1.1-.1 3 0 4.9 2.6 6.5 4.7l.5.7-.6.1c-1.9.3-3.3 1.5-4.7 2.7-.9.8-1.8 1.5-2.8 2.1-.8.3-1.4.5-2 .5zm-2.2-2.1c.1 0 .2 0 .4.1h.1l.1.1c.2.3.7 1.2 1.7 1.2.5 0 1-.2 1.5-.5 1-.5 1.9-1.3 2.7-2 1.3-1.1 2.7-2.3 4.5-2.8-1.5-2-3.3-4.2-5.8-4.2-.3 0-.6 0-.9.1l-.8.6c-2.6 1.8-5.8 4.1-3.9 7.1.1.2.2.3.4.3zm.2.7c-.2 0-.4-.2-.3-.4.1-1 .6-1.7 1.1-2.5.3-.4.5-.8.7-1.2.1-.2.3-.2.4-.2.2.1.2.3.2.4-.2.5-.5.9-.8 1.3-.5.7-.9 1.3-1 2.1 0 .4-.1.5-.3.5z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						d="M29.9 21.7c-1.8-.9-3.1-2.2-2-4.3 1-1.9 2.9-1.7 4.7-.8l-2.7 5.1zm64.9-1.8c1.8-.9 3.1-2.2 2-4.3-1-1.9-2.9-1.7-4.7-.8l2.7 5.1z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#F6D2A2"
 						d="M107.1 68.2c-.2 3.5-3.7 1.9-5.3.8-1.5-1.1-2-.2-2.1-2.3-.1-1.4-.2-2.7-.2-4.1 2.3-.2 4.8.3 6.7 1.7 1 .8 2.8 3 .9 3.9"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
 						d="M105.3 70.7c-1.5 0-3.2-1.1-3.7-1.4-.5-.3-.8-.5-1.1-.6-.8-.3-1-.5-1.1-2 0-.3 0-.6-.1-.9-.1-1-.2-2.1-.1-3.2v-.3h1.3c2.2 0 4.3.6 5.9 1.8.7.5 2 1.9 1.9 3.1 0 .4-.2.9-.8 1.2-.2 2-1.5 2.3-2.2 2.3zM99.8 63c0 .9 0 1.9.1 2.8 0 .3 0 .6.1.9.1 1.2.2 1.2.7 1.4.3.1.7.3 1.3.6.9.6 2.3 1.3 3.3 1.3.6 0 1.4-.2 1.5-1.8V68l.2-.1c.4-.2.6-.4.6-.8.1-.8-.9-2-1.6-2.5-1.5-1.1-3.5-1.7-5.5-1.7-.2.1-.4.1-.7.1z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#C6B198"
 						d="M107.1 68.2c-.5-.2-1.1-.3-1.4-.8"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
 						d="M107.1 68.6h-.1l-.2-.1c-.5-.2-1-.3-1.3-.8-.1-.1-.1-.4.1-.5.1-.1.4-.1.5.1.2.3.6.4 1 .6.1 0 .2.1.2.1.2.1.3.3.2.4-.1.1-.3.2-.4.2z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#6AD7E5"
 						d="M62.8 4c13.6 0 26.3 1.9 33 15 6 14.6 3.8 30.4 4.8 45.9.8 13.3 2.5 28.6-3.6 40.9-6.5 12.9-22.7 16.2-36 15.7-10.5-.4-23.1-3.8-29.1-13.4-6.9-11.2-3.7-27.9-3.2-40.4.6-14.8-4-29.7.9-44.1C34.5 8.5 48.1 5.1 62.8 4"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
 						d="M63.3 121.9h-2.5c-4.1-.1-10.3-.8-16.4-3.3-5.9-2.4-10.2-5.8-13-10.3-5.6-9.1-4.6-21.6-3.7-32.7.2-2.8.4-5.4.5-7.9.2-5.2-.2-10.6-.7-15.7-.8-9.4-1.6-19.1 1.5-28.5 2.4-7 6.7-12 13.2-15.2 5.1-2.5 11.4-3.9 20.4-4.6C76 3.6 89.3 5.5 96 18.8c4.4 10.7 4.4 22.2 4.5 33.3 0 4.2 0 8.5.3 12.7.1 1.3.2 2.6.2 3.9.8 12.2 1.7 26-3.9 37.2-2.8 5.7-7.7 9.9-14.4 12.6-5.4 2.2-12.2 3.4-19.4 3.4zM62.8 4.3c-14.1 1.1-27.9 4.2-33 19.4-3.1 9.3-2.3 18.9-1.5 28.2.4 5.2.9 10.5.7 15.8-.1 2.5-.3 5.1-.5 7.9-.9 11-1.9 23.4 3.6 32.3 2.3 3.7 9.7 12.5 28.8 13.2h2.5c22.1 0 30.3-9.8 33.3-15.6 5.5-11 4.6-24.8 3.9-36.9-.1-1.3-.2-2.6-.2-3.9-.2-4.2-.3-8.5-.3-12.7-.1-11-.1-22.5-4.4-33.1C92.7 13 88.2 9 82 6.7c-6.4-2.1-13.6-2.4-19.2-2.4z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#fff"
 						d="M65.2 22.2c2.4 14.2 25.6 10.4 22.3-3.9-3-12.8-23.1-9.2-22.3 3.9"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
 						d="M76.2 31.5c-4.5 0-10.2-2.4-11.4-9.2-.2-3.2.8-6.1 2.9-8.3 2.3-2.5 5.8-3.9 9.4-3.9 4.2 0 9.2 2.2 10.6 8.3.8 3.4.2 6.4-1.7 8.8-2.1 2.6-5.8 4.3-9.8 4.3zm-10.7-9.3c.5 2.8 1.8 5 3.9 6.6 1.8 1.4 4.3 2.1 6.8 2.1 3.7 0 7.3-1.6 9.3-4.1 1.8-2.2 2.3-5.1 1.6-8.3-1.3-5.7-6-7.7-10-7.7-3.4 0-6.7 1.4-8.9 3.7-1.9 2-2.9 4.7-2.7 7.7z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#fff"
 						d="M37.5 24.5c3.2 12.3 22.9 9.2 22.2-3.2-.9-14.8-25.3-12-22.2 3.2"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
 						d="M48 32.7c-4.3 0-9.3-2.1-10.9-8.1-.7-3.5 0-6.7 2-9.1 2.2-2.7 5.8-4.3 9.7-4.3 5.2 0 10.7 3.1 11.1 10.1.2 2.9-.7 5.5-2.7 7.6-2.1 2.3-5.6 3.8-9.2 3.8zm.8-20.8c-3.7 0-7.1 1.5-9.2 4-1.9 2.3-2.5 5.2-1.8 8.5C39.2 30 44 32 48 32c3.4 0 6.7-1.3 8.8-3.6 1.8-1.9 2.7-4.4 2.5-7.1-.2-4.3-3.1-9.4-10.5-9.4z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#fff"
 						d="M68 39.2c0 1.8.4 3.9.1 5.9-.5.9-1.4 1-2.2 1.3-1.1-.2-2-.9-2.5-1.9-.3-2.2.1-4.4.2-6.6l4.4 1.3z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
 						d="M65.9 46.8c-1.3-.2-2.3-1-2.8-2.1-.2-1.6-.1-3.1 0-4.6.1-.7.1-1.4.1-2.1v-.4l5.1 1.6v.2c0 .6.1 1.2.1 1.9.1 1.3.2 2.7 0 4v.1c-.4.8-1.1 1-1.8 1.3-.2-.1-.4 0-.7.1zm-2.2-2.4c.4.9 1.2 1.5 2.1 1.7.2-.1.4-.1.5-.2.6-.2 1.1-.4 1.4-.9.2-1.2.1-2.5 0-3.8 0-.6-.1-1.2-.1-1.7l-3.8-1.2c0 .6-.1 1.2-.1 1.7-.1 1.6-.2 3 0 4.4z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						d="M46.3 22.5c0 2-1.5 3.6-3.3 3.6-1.8 0-3.3-1.6-3.3-3.6s1.5-3.6 3.3-3.6c1.8 0 3.3 1.6 3.3 3.6"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#fff"
 						d="M45.2 23.3c0 .5-.4.9-.8.9s-.8-.4-.8-.9.4-.9.8-.9c.5 0 .8.4.8.9"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						d="M74.2 21.6c0 2-1.5 3.6-3.3 3.6-1.8 0-3.3-1.6-3.3-3.6s1.5-3.6 3.3-3.6c1.8 0 3.3 1.6 3.3 3.6"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#fff"
 						d="M73.2 22.4c0 .5-.3.9-.8.9-.4 0-.8-.4-.8-.9s.3-.9.8-.9c.4 0 .8.4.8.9M58.4 39c-1.5 3.5.8 10.6 4.8 5.4-.3-2.2.1-4.4.2-6.6l-5 1.2z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
 						d="M60.5 46.6c-.7 0-1.4-.4-1.9-1.2-1.1-1.6-1.3-4.6-.5-6.5l.1-.2 5.5-1.4v.4l-.1 2.2c-.1 1.5-.2 2.9 0 4.4v.1l-.1.1c-1 1.4-2 2.1-3 2.1zm-1.8-7.3c-.6 1.7-.4 4.4.5 5.7.4.6.8.9 1.3.9.7 0 1.5-.6 2.3-1.6-.2-1.5-.1-3 .1-4.4l.1-1.7-4.3 1.1z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#F6D2A2"
 						d="M58.9 32.2c-2.7.2-4.9 3.5-3.5 6 1.9 3.4 6-.3 8.6 0 3 .1 5.4 3.2 7.8.6 2.7-2.9-1.2-5.7-4.1-7l-8.8.4z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
 						fill="#231F20"
 						d="M69.7 40.2c-.9 0-1.8-.4-2.7-.8-.9-.4-1.9-.8-3-.8h-.3c-.8 0-1.7.3-2.7.7-1.1.4-2.2.7-3.2.7-1.2 0-2.1-.5-2.7-1.6-.7-1.2-.6-2.6.1-3.9.8-1.5 2.2-2.4 3.7-2.6l8.9-.4h.1c2.2.9 4.7 2.6 5.2 4.6.2 1-.1 2-.9 2.9-.8.9-1.6 1.2-2.5 1.2zM64.1 38c1.1 0 2.2.5 3.2.9.9.4 1.7.7 2.5.7.7 0 1.3-.3 1.9-.9.7-.7.9-1.5.8-2.3-.4-1.7-2.8-3.3-4.7-4.1l-8.7.4c-1.3.1-2.5 1-3.2 2.2-.6 1.1-.6 2.3-.1 3.3.5.9 1.1 1.3 2.1 1.3.9 0 1.9-.4 2.9-.7 1.1-.4 2-.7 3-.7 0-.2.1-.2.3-.1z"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						d="M58.6 32.1c-.2-4.7 8.8-5.3 9.8-1.4 1.1 4-9.4 4.9-9.8 1.4"
-						clip-path="url(#go-original-b)"
+						clipPath="url(#go-original-b)"
 					/>
 				</>
 			}
@@ -1075,8 +1075,8 @@ export function DockerIcon() {
 			el={
 				<>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#3A4D54"
 						d="M73.8 50.8h11.3v11.5h5.7c2.6 0 5.3-.5 7.8-1.3 1.2-.4 2.6-1 3.8-1.7-1.6-2.1-2.4-4.7-2.6-7.3-.3-3.5.4-8.1 2.8-10.8l1.2-1.4 1.4 1.1c3.6 2.9 6.5 6.8 7.1 11.4 4.3-1.3 9.3-1 13.1 1.2l1.5.9-.8 1.6c-3.2 6.2-9.9 8.2-16.4 7.8-9.8 24.3-31 35.8-56.8 35.8-13.3 0-25.5-5-32.5-16.8l-.1-.2-1-2.1c-2.4-5.2-3.1-10.9-2.6-16.6l.2-1.7h9.6V50.8h11.3V39.6h22.5V28.3h13.5v22.5z"
 					/>
@@ -1097,56 +1097,56 @@ export function DockerIcon() {
 						d="M23.5 71.8c1.3 5.8 4.3 10.4 8.8 13.5 4.9-.1 8.9-.7 12-1.7.5-.2.9.1 1.1.5.2.5-.1.9-.5 1.1-.4.1-.8.3-1.3.4-2.4.7-5.2 1.2-8.6 1.4 8.5 4.4 20.8 4.3 34.9-1.1 8.5-3.3 16.8-8.2 24.2-14.1H23.5z"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#00ACD3"
 						d="M28.4 52.7h9.8v9.8h-9.8v-9.8zm.8.8h.8v8.1h-.8v-8.1zm1.4 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm3-12h9.8v9.8h-9.8v-9.8zm.9.8h.8v8.1h-.8v-8.1zm1.4 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.4 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1z"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#23C2EE"
 						d="M39.6 52.7h9.8v9.8h-9.8v-9.8zm.9.8h.8v8.1h-.8v-8.1zm1.4 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.4 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1z"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#00ACD3"
 						d="M50.9 52.7h9.8v9.8h-9.8v-9.8zm.8.8h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.4 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1z"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#23C2EE"
 						d="M50.9 41.5h9.8v9.8h-9.8v-9.8zm.8.8h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.4 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm3.1 10.4H72v9.8h-9.8v-9.8zm.8.8h.8v8.1H63v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.4 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1z"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#00ACD3"
 						d="M62.2 41.5H72v9.8h-9.8v-9.8zm.8.8h.8v8.1H63v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.4 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1z"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#23C2EE"
 						d="M62.2 30.2H72V40h-9.8v-9.8zm.8.8h.8v8.1H63V31zm1.5 0h.8v8.1h-.8V31zm1.4 0h.8v8.1h-.8V31zm1.5 0h.8v8.1h-.8V31zm1.5 0h.8v8.1h-.8V31zm1.5 0h.8v8.1h-.8V31z"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#00ACD3"
 						d="M73.5 52.7h9.8v9.8h-9.8v-9.8zm.8.8h.8v8.1h-.8v-8.1zm1.4 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1zm1.5 0h.8v8.1h-.8v-8.1z"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#D4EEF1"
 						d="M48.8 78.3c1.5 0 2.7 1.2 2.7 2.7 0 1.5-1.2 2.7-2.7 2.7-1.5 0-2.7-1.2-2.7-2.7 0-1.5 1.2-2.7 2.7-2.7"
 					/>
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						fill="#3A4D54"
 						d="M48.8 79.1c.2 0 .5 0 .7.1-.2.1-.4.4-.4.7 0 .4.4.8.8.8.3 0 .6-.2.7-.4.1.2.1.5.1.7 0 1.1-.9 1.9-1.9 1.9-1.1 0-1.9-.9-1.9-1.9 0-1 .8-1.9 1.9-1.9M1.1 72.8h125.4c-2.7-.7-8.6-1.6-7.7-5.2-5 5.7-16.9 4-20 1.2-3.4 4.9-23 3-24.3-.8-4.2 5-17.3 5-21.5 0-1.4 3.8-21 5.7-24.3.8-3 2.8-15 4.5-20-1.2 1.1 3.5-4.9 4.5-7.6 5.2"
 					/>
@@ -1199,8 +1199,8 @@ export function GithubIcon() {
 			el={
 				<g fill="#181616">
 					<path
-						fill-rule="evenodd"
-						clip-rule="evenodd"
+						fillRule="evenodd"
+						clipRule="evenodd"
 						d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"
 					/>
 					<path d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm2.446 2.729c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zM31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm3.261 3.361c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm4.5 1.951c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm4.943.361c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm4.598-.782c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0" />
@@ -1258,11 +1258,11 @@ export function NodeIcon() {
 							gradientTransform="translate(-129.242 -73.715) scale(6.18523)"
 							gradientUnits="userSpaceOnUse"
 						>
-							<stop stop-color="#3F873F" />
-							<stop offset=".33" stop-color="#3F8B3D" />
-							<stop offset=".637" stop-color="#3E9638" />
-							<stop offset=".934" stop-color="#3DA92E" />
-							<stop offset="1" stop-color="#3DAE2B" />
+							<stop stopColor="#3F873F" />
+							<stop offset=".33" stopColor="#3F8B3D" />
+							<stop offset=".637" stopColor="#3E9638" />
+							<stop offset=".934" stopColor="#3DA92E" />
+							<stop offset="1" stopColor="#3DAE2B" />
 						</linearGradient>
 						<linearGradient
 							id="b"
@@ -1273,10 +1273,10 @@ export function NodeIcon() {
 							gradientTransform="translate(-129.242 -73.715) scale(6.18523)"
 							gradientUnits="userSpaceOnUse"
 						>
-							<stop offset=".138" stop-color="#3F873F" />
-							<stop offset=".402" stop-color="#52A044" />
-							<stop offset=".713" stop-color="#64B749" />
-							<stop offset=".908" stop-color="#6ABF4B" />
+							<stop offset=".138" stopColor="#3F873F" />
+							<stop offset=".402" stopColor="#52A044" />
+							<stop offset=".713" stopColor="#64B749" />
+							<stop offset=".908" stopColor="#6ABF4B" />
 						</linearGradient>
 						<linearGradient
 							id="c"
@@ -1287,10 +1287,10 @@ export function NodeIcon() {
 							gradientTransform="translate(-129.242 -73.715) scale(6.18523)"
 							gradientUnits="userSpaceOnUse"
 						>
-							<stop offset=".092" stop-color="#6ABF4B" />
-							<stop offset=".287" stop-color="#64B749" />
-							<stop offset=".598" stop-color="#52A044" />
-							<stop offset=".862" stop-color="#3F873F" />
+							<stop offset=".092" stopColor="#6ABF4B" />
+							<stop offset=".287" stopColor="#64B749" />
+							<stop offset=".598" stopColor="#52A044" />
+							<stop offset=".862" stopColor="#3F873F" />
 						</linearGradient>
 					</defs>
 				</>
@@ -1314,8 +1314,8 @@ export function PythonIcon() {
 						y2="1151.089"
 						gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"
 					>
-						<stop offset="0" stop-color="#5A9FD4" />
-						<stop offset="1" stop-color="#306998" />
+						<stop offset="0" stopColor="#5A9FD4" />
+						<stop offset="1" stopColor="#306998" />
 					</linearGradient>
 					<linearGradient
 						id="python-original-b"
@@ -1326,8 +1326,8 @@ export function PythonIcon() {
 						y2="1149.537"
 						gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"
 					>
-						<stop offset="0" stop-color="#FFD43B" />
-						<stop offset="1" stop-color="#FFE873" />
+						<stop offset="0" stopColor="#FFD43B" />
+						<stop offset="1" stopColor="#FFE873" />
 					</linearGradient>
 					<path
 						fill="url(#python-original-a)"
@@ -1347,8 +1347,8 @@ export function PythonIcon() {
 						gradientTransform="matrix(0 -.24 -1.055 0 532.979 557.576)"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop offset="0" stop-color="#B8B8B8" stop-opacity=".498" />
-						<stop offset="1" stop-color="#7F7F7F" stop-opacity="0" />
+						<stop offset="0" stopColor="#B8B8B8" stopOpacity=".498" />
+						<stop offset="1" stopColor="#7F7F7F" stopOpacity="0" />
 					</radialGradient>
 					<path
 						opacity=".444"

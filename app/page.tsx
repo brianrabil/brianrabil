@@ -1,10 +1,10 @@
-"use server";
-
 import { BlogSection } from "@/components/blog-section";
 import { Container } from "@/components/container";
 import * as Icon from "@/components/dev-icons";
 import DotMatrix from "@/components/dot-matrix";
 import { Section } from "@/components/section";
+import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
 	TypographyD2,
 	TypographyH1,
@@ -20,28 +20,49 @@ import { ArrowRightIcon } from "lucide-react";
 import config from "@/lib/config";
 import { CardGrid } from "@/components/card-grid";
 import { BlogPostCard } from "@/components/blog-post-card";
+import type { Viewport } from "next";
+
+export const viewport: Viewport = {
+	themeColor: "black",
+};
 
 export default async function App() {
 	return (
 		<>
 			<Section>
 				<Container>
-					<div className="grid grid-cols-2 gap-x-16">
-						<div className="flex flex-col gap-4 justify-center items-start">
-							<TypographyH1>Hi, I&apos;m Brian Rabil</TypographyH1>
-							<TypographyP>
-								I&apos;m a full-stack developer with a passion for building
-								performant and scalable web applications. My core expertise lies
-								in Rust, TypeScript, and the React framework Next.js. This
-								powerful combination allows me to craft robust solutions that
-								deliver exceptional user experiences.
-							</TypographyP>
-						</div>
+					<Suspense
+						fallback={
+							<div className="grid grid-cols-2 gap-x-16">
+								<div className="flex flex-col gap-4 justify-center items-start">
+									<Skeleton className="h-12 w-3/4" />
+									<Skeleton className="h-4 w-full" />
+									<Skeleton className="h-4 w-5/6" />
+									<Skeleton className="h-4 w-4/6" />
+								</div>
+								<div>
+									<Skeleton className="h-64 w-full" />
+								</div>
+							</div>
+						}
+					>
+						<div className="grid grid-cols-2 gap-x-16">
+							<div className="flex flex-col gap-4 justify-center items-start">
+								<TypographyH1>Hi, I&apos;m Brian Rabil</TypographyH1>
+								<TypographyP>
+									I&apos;m a full-stack developer with a passion for building
+									performant and scalable web applications. My core expertise
+									lies in Rust, TypeScript, and the React framework Next.js.
+									This powerful combination allows me to craft robust solutions
+									that deliver exceptional user experiences.
+								</TypographyP>
+							</div>
 
-						<div>
-							<DotMatrix />
+							<div>
+								<DotMatrix />
+							</div>
 						</div>
-					</div>
+					</Suspense>
 				</Container>
 			</Section>
 
@@ -260,6 +281,7 @@ export default async function App() {
         /> */}
 				</div>
 			</div>
+			{/* <ProgrammingSkills /> */}
 		</>
 	);
 }

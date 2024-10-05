@@ -16,17 +16,22 @@
 		"devcontainer",
 		"devcontainers",
 		"devicons",
+		"libsql",
 		"lucide",
 		"nextra",
 		"Rabil",
 		"sonarjs",
 		"sonner",
-		"tailwindcss"
+		"tailwindcss",
+		"webpush"
 	],
 	"[jsonc]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"[javascript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[json]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	}
 }
