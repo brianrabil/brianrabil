@@ -1,0 +1,57 @@
+{
+	"title": "Brian Rabil",
+	"description": "Personal Website",
+	"header": {
+		"links": [
+			{
+				"label": "Home",
+				"href": "/"
+			},
+			{
+				"label": "About",
+				"href": "/about"
+			},
+			{
+				"label": "Works",
+				"href": "/works"
+			},
+			{
+				"label": "Blog",
+				"href": "/blog"
+			},
+			{
+				"label": "Contact",
+				"href": "/contact"
+			}
+		]
+	},
+	"footer": {
+		"copyright": "Brian Rabil",
+		"links": [
+			{
+				"label": "Home",
+				"href": "/"
+			},
+			{
+				"label": "About",
+				"href": "/about"
+			},
+			{
+				"label": "Works",
+				"href": "/works"
+			},
+			{
+				"label": "Blog",
+				"href": "/blog"
+			},
+			{
+				"label": "Contact",
+				"href": "/contact"
+			},
+			{
+				"label": "Admin",
+				"href": "/admin"
+			}
+		]
+	}
+}

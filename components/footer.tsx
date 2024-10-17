@@ -3,7 +3,7 @@ import config from "@/lib/config";
 import { RssIcon } from "lucide-react";
 import * as React from "react";
 
-export default function Footer() {
+export function Footer() {
 	return (
 		<footer className="bg-white">
 			<div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">

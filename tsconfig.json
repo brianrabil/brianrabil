@@ -26,7 +26,8 @@
 			{
 				"name": "next"
 			}
-		]
+		],
+		"tsBuildInfoFile": "node_modules/.cache/tsbuild"
 	},
 	"exclude": ["node_modules"],
 	"include": [

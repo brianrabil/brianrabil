@@ -1,0 +1,34 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"tasks": {
+		"build": {
+			"dependsOn": ["^build", "db:seed"],
+			"outputs": [".next/**", "!.next/cache/**"]
+		},
+		"check-types": {
+			"dependsOn": ["^check-types"],
+			"inputs": ["**/*.{ts,tsx}", "tsconfig.json"]
+		},
+		"dev": {
+			"persistent": true,
+			"cache": false
+		},
+		"db:seed": {
+			"dependsOn": ["db:push"],
+			"inputs": ["db/**/*.ts"]
+		},
+		"db:push": {
+			"dependsOn": ["db:generate"],
+			"inputs": ["db/drizzle/**/*.{json,sql}"],
+			"outputs": ["db/sqlite.db"]
+		},
+		"db:generate": {
+			"inputs": ["db/**/*.ts"],
+			"outputs": ["db/drizzle/**/*.{json,sql}"]
+		},
+		"lint": {},
+		"lint:fix": {
+			"cache": false
+		}
+	}
+}

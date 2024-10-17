@@ -4,8 +4,8 @@ export default defineConfig({
 	schema: "./db/schema.ts",
 	dialect: "sqlite",
 	dbCredentials: {
-		url: "./sqlite.db",
+		url: "./db/sqlite.db",
 	},
-	out: "./drizzle",
+	out: "./db/drizzle",
 	verbose: true,
 });

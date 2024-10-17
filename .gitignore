@@ -71,4 +71,13 @@ yarn-error.log
 
 # Next.js
 .next/
+
+# Turbo
+.turbo/
+
+# Drizzle
+db/drizzle/
+db/sqlite.db
+
+# Certificates
 certificates

@@ -1,6 +1,3 @@
-import Footer from "@/components/footer";
-import Header from "@/components/header";
-import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import type React from "react";
 import "@/app/globals.css";
@@ -17,12 +14,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className="bg-white dark:bg-black">
-				<Header />
-				<main>{children}</main>
-				<Toaster />
-				<Footer />
-			</body>
+			<body className="bg-white dark:bg-black">{children}</body>
 		</html>
 	);
 }
