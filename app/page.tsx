@@ -1,7 +1,6 @@
 import { BlogSection } from "@/components/blog-section";
 import { Container } from "@/components/container";
 import * as Icon from "@/components/dev-icons";
-import DotMatrix from "@/components/dot-matrix";
 import { Section } from "@/components/section";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -23,7 +22,8 @@ import { BlogPostCard } from "@/components/blog-post-card";
 import type { Viewport } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { XIcon } from "@/components/social-icons";
+import { XIcon, GithubIcon } from "@/components/social-icons";
+import { ProjectCard } from "@/components/project-card";
 
 export const viewport: Viewport = {
 	themeColor: "black",
@@ -185,85 +185,45 @@ const testimonials = [
 	},
 ];
 
-interface WorkCardProps {
-	title: string;
-	category: string;
-	description: string;
-	image: string;
-}
-
-function WorkCard({ title, category, description, image }: WorkCardProps) {
-	return (
-		<div className="bg-gray-50 p-8 rounded-lg shadow-lg flex flex-col lg:flex-row lg:items-center lg:justify-between">
-			{/* Text Section */}
-			<div className="lg:w-1/2 space-y-4">
-				<div className="text-blue-600 font-semibold flex items-center space-x-2">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-						className="w-5 h-5"
-					>
-						<title>{category}</title>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							strokeWidth="2"
-							d="M5 13l4 4L19 7"
-						/>
-					</svg>
-					<span>{category}</span>
-				</div>
-				<h3 className="text-2xl font-bold text-gray-900">{title}</h3>
-				<p className="text-gray-600">{description}</p>
-				<Link href="/works/warrior-academy">
-					<Button type="button">
-						View Case Study
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							className="w-5 h-5 ml-2"
-						>
-							<title>View Case Study</title>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth="2"
-								d="M9 5l7 7-7 7"
-							/>
-						</svg>
-					</Button>
-				</Link>
-			</div>
-
-			{/* Image Section */}
-			<div className="lg:w-1/2 mt-8 lg:mt-0 lg:ml-8">
-				<Image
-					src={image}
-					alt={`${title} project image`}
-					width={600}
-					height={400}
-					className="rounded-lg"
-				/>
-			</div>
-		</div>
-	);
-}
-
 export default async function App() {
 	return (
 		<>
-			<section className="bg-white py-24">
+			<section className="bg-white py-24 relative">
+				<Image
+					src="/home-hero-gradient.svg"
+					alt="Placeholder profile image"
+					width={1728}
+					height={894}
+					className="absolute w-full h-full left-0 top-0 right-0 bottom-0 object-cover z-0 pointer-events-none select-none"
+				/>
 				{/* Main Content */}
 				<Container className="grid grid-cols-1 lg:grid-cols-2 gap-16">
 					{/* Text Section */}
-					<div className="space-y-6">
-						<h1 className="text-6xl font-extrabold text-foreground">
-							Helping businesses turn their ideas into reality
+					<div className="space-y-10 my-auto z-10">
+						<h1 className="text-6xl font-extrabold text-foreground relative">
+							<span
+								aria-hidden
+								className="opacity-0 select-none pointer-events-none"
+							>
+								Helping businesses turn their ideas into reality
+							</span>
+							<span className="absolute inset-0 z-10">
+								Helping businesses turn their ideas into reality
+							</span>
+							<svg
+								aria-hidden
+								xmlns="http://www.w3.org/2000/svg"
+								width="249"
+								height="22"
+								viewBox="0 0 249 22"
+								fill="currentColor"
+								className="absolute left-[-14px] top-[54px] fill-orange-500 z-0"
+							>
+								<title>Underline</title>
+								<path d="M247.564 18.5807C241.772 13.3568 232.473 12.7526 225.225 11.4427C217.124 9.97395 208.996 8.57031 200.846 7.46093C186.542 5.51302 172.169 4.08854 157.79 3.01562C126.033 0.645827 94.0929 0.0338481 62.3387 2.36979C42.1785 3.85416 22.008 5.90885 2.32917 10.8463C-0.0155171 11.4349 0.207047 14.6719 2.6889 14.7083C22.0261 14.9896 41.3866 12.6406 60.7109 11.8568C79.9471 11.0807 99.2274 10.6719 118.484 10.9557C142.604 11.3125 166.719 12.8333 190.722 15.5156C199.956 16.5469 209.195 17.6016 218.411 18.8255C227.864 20.0807 237.259 22 246.767 20.7422C247.709 20.6198 248.426 19.3568 247.564 18.5807Z" />
+							</svg>
 						</h1>
+
 						<p className="text-xl text-foreground">
 							I'm a passionate developer, entrepreneur, and general technology
 							enthusiast living in San Francisco. I've worked with hundreds of
@@ -271,33 +231,47 @@ export default async function App() {
 							businesses.
 						</p>
 
-						<div className="flex space-x-4">
+						<div className="flex space-x-10">
 							<Button type="button" size="lg" variant="default">
 								Book a call with me
 							</Button>
 							<div className="flex space-x-4">
 								{/* Social Media Icons */}
-								<a
-									href={config.social.x.href}
-									className="text-gray-700 hover:text-black"
+								<Button
+									type="button"
+									variant="outline"
+									size="icon"
+									asChild
+									className="h-10 w-10"
 								>
-									{/* Icon Placeholder */}
-									<XIcon />
-								</a>
+									<a href={config.social.x.href}>
+										<XIcon className="h-4 w-4" />
+									</a>
+								</Button>
+								<Button
+									type="button"
+									variant="outline"
+									size="icon"
+									asChild
+									className="h-10 w-10"
+								>
+									<a href={config.social.github.href}>
+										<GithubIcon className="h-4 w-4" />
+									</a>
+								</Button>
 							</div>
 						</div>
 					</div>
 
 					{/* Image Section */}
-					<div className="relative">
-						{/* Replace with your Next.js Image */}
-						{/* <Image
-						src="/path-to-your-image.jpg" // Replace with actual image path
-						alt="Jane's profile image"
-						width={500}
-						height={500}
-						className="rounded-lg"
-					/> */}
+					<div className="relative flex justify-end">
+						<Image
+							src="https://placehold.co/512x640"
+							alt="Placeholder profile image"
+							width={512}
+							height={640}
+							className="rounded-xl object-cover"
+						/>
 						<span className="absolute top-4 right-4 bg-white px-4 py-2 rounded-full shadow-lg text-sm text-gray-700">
 							4 years of experience
 						</span>
@@ -438,7 +412,7 @@ export default async function App() {
 					{/* Work Item */}
 					<div className="grid grid-cols-1 gap-8">
 						{work.map((work) => (
-							<WorkCard
+							<ProjectCard
 								key={work.title}
 								title={work.title}
 								category={work.category}
@@ -501,15 +475,16 @@ export default async function App() {
 
 					{/* Testimonials Cards */}
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-						{testimonials.map((testimonial, index) => (
+						{testimonials.map((testimonial) => (
 							<div
-								key={index}
+								key={testimonial.name}
 								className="bg-white p-6 rounded-lg shadow-md flex flex-col"
 							>
 								<div className="flex justify-center mb-4">
 									{/* Star Rating */}
 									{Array.from({ length: testimonial.rating }).map((_, i) => (
 										<svg
+											// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 											key={i}
 											xmlns="http://www.w3.org/2000/svg"
 											fill="currentColor"

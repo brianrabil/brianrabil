@@ -22,14 +22,14 @@ export function NavLink({
 			href={href}
 			className={cn(
 				"relative font-medium",
-				isActive ? "text-foreground" : "text-muted-foreground",
+				isActive ? "text-foreground font-semibold" : "text-muted-foreground",
 				className,
 			)}
 			{...restProps}
 		>
 			{children}
 			{!!isActive && (
-				<div className="h-[2px] w-[16px] bg-foreground top-8 -translate-x-1/2 left-1/2 mx-auto absolute rounded-full" />
+				<div className="h-[3px] w-[16px] bg-foreground top-8 -translate-x-1/2 left-1/2 mx-auto absolute rounded-full" />
 			)}
 		</Link>
 	);

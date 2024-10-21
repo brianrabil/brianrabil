@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Container } from "@/components/container";
 import { Button } from "@/components/ui/button";
 import { Nav, NavLink } from "@/components/nav";
+import { Logo } from "@/components/logo";
 
 export const metadata: Metadata = {
 	title: "Brian Rabil",
@@ -26,8 +27,7 @@ export default async function RootLayout({
 					<Container className="flex justify-between items-center">
 						{/* Left section: Logo */}
 						<div className="text-2xl font-bold text-gray-900">
-							{/* Logo Placeholder */}
-							<span className="text-3xl">Brian Rabil</span>
+							<Logo />
 						</div>
 
 						{/* Center section: Navigation */}

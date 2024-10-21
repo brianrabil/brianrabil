@@ -7,6 +7,10 @@ const nextConfig = {
 	experimental: {
 		typedRoutes: true,
 	},
+	images: {
+		remotePatterns: [{ hostname: "placehold.co/**" }],
+		dangerouslyAllowSVG: true,
+	},
 	webpack: (config) => {
 		config.externals.push("bun:sqlite");
 		return config;
