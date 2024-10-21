@@ -1,12 +1,8 @@
-// @ts-check
+import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 
-/** @type {import("next").NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
 	output: "standalone",
-	experimental: {
-		typedRoutes: true,
-	},
 	images: {
 		remotePatterns: [{ hostname: "placehold.co/**" }],
 		dangerouslyAllowSVG: true,

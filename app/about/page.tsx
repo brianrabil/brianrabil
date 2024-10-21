@@ -169,7 +169,7 @@ const stack = [
 		logo: "/path-to-ruby-logo.png",
 	},
 ];
-const skills: RadarChartProps["data"] = [
+const skills = [
 	{
 		name: "Experience (Years)",
 		axes: [

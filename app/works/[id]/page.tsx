@@ -22,16 +22,15 @@ async function getProject(id: string): Promise<Project | null> {
 	return project || null;
 }
 
-export default async function ProjectPage({
-	params,
-}: { params: { id: string } }) {
-	const project = await getProject(params.id);
+export default async function ProjectPage(props: { params: Promise<{ id: string }> }) {
+    const params = await props.params;
+    const project = await getProject(params.id);
 
-	if (!project) {
+    if (!project) {
 		notFound();
 	}
 
-	return (
+    return (
 		<div className="container mx-auto px-4 py-8">
 			<h1 className="text-3xl font-bold mb-6">{project.title}</h1>
 			<div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
