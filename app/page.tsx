@@ -188,7 +188,7 @@ const testimonials = [
 export default async function App() {
 	return (
 		<>
-			<section className="bg-white py-24 relative">
+			<section className="bg-background py-24 relative">
 				<Image
 					src="/home-hero-gradient.svg"
 					alt="Placeholder profile image"
@@ -217,7 +217,7 @@ export default async function App() {
 								height="22"
 								viewBox="0 0 249 22"
 								fill="currentColor"
-								className="absolute left-[-14px] top-[54px] fill-orange-500 z-0"
+								className="absolute left-[-15px] top-[54px] fill-orange-500 z-0 opacity-25"
 							>
 								<title>Underline</title>
 								<path d="M247.564 18.5807C241.772 13.3568 232.473 12.7526 225.225 11.4427C217.124 9.97395 208.996 8.57031 200.846 7.46093C186.542 5.51302 172.169 4.08854 157.79 3.01562C126.033 0.645827 94.0929 0.0338481 62.3387 2.36979C42.1785 3.85416 22.008 5.90885 2.32917 10.8463C-0.0155171 11.4349 0.207047 14.6719 2.6889 14.7083C22.0261 14.9896 41.3866 12.6406 60.7109 11.8568C79.9471 11.0807 99.2274 10.6719 118.484 10.9557C142.604 11.3125 166.719 12.8333 190.722 15.5156C199.956 16.5469 209.195 17.6016 218.411 18.8255C227.864 20.0807 237.259 22 246.767 20.7422C247.709 20.6198 248.426 19.3568 247.564 18.5807Z" />
@@ -226,7 +226,7 @@ export default async function App() {
 
 						<p className="text-xl text-foreground">
 							I'm a passionate developer, entrepreneur, and general technology
-							enthusiast living in San Francisco. I've worked with hundreds of
+							enthusiast living in Dallas, TX. I've worked with hundreds of
 							startups to help them develop their ideas into profitable
 							businesses.
 						</p>
@@ -272,104 +272,141 @@ export default async function App() {
 							height={640}
 							className="rounded-xl object-cover"
 						/>
-						<span className="absolute top-4 right-4 bg-white px-4 py-2 rounded-full shadow-lg text-sm text-gray-700">
+						<span className="absolute top-4 right-4 z-10 bg-background px-4 py-2 rounded-full shadow-lg text-sm text-foreground">
 							4 years of experience
 						</span>
 					</div>
 				</Container>
 			</section>
 
-			<section className="bg-white py-16">
-				<Container className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+			<section className="py-24 bg-secondary">
+				<Container>
 					{/* Left Section - Features List */}
-					<div>
-						<h2 className="text-4xl font-bold text-gray-900">
-							I'm your{" "}
-							<span className="text-blue-600 underline">all-in-one</span>{" "}
-							project solution
-						</h2>
-						<p className="mt-4 text-gray-600">
+					<div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+						<div className="relative lg:col-span-1">
+							<h2 className="text-5xl font-bold text-foreground">
+								<span>
+									I'm your{" "}
+									<span className="text-orange-500 relative">
+										all-in-one
+										<svg
+											aria-hidden
+											xmlns="http://www.w3.org/2000/svg"
+											width="249"
+											height="22"
+											viewBox="0 0 249 22"
+											fill="currentColor"
+											className="absolute left-[-14px] top-[54px] fill-orange-500 z-0 opacity-25"
+										>
+											<title>Underline</title>
+											<path d="M247.564 18.5807C241.772 13.3568 232.473 12.7526 225.225 11.4427C217.124 9.97395 208.996 8.57031 200.846 7.46093C186.542 5.51302 172.169 4.08854 157.79 3.01562C126.033 0.645827 94.0929 0.0338481 62.3387 2.36979C42.1785 3.85416 22.008 5.90885 2.32917 10.8463C-0.0155171 11.4349 0.207047 14.6719 2.6889 14.7083C22.0261 14.9896 41.3866 12.6406 60.7109 11.8568C79.9471 11.0807 99.2274 10.6719 118.484 10.9557C142.604 11.3125 166.719 12.8333 190.722 15.5156C199.956 16.5469 209.195 17.6016 218.411 18.8255C227.864 20.0807 237.259 22 246.767 20.7422C247.709 20.6198 248.426 19.3568 247.564 18.5807Z" />
+										</svg>
+									</span>{" "}
+									project solution
+								</span>
+							</h2>
+						</div>
+
+						<p className="mt-4 text-foreground lg:col-span-2 text-lg">
 							Experience the advantage of an all-inclusive project solution,
 							where excellence, speed, and responsiveness converge to ensure the
 							highest quality outcome.
 						</p>
 
-						{/* Feature Items */}
-						<div className="mt-8 space-y-8">
-							<div className="flex items-start space-x-4">
-								<div className="w-12 h-12 bg-gray-900 text-white rounded-full flex justify-center items-center">
-									{/* Icon Placeholder - Replace with an actual icon */}
-									<span className="text-2xl">🏆</span>
+						<div className="lg:col-span-1">
+							{/* Feature Items */}
+							<div className="mt-8 space-y-8">
+								<div className="flex items-start space-x-4">
+									<div className="w-20 h-20 bg-background aspect-square text-foreground rounded-full flex justify-center items-center">
+										{/* Icon Placeholder - Replace with an actual icon */}
+										<span className="text-3xl">🏆</span>
+									</div>
+									<div>
+										<h3 className="text-xl font-semibold text-gray-900">
+											Excellence
+										</h3>
+										<p className="text-foreground">
+											I take pride in doing things well. All client work is done
+											with the best quality possible.
+										</p>
+									</div>
 								</div>
-								<div>
-									<h3 className="text-xl font-semibold text-gray-900">
-										Excellence
-									</h3>
-									<p className="text-gray-600">
-										I take pride in doing things well. All client work is done
-										with the best quality possible.
-									</p>
-								</div>
-							</div>
 
-							<div className="flex items-start space-x-4">
-								<div className="w-12 h-12 bg-gray-900 text-white rounded-full flex justify-center items-center">
-									<span className="text-2xl">⏱</span>
+								<div className="flex items-start space-x-4">
+									<div className="w-20 h-20 bg-background aspect-square text-foreground rounded-full flex justify-center items-center">
+										<span className="text-2xl">⏱</span>
+									</div>
+									<div>
+										<h3 className="text-xl font-semibold text-gray-900">
+											Speed
+										</h3>
+										<p className="text-foreground">
+											I like to work hard and fast. I know how important
+											deadlines are to my clients.
+										</p>
+									</div>
 								</div>
-								<div>
-									<h3 className="text-xl font-semibold text-gray-900">Speed</h3>
-									<p className="text-gray-600">
-										I like to work hard and fast. I know how important deadlines
-										are to my clients.
-									</p>
-								</div>
-							</div>
 
-							<div className="flex items-start space-x-4">
-								<div className="w-12 h-12 bg-gray-900 text-white rounded-full flex justify-center items-center">
-									<span className="text-2xl">📞</span>
-								</div>
-								<div>
-									<h3 className="text-xl font-semibold text-gray-900">
-										Responsiveness
-									</h3>
-									<p className="text-gray-600">
-										You can rely on me to be responsive and clear whenever we
-										work together.
-									</p>
+								<div className="flex items-start space-x-4">
+									<div className="w-20 h-20 bg-background aspect-square text-foreground rounded-full flex justify-center items-center">
+										<span className="text-2xl">📞</span>
+									</div>
+									<div>
+										<h3 className="text-xl font-semibold text-gray-900">
+											Responsiveness
+										</h3>
+										<p className="text-foreground">
+											You can rely on me to be responsive and clear whenever we
+											work together.
+										</p>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
 
-					{/* Right Section - Image with Stats and Download Button */}
-					<div className="relative">
-						{/* <Image
+						{/* Right Section - Image with Stats and Download Button */}
+						<div className="relative lg:col-span-2 justify-self-end">
+							{/* <Image
 							src="/path-to-your-image.jpg" // Replace with actual image path
 							alt="Client meeting"
 							width={500}
 							height={500}
 							className="rounded-lg"
 						/> */}
+							<div className="relative h-auto w-auto">
+								<Image
+									src="https://placehold.co/705x470"
+									alt="Placeholder profile image"
+									width={705}
+									height={470}
+									className="rounded-xl object-cover"
+								/>
+								{/* Download CV Circle Button */}
+								<Button
+									// href="/path-to-cv.pdf"
+									type="button"
+									size="icon"
+									className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+								>
+									<span className="block font-semibold text-sm">
+										Download CV
+									</span>
+									<span className="block text-3xl">⬇️</span>
+								</Button>
+							</div>
 
-						{/* Download CV Circle Button */}
-						<Button
-							// href="/path-to-cv.pdf"
-							type="button"
-							className="absolute -top-12 right-12 bg-white p-4 rounded-full shadow-lg text-center"
-						>
-							<span className="block font-semibold text-sm">Download CV</span>
-							<span className="block text-3xl">⬇️</span>
-						</Button>
-
-						{/* Experience and Projects Stats */}
-						<div className="absolute bottom-0 right-0 bg-blue-600 text-white py-4 px-8 rounded-lg shadow-lg">
-							<p className="text-2xl font-semibold">10</p>
-							<p className="text-sm">Years of experience</p>
-						</div>
-						<div className="absolute bottom-0 right-32 bg-blue-600 text-white py-4 px-8 rounded-lg shadow-lg">
-							<p className="text-2xl font-semibold">150</p>
-							<p className="text-sm">Projects completed</p>
+							{/* Experience and Projects Stats */}
+							<div className="flex flex-nowrap text-nowrap items-center space-x-8 bg-primary text-primary-foreground absolute bottom-0 right-0 py-4 px-8 rounded-lg shadow-lg">
+								<div className="w-1/2">
+									<p className="text-2xl font-semibold">10</p>
+									<p className="text-sm">Years of experience</p>
+								</div>
+								<div className="h-full w-px bg-primary-foreground opacity-50" />
+								<div className="w-1/2">
+									<p className="text-2xl font-semibold">150</p>
+									<p className="text-sm">Projects completed</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</Container>
@@ -395,21 +432,18 @@ export default async function App() {
 					</div>
 				</div>
 			</section>
-			<section className="bg-white py-16">
+			<section className="bg-background py-24">
 				<div className="container mx-auto">
-					{/* Heading */}
 					<div className="text-center mb-12">
-						<h2 className="text-4xl font-bold text-gray-900">
+						<h2 className="text-5xl font-bold text-foreground">
 							Check out my latest work
 						</h2>
-						<p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+						<p className="mt-4 text-lg text-foreground max-w-2xl mx-auto">
 							My goal is to create effective digital experiences that make
 							people's lives easier and better. I hope my work is a reflection
 							of this.
 						</p>
 					</div>
-
-					{/* Work Item */}
 					<div className="grid grid-cols-1 gap-8">
 						{work.map((work) => (
 							<ProjectCard
@@ -424,17 +458,14 @@ export default async function App() {
 				</div>
 			</section>
 
-			<section className="bg-white py-16">
+			<section className="bg-background py-24">
 				<div className="container mx-auto">
-					{/* Heading */}
 					<div className="text-center mb-12">
-						<h2 className="text-4xl font-bold text-gray-900">
+						<h2 className="text-5xl font-bold text-foreground">
 							<span className="text-blue-600">Thoughts</span> on design,
 							business, and indie-hacking
 						</h2>
 					</div>
-
-					{/* Blog Post Cards */}
 					<div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 						{posts.map((post) => (
 							<div
@@ -472,8 +503,6 @@ export default async function App() {
 					<h2 className="text-4xl font-bold text-gray-900 mb-12">
 						Here’s what past clients are saying about me
 					</h2>
-
-					{/* Testimonials Cards */}
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 						{testimonials.map((testimonial) => (
 							<div
