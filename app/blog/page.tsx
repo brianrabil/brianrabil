@@ -11,7 +11,7 @@ import {
 } from "@/components/typography";
 import { CardGrid } from "@/components/card-grid";
 import { BlogPostCard } from "@/components/blog-post-card";
-import config from "@/lib/config";
+import { config } from "@/lib/config";
 
 export default async function BlogPage() {
 	return (

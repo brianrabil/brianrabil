@@ -4,7 +4,7 @@ import type { Route } from "next";
 interface Config {
 	title: string;
 	description: string;
-	main: { name: string; href: Route }[];
+	nav: { name: string; href: Route }[];
 	social: {
 		x: {
 			name: string;
@@ -26,20 +26,20 @@ interface Config {
 	posts: BlogPostCardProps[];
 }
 
-const config = {
+export const config = {
 	title: "Brian Rabil",
 	description: "Personal Website",
-	main: [
+	nav: [
 		{ name: "Home", href: "/" },
 		{ name: "About", href: "/about" },
-		{ name: "Projects", href: "/projects" },
+		{ name: "Works", href: "/works" },
 		{ name: "Blog", href: "/blog" },
 		{ name: "Contact", href: "/contact" },
 	],
 	social: {
 		x: {
 			name: "X",
-			href: "#",
+			href: "https://x.com/brianrabil",
 		},
 		github: {
 			name: "GitHub",
@@ -95,5 +95,3 @@ const config = {
 		},
 	],
 } satisfies Config;
-
-export default config;

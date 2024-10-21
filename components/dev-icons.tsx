@@ -10,16 +10,10 @@ interface IconBaseProps {
 
 function IconBase({ el, label, className, svgClassName }: IconBaseProps) {
 	return (
-		<Badge
-			className={`flex align-center items-center gap-x-1.5  ${className} min-h-6 max-h-6`}
-			variant={"outline"}
-		>
-			<svg className={`h-3 w-auto  ${svgClassName}`} viewBox="0 0 128 128">
-				<title>{label}</title>
-				{el}
-			</svg>
-			{label}
-		</Badge>
+		<svg className={`h-8 w-auto  ${svgClassName}`} viewBox="0 0 128 128">
+			<title>{label}</title>
+			{el}
+		</svg>
 	);
 }
 

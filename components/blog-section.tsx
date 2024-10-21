@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import config from "@/lib/config";
+import { config } from "@/lib/config";
 
 export function BlogSection() {
 	return (

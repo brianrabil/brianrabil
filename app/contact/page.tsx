@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Container } from "@/components/container";
-import config from "@/lib/config";
+import { config } from "@/lib/config";
 
 export default async function ContactPage() {
 	return (
@@ -12,7 +12,7 @@ export default async function ContactPage() {
 				Get in touch with me through any of the following platforms:
 			</p>
 			<ul className="space-y-4">
-				{Object.entries(config.social).map(([platform, { name, href }]) => (
+				{/* {Object.entries(config.social).map(([platform, { name, href }]) => (
 					<li key={platform}>
 						<a
 							href={href}
@@ -23,7 +23,7 @@ export default async function ContactPage() {
 							{name}
 						</a>
 					</li>
-				))}
+				))} */}
 			</ul>
 		</Container>
 	);
