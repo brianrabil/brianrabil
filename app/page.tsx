@@ -1,8 +1,4 @@
-import { BlogSection } from "@/components/blog-section";
 import { Container } from "@/components/container";
-import * as Icon from "@/components/dev-icons";
-import { Section } from "@/components/section";
-import { Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { config } from "@/lib/config";
 import type { Viewport } from "next";
