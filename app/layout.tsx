@@ -8,6 +8,7 @@ import { Container } from "@/components/container";
 import { Button } from "@/components/ui/button";
 import { Nav, NavLink } from "@/components/nav";
 import { Logo } from "@/components/logo";
+import { ArrowUpRightIcon } from "lucide-react";
 
 export const metadata: Metadata = {
 	title: "Brian Rabil",
@@ -21,12 +22,12 @@ export default async function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className="bg-white dark:bg-black">
+			<body className="bg-background ">
 				{/* Header Nav */}
-				<header className="flex items-center h-[96px] border-b border">
+				<header className="flex items-center h-[96px] border-b">
 					<Container className="flex justify-between items-center">
 						{/* Left section: Logo */}
-						<div className="text-2xl font-bold text-gray-900">
+						<div className="text-2xl font-bold text-foreground">
 							<Logo />
 						</div>
 
@@ -50,94 +51,114 @@ export default async function RootLayout({
 
 				<Toaster />
 
-				<footer className="bg-foreground text-white py-16">
-					<div className="container mx-auto">
-						{/* Newsletter Section */}
-						<div className="bg-blue-600 p-8 rounded-lg text-center mb-12">
-							<h3 className="text-3xl font-bold text-white">
-								Subscribe to my newsletter
-							</h3>
-							<p className="mt-4 text-white text-opacity-75">
-								Join 10,000+ designers and get creative site breakdowns, design
-								musings and tips every Monday.
-							</p>
-							<form className="mt-6 flex justify-center">
-								<input
-									type="email"
-									placeholder="Enter your email"
-									className="w-full max-w-sm px-4 py-2 text-gray-900 rounded-md focus:outline-none"
-								/>
-								<button
-									type="button"
-									className="ml-4 px-6 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition"
-								>
-									Subscribe
-								</button>
-							</form>
-						</div>
-
-						{/* Main Footer */}
-						<div className="flex flex-col lg:flex-row justify-between items-center text-center lg:text-left">
-							<div className="mb-8 lg:mb-0">
-								<h4 className="text-3xl font-bold">
-									Let’s make something great together
-								</h4>
-								<p className="mt-4 text-gray-400 max-w-md">
-									Iced pumpkin ristretto irish trifecta robusta trade froth
-									affogato barista con barista cappuccino filter roast.
+				<footer className="flex flex-col mt-24">
+					<div className="container relative">
+						<div className="bg-blue-600 flex flex-row p-16 gap-x-24 rounded-xl absolute -top-[120px] left-0 right-0 z-10">
+							<div className="flex flex-col w-1/2">
+								<h3 className="text-4xl font-bold text-primary-foreground">
+									Subscribe to my newsletter
+								</h3>
+								<p className="mt-4 text-primary-foreground text-lg">
+									Join 10,000+ designers and get creative site breakdowns,
+									design musings and tips every Monday.
 								</p>
-								<Button type="button" variant="secondary" asChild>
-									<Link href="/contact">
-										Book a call <span aria-hidden="true">→</span>
-									</Link>
-								</Button>
 							</div>
+							<div className="w-1/2">
+								<form className="mt-6 flex justify-center gap-x-4 relative">
+									<input
+										type="email"
+										placeholder="Enter your email"
+										className="w-full pl-6 pr-40 text-ellipsis overflow-hidden text-nowrap py-4 bg-input/15 border border-input/20 placeholder:text-primary-foreground/50 transition-colors duration-300 hover:border-input/40 focus:border-input/80 text-primary-foreground focus:outline-none rounded-full"
+									/>
+									<Button
+										type="button"
+										size="lg"
+										className="rounded-full absolute right-2 top-1/2 -translate-y-1/2"
+									>
+										Subscribe
+									</Button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div className="py-24 bg-foreground">
+						<div className="container mx-auto relative mt-[120px]">
+							{/* Newsletter Section */}
 
-							{/* Contact and Social Links */}
-							<div className="mt-8 lg:mt-0">
-								<div className="flex justify-center lg:justify-start space-x-6 mb-6">
-									<a
-										href="mailto:brian@brianrabil.com"
-										className="hover:text-gray-400"
-									>
-										Email me
-									</a>
-									<a
-										href={config.social.x.href}
-										className="hover:text-gray-400"
-									>
-										X
-									</a>
-									<a
-										href={config.social.linkedin.href}
-										className="hover:text-gray-400"
-									>
-										LinkedIn
-									</a>
-									<a
-										href={config.social.github.href}
-										className="hover:text-gray-400"
-									>
-										GitHub
-									</a>
+							{/* Main Footer */}
+							<div className="flex flex-col gap-x-12 lg:flex-row justify-between items-center text-center lg:text-left">
+								<div className="mb-8 lg:mb-0 max-w-lg flex flex-col gap-y-8 h-full justify-between items-start">
+									<h4 className="text-4xl font-bold text-background">
+										Let’s make something great together
+									</h4>
+									<Button type="button" variant="secondary" size="lg" asChild>
+										<Link href="/contact">
+											Book a Call
+											<ArrowUpRightIcon className="w-4 h-4 ml-2" />
+										</Link>
+									</Button>
+								</div>
+
+								{/* Contact and Social Links */}
+								<div className="mt-8 lg:mt-0 max-w-md flex flex-col gap-y-8 h-full">
+									<p className="text-background text-lg">
+										Iced pumpkin ristretto irish trifecta robusta trade froth
+										affogato barista con barista cappuccino filter roast.
+									</p>
+									<div className="grid grid-cols-3 gap-3">
+										<Button
+											type="button"
+											variant="outline"
+											asChild
+											className="border-input/20 text-background bg-foreground hover:bg-background/10 hover:text-background transition-colors duration-300"
+										>
+											<a href="mailto:brian@brianrabil.com">Email me</a>
+										</Button>
+										<Button
+											type="button"
+											variant="outline"
+											asChild
+											className="border-input/20 text-background bg-foreground hover:bg-background/10 hover:text-background transition-colors duration-300"
+										>
+											<a href={config.social.x.href}>X</a>
+										</Button>
+										<Button
+											type="button"
+											variant="outline"
+											asChild
+											className="border-input/20 text-background bg-foreground hover:bg-background/10 hover:text-background transition-colors duration-300"
+										>
+											<a href={config.social.linkedin.href}>LinkedIn</a>
+										</Button>
+										<Button
+											type="button"
+											variant="outline"
+											asChild
+											className="border-input/20 text-background bg-foreground hover:bg-background/10 hover:text-background transition-colors duration-300"
+										>
+											<a href={config.social.github.href}>GitHub</a>
+										</Button>
+									</div>
 								</div>
 							</div>
-						</div>
 
-						{/* Bottom Footer */}
-						<div className="mt-12 border-t border-gray-800 pt-8 text-center text-gray-500">
-							<nav className="mb-4">
-								{config.nav.map((item) => (
-									<Link
-										key={item.name}
-										href={item.href}
-										className="mr-4 hover:text-gray-400"
-									>
-										{item.name}
-									</Link>
-								))}
-							</nav>
-							<p>© 2024 Your Brand Name. All rights reserved.</p>
+							{/* Bottom Footer */}
+							<div className="mt-24 border-t border-border/20 pt-12 flex flex-row justify-between items-center">
+								<nav className="flex flex-row gap-x-8">
+									{config.nav.map((item) => (
+										<Link
+											key={item.name}
+											href={item.href}
+											className="text-background"
+										>
+											{item.name}
+										</Link>
+									))}
+								</nav>
+								<p className="text-background/80">
+									© 2024 Brian Rabil. All rights reserved.
+								</p>
+							</div>
 						</div>
 					</div>
 				</footer>
