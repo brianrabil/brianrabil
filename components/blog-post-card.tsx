@@ -5,9 +5,10 @@ import Link from "next/link";
 export interface BlogPostCardProps {
 	id: string;
 	imageUrl: string;
-	datetime: string;
 	date: string;
 	category: string;
+	description: string;
+	readTime: string;
 	title: string;
 	href: Route;
 }
@@ -15,9 +16,10 @@ export interface BlogPostCardProps {
 export function BlogPostCard({
 	id,
 	imageUrl,
-	datetime,
 	date,
 	category,
+	description,
+	readTime,
 	title,
 	href,
 }: BlogPostCardProps) {
@@ -35,7 +37,7 @@ export function BlogPostCard({
 			<div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
 
 			<div className="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300 gap-x-4">
-				<time dateTime={datetime}>{date}</time>
+				<time dateTime={date}>{date}</time>
 				<Badge variant="secondary">{category}</Badge>
 			</div>
 			<h3 className="mt-3 text-lg font-semibold leading-6 text-white">

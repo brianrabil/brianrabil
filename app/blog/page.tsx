@@ -1,14 +1,9 @@
 "use server";
 
 import React from "react";
-import Link from "next/link";
 import { Section } from "@/components/section";
 import { Container } from "@/components/container";
-import {
-	TypographyH1,
-	TypographyH2,
-	TypographyH3,
-} from "@/components/typography";
+import { TypographyH1, TypographyH2 } from "@/components/typography";
 import { CardGrid } from "@/components/card-grid";
 import { BlogPostCard } from "@/components/blog-post-card";
 import { config } from "@/lib/config";
