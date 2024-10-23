@@ -49,7 +49,8 @@ export default async function RootLayout({
 				<main>{children}</main>
 
 				<Toaster />
-				<footer className="bg-gray-900 text-white py-16">
+
+				<footer className="bg-foreground text-white py-16">
 					<div className="container mx-auto">
 						{/* Newsletter Section */}
 						<div className="bg-blue-600 p-8 rounded-lg text-center mb-12">

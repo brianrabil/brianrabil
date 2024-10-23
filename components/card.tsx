@@ -5,7 +5,7 @@ import { Card as BaseCard } from "@/components/ui/card";
 export function Card({ children }: { children: React.ReactNode }) {
 	return (
 		<BaseMagicCard
-			className="bg-background shadow-lg flex flex-col"
+			className="bg-card shadow-lg flex flex-col"
 			gradientColor="hsl(var(--primary) / 0.2)"
 			gradientOpacity={0.1}
 			gradientSize={200}

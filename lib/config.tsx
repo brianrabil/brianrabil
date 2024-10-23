@@ -70,7 +70,7 @@ export const config = {
 		{ name: "Home", href: "/" },
 		{ name: "About", href: "/about" },
 		{ name: "Works", href: "/works" },
-		{ name: "Blog", href: "/blog" },
+		{ name: "Blog", href: "/posts" },
 		{ name: "Contact", href: "/contact" },
 	],
 	social: {

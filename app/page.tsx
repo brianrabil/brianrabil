@@ -5,8 +5,37 @@ import type { Viewport } from "next";
 import Image from "next/image";
 import { XIcon, GithubIcon } from "@/components/social-icons";
 import { ProjectCard } from "@/components/project-card";
-import { CalendarIcon, ClockIcon, MapIcon, AwardIcon } from "lucide-react";
+import {
+	CalendarIcon,
+	ClockIcon,
+	MapIcon,
+	AwardIcon,
+	ArrowRightIcon,
+	ChevronLeftIcon,
+	ChevronRightIcon,
+	StarIcon,
+} from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Slider } from "@/components/ui/slider";
+import { Range } from "@/components/range";
+import {
+	Carousel,
+	CarouselContent,
+	CarouselItem,
+	CarouselPrevious,
+	CarouselNext,
+} from "@/components/ui/carousel";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardFooter,
+} from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Separator } from "@/components/ui/separator";
 
 export const viewport: Viewport = {
 	themeColor: "black",
@@ -134,11 +163,13 @@ export default async function App() {
 							</h2>
 						</div>
 
-						<p className="mt-4 text-foreground lg:col-span-2 text-lg leading-normal">
-							Experience the advantage of an all-inclusive project solution,
-							where excellence, speed, and responsiveness converge to ensure the
-							highest quality outcome.
-						</p>
+						<div className="lg:col-span-2 justify-self-end lg:mt-4">
+							<p className="text-foreground text-lg leading-normal max-w-2xl">
+								Experience the advantage of an all-inclusive project solution,
+								where excellence, speed, and responsiveness converge to ensure
+								the highest quality outcome.
+							</p>
+						</div>
 
 						<div className="lg:col-span-1">
 							{/* Feature Items */}
@@ -242,10 +273,10 @@ export default async function App() {
 			<section className="bg-background py-24">
 				<div className="container mx-auto">
 					<div className="text-center mb-12">
-						<h2 className="text-5xl font-bold text-foreground">
+						<h2 className="text-5xl font-bold text-foreground leading-tight">
 							Check out my latest work
 						</h2>
-						<p className="mt-4 text-lg text-foreground max-w-2xl mx-auto">
+						<p className="mt-5 text-lg text-foreground mx-auto max-w-md leading-normal">
 							My goal is to create effective digital experiences that make
 							people's lives easier and better. I hope my work is a reflection
 							of this.
@@ -263,6 +294,15 @@ export default async function App() {
 						))}
 					</div>
 				</div>
+
+				<div className="flex justify-center mt-16">
+					<Button type="button" variant="outline" size="lg" asChild>
+						<Link href="/projects">
+							View all projects
+							<ArrowRightIcon className="w-4 h-4 ml-2" />
+						</Link>
+					</Button>
+				</div>
 			</section>
 
 			<section className="bg-background py-24">
@@ -277,7 +317,7 @@ export default async function App() {
 						{config.posts.map((post) => (
 							<div
 								key={post.title}
-								className="bg-secondary border rounded-xl overflow-hidden p-6 flex flex-col gap-y-4"
+								className="bg-card border rounded-xl overflow-hidden p-6 flex flex-col gap-y-4"
 							>
 								<div className="w-full h-[240px] object-cover rounded-xl overflow-hidden">
 									<Image
@@ -326,56 +366,113 @@ export default async function App() {
 						))}
 					</div>
 				</div>
+				<div className="flex justify-center mt-16">
+					<Button type="button" variant="outline" size="lg" asChild>
+						<Link href="/posts">
+							View all posts
+							<ArrowRightIcon className="w-4 h-4 ml-2" />
+						</Link>
+					</Button>
+				</div>
 			</section>
 
-			<section className="bg-gray-50 py-16">
-				<div className="container mx-auto text-center">
-					<h2 className="text-4xl font-bold text-gray-900 mb-12">
-						Here’s what past clients are saying about me
-					</h2>
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-						{config.testimonials.map((testimonial) => (
-							<div
-								key={testimonial.name}
-								className="bg-white p-6 rounded-lg shadow-md flex flex-col"
-							>
-								<div className="flex justify-center mb-4">
-									{/* Star Rating */}
-									{Array.from({ length: testimonial.rating }).map((_, i) => (
-										<svg
-											// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-											key={i}
-											xmlns="http://www.w3.org/2000/svg"
-											fill="currentColor"
-											viewBox="0 0 24 24"
-											stroke="none"
-											className="w-5 h-5 text-yellow-400"
-										>
-											<title>Star Rating</title>
-											<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-										</svg>
-									))}
-								</div>
-								<blockquote className="text-xl font-semibold text-gray-900 mb-4">
-									“{testimonial.quote}”
-								</blockquote>
-								<p className="text-gray-600 mb-6">{testimonial.feedback}</p>
-								<div className="mt-auto flex items-center justify-center">
-									<img
-										src={testimonial.image}
-										alt={testimonial.name}
-										className="w-12 h-12 rounded-full mr-4"
-									/>
-									<div className="text-left">
-										<p className="font-bold text-gray-900">
-											{testimonial.name}
-										</p>
-										<p className="text-sm text-gray-600">{testimonial.title}</p>
-									</div>
-								</div>
-							</div>
-						))}
+			<section className="bg-muted py-24">
+				<div className="container mx-auto">
+					<div className="grid grid-cols-[1fr_384px] grid-rows-[1fr_auto] gap-8 h-auto mb-24">
+						<div className="max-w-2xl">
+							<h2 className="text-5xl font-bold text-foreground leading-tight">
+								Here’s what past clients are saying about me
+							</h2>
+						</div>
+						<div className="max-w-md w-auto ml-auto">
+							<p className="text-foreground text-lg leading-normal m-0">
+								Iced pumpkin ristretto irish trifecta robusta trade froth
+								affogato barista con barista cappuccino filter roast.
+							</p>
+						</div>
+						<div className="w-full max-w-2xl self-end">
+							<Range className="w-full" />
+						</div>
+						<div className="flex max-w-md align-top gap-x-2">
+							<Button type="button" variant="outline" size="icon">
+								<ChevronLeftIcon className="w-4 h-4" />
+							</Button>
+							<Button type="button" variant="outline" size="icon">
+								<ChevronRightIcon className="w-4 h-4" />
+							</Button>
+						</div>
 					</div>
+					<Carousel
+						opts={{
+							loop: false,
+						}}
+					>
+						<CarouselPrevious />
+						<CarouselNext />
+						<CarouselContent className="ml-1 divide-x">
+							{config.testimonials.map((testimonial, index) => (
+								<CarouselItem
+									key={testimonial.name}
+									className="md:basis-1/2 lg:basis-1/3 pl-0"
+								>
+									<Card
+										key={testimonial.name}
+										className={cn(
+											"flex flex-col h-full border-y border-l-0 border-r-0 p-0 rounded-none",
+											index === 0 && "rounded-tl-xl rounded-bl-xl border-l",
+											index === config.testimonials.length - 1 &&
+												"rounded-tr-xl rounded-br-xl border-r",
+										)}
+									>
+										<CardHeader className="py-10 px-10">
+											<div className="flex items-center justify-start">
+												{/* Star Rating */}
+												{Array.from({ length: testimonial.rating }).map(
+													(_, i) => (
+														<StarIcon
+															// biome-ignore lint/suspicious/noArrayIndexKey: no need
+															key={i}
+															className="w-5 h-5 text-yellow-400 fill-current"
+														/>
+													),
+												)}
+											</div>
+											<blockquote className="text-xl font-semibold text-foreground mb-4">
+												“{testimonial.quote}”
+											</blockquote>
+										</CardHeader>
+										<CardContent className="px-10 py-0">
+											<p className="text-muted-foreground leading-normal">
+												{testimonial.feedback}
+											</p>
+										</CardContent>
+										<CardFooter className="flex flex-col px-10 py-10 mt-auto">
+											<Separator className="mb-5 mt-auto" />
+											<div className="w-full flex justify-between items-center">
+												<div className="text-left flex flex-col gap-y-1">
+													<p className="font-bold text-foreground">
+														{testimonial.name}
+													</p>
+													<p className="text-sm text-muted-foreground">
+														{testimonial.title}
+													</p>
+												</div>
+												<Avatar>
+													<AvatarImage src={testimonial.image} />
+													<AvatarFallback>
+														{testimonial.name
+															.split(" ")
+															.map((n) => n[0])
+															.join("")}
+													</AvatarFallback>
+												</Avatar>
+											</div>
+										</CardFooter>
+									</Card>
+								</CarouselItem>
+							))}
+						</CarouselContent>
+					</Carousel>
 				</div>
 			</section>
 		</>
