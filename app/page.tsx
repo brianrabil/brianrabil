@@ -14,6 +14,10 @@ import {
 	ChevronLeftIcon,
 	ChevronRightIcon,
 	StarIcon,
+	SearchIcon,
+	BellIcon,
+	FileTextIcon,
+	GlobeIcon,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
@@ -36,7 +40,71 @@ import {
 } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
+import { RainbowButton } from "@/components/ui/rainbow-button";
 
+const features = [
+	{
+		Icon: FileTextIcon,
+		name: "Save your files",
+		description: "We automatically save your files as you type.",
+		href: "/",
+		cta: "Learn more",
+		background: (
+			<img alt="" className="absolute -right-20 -top-20 opacity-60" />
+		),
+		className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
+	},
+	{
+		Icon: SearchIcon,
+		name: "Full text search",
+		description: "Search through all your files in one place.",
+		href: "/",
+		cta: "Learn more",
+		background: (
+			<img alt="" className="absolute -right-20 -top-20 opacity-60" />
+		),
+		className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
+	},
+	{
+		Icon: GlobeIcon,
+		name: "Multilingual",
+		description: "Supports 100+ languages and counting.",
+		href: "/",
+		cta: "Learn more",
+		background: (
+			<img alt="" className="absolute -right-20 -top-20 opacity-60" />
+		),
+		className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
+	},
+	{
+		Icon: CalendarIcon,
+		name: "Calendar",
+		description: "Use the calendar to filter your files by date.",
+		href: "/",
+		cta: "Learn more",
+		background: (
+			<img alt="" className="absolute -right-20 -top-20 opacity-60" />
+		),
+		className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+	},
+	{
+		Icon: BellIcon,
+		name: "Cap Map",
+		description: "A map of all the SAIC CAP projects.",
+		// href: "/",
+		// cta: "Learn more",
+		background: (
+			<img
+				src="/images/saic-cap-map-mockup.png"
+				alt=""
+				className="absolute inset-0 h-full w-full object-cover"
+			/>
+		),
+		className:
+			"lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4 text-foreground",
+	},
+];
 export const viewport: Viewport = {
 	themeColor: "black",
 };
@@ -88,9 +156,7 @@ export default async function App() {
 						</p>
 
 						<div className="flex space-x-10">
-							<Button type="button" size="lg" variant="default">
-								Book a call with me
-							</Button>
+							<RainbowButton>Book a call with me</RainbowButton>
 							<div className="flex space-x-4">
 								{/* Social Media Icons */}
 								<Button
@@ -261,7 +327,7 @@ export default async function App() {
 							{config.tools.map((tool) => (
 								<div
 									key={tool.name}
-									className="flex-shrink-0 w-20 h-20 p-4 rounded-full shadow-md flex justify-center items-center bg-white hover:bg-gray-100 transition m-2"
+									className="flex-shrink-0 w-20 h-20 p-4 rounded-full  flex justify-center items-center  transition m-2"
 								>
 									{tool.icon}
 								</div>

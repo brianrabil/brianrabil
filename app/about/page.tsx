@@ -8,7 +8,9 @@ import {
 	TypographySmall,
 } from "@/components/typography";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import type React from "react";
+import { DownloadIcon } from "lucide-react";
 import Image from "next/image";
 import {
 	Card,
@@ -137,6 +139,7 @@ const roles: Array<{
 		),
 	},
 ];
+
 const stack = [
 	{
 		name: "Rails",
@@ -195,113 +198,156 @@ const skills = [
 export default function About() {
 	return (
 		<>
-			<section className="bg-white py-16">
-				<div className="container mx-auto flex flex-col lg:flex-row items-center">
+			<section className="bg-secondary py-24 relative">
+				<div className="container grid grid-cols-1 lg:grid-cols-12 gap-12">
 					{/* Left section: Introduction Text */}
-					<div className="lg:w-1/2 text-left space-y-6 mb-12 lg:mb-0">
-						<h1 className="text-5xl font-bold text-gray-900">
+					<div className="col-span-1 lg:col-span-8 prose prose-lg">
+						<h1 className="text-5xl font-bold text-foreground leading-tight">
 							Hi, I'm Jane and I’m a{" "}
-							<span className="underline decoration-blue-400">
+							<span className="underline decoration-orange-500">
 								designer & developer
 							</span>
 						</h1>
-						<p className="text-gray-600">
-							Pumpkin seasonal rich froth decaffeinated trifecta organic blue
-							panna doppio. Body a whipped lungo variety spice seasonal body
-							press mountain con macchiato...
+						<p>
+							I'm a passionate software engineer with over 8 years of experience
+							in developing robust and scalable applications. My journey in the
+							tech world began with a fascination for problem-solving and has
+							evolved into a career focused on creating innovative solutions. I
+							specialize in full-stack development, with expertise in
+							JavaScript, React, Node.js, and cloud technologies.
 						</p>
-						<p className="text-gray-600">
-							Medium coffee single white to caramelization siphon con siphon id
-							as con go single. So ristretto pumpkin affogato cinnamon breve
-							turkish organic. Lait black kopi...
+						<p>
+							Throughout my career, I've had the opportunity to work on diverse
+							projects, from building high-performance web applications to
+							developing complex backend systems. I'm particularly interested in
+							user-centric design and always strive to create intuitive,
+							efficient interfaces that enhance the user experience.
 						</p>
-						<p className="text-lg font-bold italic text-gray-900">Jane Doe</p>
+						<p>
+							I'm a strong advocate for clean code, test-driven development, and
+							continuous learning. In this rapidly evolving field, I believe
+							it's crucial to stay updated with the latest technologies and best
+							practices. When I'm not coding, you can find me contributing to
+							open-source projects, mentoring junior developers, or exploring
+							new tech stacks.
+						</p>
+						<p className="text-xl my-12 font-bold italic text-foreground">
+							Brian Rabil
+						</p>
 					</div>
 
 					{/* Right section: Image */}
-					<div className="lg:w-1/2">
+					<div className="col-span-1 lg:col-span-4">
 						<Image
-							src="/path-to-image.jpg" // Replace with actual image path
-							alt="Jane sitting at a desk"
-							width={600}
-							height={800}
-							className="rounded-lg"
+							src="https://placehold.co/990x1346"
+							alt="Placeholder profile image"
+							width={990}
+							height={1346}
+							className="h-full w-full object-cover rounded-lg overflow-hidden"
 						/>
 					</div>
 				</div>
 			</section>
 
-			<section className="bg-white py-16">
-				<div className="container mx-auto">
+			<section className="bg-background py-24">
+				<div className="container grid grid-cols-1 lg:grid-cols-12 gap-12">
 					{/* Title Section */}
-					<div className="mb-12">
-						<h2 className="text-4xl font-bold text-gray-900">
+					<div className="col-span-1 lg:col-span-4 prose prose-lg">
+						<h2 className="text-5xl font-bold text-foreground leading-tight">
 							My career{" "}
 							<span className="underline decoration-blue-500">journey</span> so
 							far
 						</h2>
-						<p className="text-gray-600 mt-4 max-w-lg">
+						<p className="text-foreground mt-8">
 							Panna french americano macchiato breve roast cinnamon cortado
 							strong white pumpkin et single press aftertaste.
 						</p>
-						<button
+						<Button
 							type="button"
-							className="mt-6 px-6 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-700 transition"
+							className="mt-6"
+							variant="secondary"
+							size="lg"
 						>
-							Download CV <span aria-hidden="true">⬇️</span>
-						</button>
+							Download CV <DownloadIcon className="w-4 h-4 ml-2" />
+						</Button>
 					</div>
 
 					{/* Roles Grid */}
-					<div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+					<div className="col-span-1 lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
 						{roles.map((role, index) => (
-							<div key={role.company} className="relative">
+							<Card key={role.company}>
+								<CardHeader className="flex flex-row justify-between items-center">
+									<div className="flex flex-col space-y-2">
+										{role.logo && role.logo}
+										<p className="font-semibold text-accent-foreground text-xs">
+											{role.startDate} - {role.endDate}
+										</p>
+										<p className="text-lg font-bold text-foreground">
+											{role.company}
+										</p>
+									</div>
+
+									<div className="text-muted-foreground/10 text-8xl font-bold m-0 p-0">
+										{`0${index + 1}`}
+									</div>
+								</CardHeader>
 								{/* Number behind each item */}
-								<div className="absolute text-gray-200 text-8xl font-bold top-0 right-0 -z-10">
-									{`0${index + 1}`}
-								</div>
 
 								{/* Role Info */}
-								<div className="bg-white shadow-md p-6 rounded-lg">
-									<div className="flex items-center mb-4">
-										{/* <img
-											src={role.logo}
-											alt={`${role.company} logo`}
-											className="w-10 h-10 mr-4"
-										/> */}
-										{role.logo && role.logo}
-										<div>
-											<p className="font-semibold text-blue-600">
-												{role.startDate} - {role.endDate}
-											</p>
-											<p className="text-lg font-bold text-gray-900">
-												{role.company}
-											</p>
-										</div>
+								<CardContent>
+									<div className="">
+										<p className="text-muted-foreground">{role.description}</p>
 									</div>
-									<p className="text-gray-600">{role.description}</p>
-								</div>
-							</div>
+								</CardContent>
+							</Card>
 						))}
-					</div>
-
-					{/* Optional Additional Graphic */}
-					<div className="mt-12 text-gray-500 text-center italic">
-						<p>I am currently here in my journey :D</p>
 					</div>
 				</div>
 			</section>
 
-			<section className="bg-white py-16">
-				<div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-					{/* Left Section: Image and Badge */}
-					<div className="relative">
+			<section className="bg-secondary py-24">
+				<div className="container grid grid-cols-1 lg:grid-cols-12 gap-12">
+					<div className="col-span-1 lg:col-span-6 prose prose-lg">
+						<h2 className="text-5xl font-bold text-foreground leading-tight">
+							A tour of my gadgets and workstation
+						</h2>
+						<p>
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores
+							impedit perferendis suscipit eaque, iste dolor cupiditate
+							blanditiis ratione. Instant extraction mazagran milk instant milk
+							foam café iced aftertaste iced brewed.
+						</p>
+						<Button
+							type="button"
+							className="mt-6"
+							variant="secondary"
+							size="lg"
+						>
+							Follow me on X
+						</Button>
+					</div>
+					<div className="col-span-1 lg:col-span-6">
 						<Image
-							src="/path-to-image.jpg" // Replace with actual image path
-							alt="Jane working"
-							width={600}
-							height={400}
-							className="rounded-lg"
+							src="https://placehold.co/743x1048"
+							alt="Placeholder profile image"
+							width={743}
+							height={1048}
+							className="object-cover rounded-lg overflow-hidden"
+						/>
+					</div>
+				</div>
+			</section>
+
+			<section className="bg-background py-24">
+				<div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+					{/* Left Section: Image and Badge */}
+					<div className="relative col-span-1">
+						<Image
+							src="https://placehold.co/743x1048"
+							alt="Placeholder profile image"
+							width={743}
+							height={1048}
+							className="h-full w-full object-cover rounded-lg overflow-hidden"
 						/>
 						{/* Badge */}
 						<div className="absolute bottom-4 left-4 bg-blue-600 text-white p-4 rounded-lg shadow-lg">
@@ -333,7 +379,7 @@ export default function About() {
 					</div>
 
 					{/* Right Section: Tech Stack */}
-					<div>
+					<div className="col-span-1">
 						<h2 className="text-4xl font-bold text-gray-900">
 							A simple stack that you can{" "}
 							<span className="underline decoration-blue-500">

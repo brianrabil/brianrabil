@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Nav, NavLink } from "@/components/nav";
 import { Logo } from "@/components/logo";
 import { ArrowUpRightIcon } from "lucide-react";
+import { RainbowButton } from "@/components/ui/rainbow-button";
 
 export const metadata: Metadata = {
 	title: "Brian Rabil",
@@ -89,7 +90,7 @@ export default async function RootLayout({
 							<div className="flex flex-col gap-x-12 lg:flex-row justify-between items-center text-center lg:text-left">
 								<div className="mb-8 lg:mb-0 max-w-lg flex flex-col gap-y-8 h-full justify-between items-start">
 									<h4 className="text-4xl font-bold text-background">
-										Let’s make something great together
+										Getting ready for a new venture?
 									</h4>
 									<Button type="button" variant="secondary" size="lg" asChild>
 										<Link href="/contact">
