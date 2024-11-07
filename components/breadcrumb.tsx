@@ -1,7 +1,5 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import { HomeIcon, ChevronRightIcon } from "lucide-react";
 import {
 	Breadcrumb as BaseBreadcrumb,
 	BreadcrumbItem as BaseBreadcrumbItem,
@@ -9,6 +7,8 @@ import {
 	BreadcrumbList as BaseBreadcrumbList,
 	BreadcrumbSeparator as BaseBreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { ChevronRightIcon, HomeIcon } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const BreadcrumbSeparator = () => {
 	return (

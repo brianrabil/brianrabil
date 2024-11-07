@@ -1,6 +1,6 @@
-import type { Route } from "next";
 import * as Icon from "@/components/dev-icons";
 import { ProjectCategory } from "@/components/project-card";
+import type { Route } from "next";
 
 interface Config {
 	title: string;

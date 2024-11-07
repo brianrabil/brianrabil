@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
-import type React from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { config } from "@/lib/config";
+import type { Metadata } from "next";
+import type React from "react";
 import "@/app/globals.css";
-import Link from "next/link";
 import { Container } from "@/components/container";
-import { Button } from "@/components/ui/button";
-import { Nav, NavLink } from "@/components/nav";
 import { Logo } from "@/components/logo";
-import { ArrowUpRightIcon } from "lucide-react";
+import { Nav, NavLink } from "@/components/nav";
+import { Button } from "@/components/ui/button";
 import { RainbowButton } from "@/components/ui/rainbow-button";
+import { ArrowUpRightIcon } from "lucide-react";
+import Link from "next/link";
 
 export const metadata: Metadata = {
 	title: "Brian Rabil",

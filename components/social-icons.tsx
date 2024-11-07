@@ -1,5 +1,5 @@
-import type * as React from "react";
 import { cn } from "@/lib/utils";
+import type * as React from "react";
 
 export function XIcon({ className, ...props }: React.SVGProps<SVGSVGElement>) {
 	return (

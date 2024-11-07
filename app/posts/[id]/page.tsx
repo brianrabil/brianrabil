@@ -1,12 +1,12 @@
 "use server";
 
-import React from "react";
-import { config } from "@/lib/config";
-import { notFound } from "next/navigation";
-import MDXPage from "@/components/mdx-page";
-import MDXContent from "@/markdown/my-tech-stack.mdx";
-import { Section } from "@/components/section";
 import { Container } from "@/components/container";
+import MDXPage from "@/components/mdx-page";
+import { Section } from "@/components/section";
+import { config } from "@/lib/config";
+import MDXContent from "@/markdown/my-tech-stack.mdx";
+import { notFound } from "next/navigation";
+import React from "react";
 
 export default async function BlogPostPage(props: {
 	params: Promise<{ id: string }>;

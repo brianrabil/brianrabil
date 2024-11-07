@@ -1,12 +1,12 @@
 "use server";
 
-import React from "react";
-import { Section } from "@/components/section";
-import { Container } from "@/components/container";
-import { TypographyH1, TypographyH2 } from "@/components/typography";
-import { CardGrid } from "@/components/card-grid";
 import { BlogPostCard } from "@/components/blog-post-card";
+import { CardGrid } from "@/components/card-grid";
+import { Container } from "@/components/container";
+import { Section } from "@/components/section";
+import { TypographyH1, TypographyH2 } from "@/components/typography";
 import { config } from "@/lib/config";
+import React from "react";
 
 export default async function BlogPage() {
 	return (

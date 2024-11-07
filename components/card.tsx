@@ -1,6 +1,6 @@
+import { Card as BaseCard } from "@/components/ui/card";
 import { MagicCard as BaseMagicCard } from "@/components/ui/magic-card";
 import type React from "react";
-import { Card as BaseCard } from "@/components/ui/card";
 
 export function Card({ children }: { children: React.ReactNode }) {
 	return (

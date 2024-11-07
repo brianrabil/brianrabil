@@ -1,3 +1,11 @@
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "@/components/card";
 import * as Icon from "@/components/dev-icons";
 import {
 	TypographyH1,
@@ -7,19 +15,11 @@ import {
 	TypographyLead,
 	TypographySmall,
 } from "@/components/typography";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import type React from "react";
 import { DownloadIcon } from "lucide-react";
 import Image from "next/image";
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "@/components/card";
+import Link from "next/link";
+import type React from "react";
 
 const roles: Array<{
 	title: string;

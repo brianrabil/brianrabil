@@ -1,17 +1,17 @@
-import type React from "react";
-import Link from "next/link";
 import { Container } from "@/components/container";
-import { Slash } from "lucide-react";
 import { Section } from "@/components/section";
 import {
 	Breadcrumb,
+	BreadcrumbEllipsis,
 	BreadcrumbItem,
 	BreadcrumbLink,
 	BreadcrumbList,
 	BreadcrumbPage,
-	BreadcrumbEllipsis,
 	BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Slash } from "lucide-react";
+import Link from "next/link";
+import type React from "react";
 
 export default function BlogLayout({
 	children,

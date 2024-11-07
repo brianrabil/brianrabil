@@ -1,8 +1,8 @@
 "use server";
 
-import React from "react";
 import { Container } from "@/components/container";
 import { config } from "@/lib/config";
+import React from "react";
 
 export default async function ContactPage() {
 	return (

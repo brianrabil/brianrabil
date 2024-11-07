@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { AppWindowIcon, PaintbrushIcon } from "lucide-react";
+import Image from "next/image";
 
 export enum ProjectCategory {
 	APP = "Application",

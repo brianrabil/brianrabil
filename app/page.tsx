@@ -1,47 +1,47 @@
 import { Container } from "@/components/container";
-import { Button } from "@/components/ui/button";
-import { config } from "@/lib/config";
-import type { Viewport } from "next";
-import Image from "next/image";
-import { XIcon, GithubIcon } from "@/components/social-icons";
 import { ProjectCard } from "@/components/project-card";
-import {
-	CalendarIcon,
-	ClockIcon,
-	MapIcon,
-	AwardIcon,
-	ArrowRightIcon,
-	ChevronLeftIcon,
-	ChevronRightIcon,
-	StarIcon,
-	SearchIcon,
-	BellIcon,
-	FileTextIcon,
-	GlobeIcon,
-} from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Slider } from "@/components/ui/slider";
 import { Range } from "@/components/range";
+import { GithubIcon, XIcon } from "@/components/social-icons";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
+import { Button } from "@/components/ui/button";
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
 import {
 	Carousel,
 	CarouselContent,
 	CarouselItem,
-	CarouselPrevious,
 	CarouselNext,
+	CarouselPrevious,
 } from "@/components/ui/carousel";
-import Link from "next/link";
+import { RainbowButton } from "@/components/ui/rainbow-button";
+import { Separator } from "@/components/ui/separator";
+import { Slider } from "@/components/ui/slider";
+import { config } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-	CardFooter,
-} from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Separator } from "@/components/ui/separator";
-import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
-import { RainbowButton } from "@/components/ui/rainbow-button";
+	ArrowRightIcon,
+	AwardIcon,
+	BellIcon,
+	CalendarIcon,
+	ChevronLeftIcon,
+	ChevronRightIcon,
+	ClockIcon,
+	FileTextIcon,
+	GlobeIcon,
+	MapIcon,
+	SearchIcon,
+	StarIcon,
+} from "lucide-react";
+import type { Viewport } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
 const features = [
 	{

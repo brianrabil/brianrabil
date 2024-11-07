@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { cn } from "@/lib/utils";
-import type React from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type React from "react";
 
 type LinkProps = React.ComponentProps<typeof Link>;
 
