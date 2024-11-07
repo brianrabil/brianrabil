@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { ArrowUpRightIcon } from "lucide-react";
 import Link from "next/link";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
 	title: "Brian Rabil",
@@ -157,6 +158,7 @@ export default async function RootLayout({
 						</div>
 					</div>
 				</footer>
+				<Analytics />
 			</body>
 		</html>
 	);
