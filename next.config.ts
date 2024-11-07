@@ -7,10 +7,6 @@ const nextConfig: NextConfig = {
 		remotePatterns: [{ hostname: "placehold.co/**" }],
 		dangerouslyAllowSVG: true,
 	},
-	webpack: (config) => {
-		config.externals.push("bun:sqlite");
-		return config;
-	},
 };
 
 const withMDX = createMDX({

@@ -18,7 +18,6 @@
 			"@/app/*": ["app/*"],
 			"@/components/*": ["components/*"],
 			"@/lib/*": ["lib/*"],
-			"@/db/*": ["db/*"],
 			"@/markdown/*": ["markdown/*"]
 		},
 		"incremental": true,

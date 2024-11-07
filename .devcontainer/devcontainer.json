@@ -2,18 +2,17 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
 	"name": "Next.js",
-	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+	"image": "mcr.microsoft.com/devcontainers/base:bookworm",
 	"runArgs": ["--name", "brian-rabil-devcontainer"],
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
-		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
-		"./local-features/bun": {},
+		"ghcr.io/devcontainers/features/node:1": {},
 		"./local-features/turbo": {}
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [3000],
+	// "forwardPorts": [3000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "yarn install",
@@ -33,10 +32,12 @@
 				"bradlc.vscode-tailwindcss",
 				"ExodiusStudios.comment-anchors",
 				"github.vscode-github-actions",
-				"ms-azuretools.vscode-docker",
 				"PKief.material-icon-theme",
 				"streetsidesoftware.code-spell-checker",
-				"unifiedjs.vscode-mdx"
+				"unifiedjs.vscode-mdx",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"csstools.postcss"
 			]
 		}
 	}

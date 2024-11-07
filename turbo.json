@@ -5,10 +5,6 @@
 			"dependsOn": ["^build"],
 			"outputs": [".next/**", "!.next/cache/**"]
 		},
-		"check-types": {
-			"dependsOn": ["^check-types"],
-			"inputs": ["**/*.{ts,tsx}", "tsconfig.json"]
-		},
 		"dev": {
 			"persistent": true,
 			"cache": false
