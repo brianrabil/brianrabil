@@ -11,6 +11,7 @@ import { RainbowButton } from "@/components/ui/rainbow-button";
 import { ArrowUpRightIcon } from "lucide-react";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
 	title: "Brian Rabil",
@@ -159,6 +160,7 @@ export default async function RootLayout({
 					</div>
 				</footer>
 				<Analytics />
+				<SpeedInsights />
 			</body>
 		</html>
 	);
