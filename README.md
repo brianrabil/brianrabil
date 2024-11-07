@@ -1,5 +1,7 @@
 # Personal Portfolio Website
 
+[![Checked with Biome](https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev)
+
 A modern, responsive portfolio website built with Next.js 14, TypeScript, and Tailwind CSS.
 
 ## 🚀 Features
