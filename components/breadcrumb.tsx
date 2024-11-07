@@ -46,9 +46,7 @@ export function Breadcrumb() {
 					<>
 						{index !== 0 && <BreadcrumbSeparator />}
 						<BaseBreadcrumbItem key={item.key}>
-							<BaseBreadcrumbLink href={item.href}>
-								{item.label}
-							</BaseBreadcrumbLink>
+							<BaseBreadcrumbLink href={item.href}>{item.label}</BaseBreadcrumbLink>
 						</BaseBreadcrumbItem>
 					</>
 				))}

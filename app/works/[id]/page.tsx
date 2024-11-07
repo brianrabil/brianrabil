@@ -36,9 +36,7 @@ export default async function ProjectPage(props: {
 		<div className="container mx-auto px-4 py-8">
 			<h1 className="text-3xl font-bold mb-6">{project.title}</h1>
 			<div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
-				<p className="text-gray-600 dark:text-gray-300 mb-4">
-					{project.description}
-				</p>
+				<p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
 				{/* Add more project details here */}
 			</div>
 		</div>

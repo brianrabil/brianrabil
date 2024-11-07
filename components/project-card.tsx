@@ -24,12 +24,7 @@ function getCategoryIcon(category: ProjectCategory) {
 	}
 }
 
-export function ProjectCard({
-	title,
-	category,
-	description,
-	image,
-}: ProjectCardProps) {
+export function ProjectCard({ title, category, description, image }: ProjectCardProps) {
 	return (
 		<div className="bg-card border rounded-xl p-8 gap-8 flex overflow-hidden flex-col lg:flex-row lg:items-center lg:justify-between">
 			{/* Text Section */}
@@ -44,12 +39,7 @@ export function ProjectCard({
 
 			{/* Image Section */}
 			<div className="lg:w-1/2 mt-8 lg:mt-0 lg:ml-8 w-full h-full rounded-xl overflow-hidden">
-				<Image
-					src={image}
-					alt={`${title} project image`}
-					width={600}
-					height={400}
-				/>
+				<Image src={image} alt={`${title} project image`} width={600} height={400} />
 			</div>
 		</div>
 	);

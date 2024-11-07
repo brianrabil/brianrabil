@@ -37,12 +37,7 @@ const roles: Array<{
 		description:
 			"I worked for Cognizant as a Senior Software Engineer for 3 years. I was responsible for designing and developing web and desktop applications for clients in the financial services industry.",
 		logo: (
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 24 24"
-				width="24"
-				height="24"
-			>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
 				<title>Goldman Sachs</title>
 				<path
 					fill="currentColor"
@@ -59,12 +54,7 @@ const roles: Array<{
 		description:
 			"Currently, I work for Schema Driven, a startup that provides enterprise-level automation software. As the lead UX Architect, I work closely with the engineering team to design and build powerful &amp; easy-to-use low-code tooling.",
 		logo: (
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 24 24"
-				width="24"
-				height="24"
-			>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
 				<title>Schema Driven</title>
 				<path
 					fill="currentColor"
@@ -81,12 +71,7 @@ const roles: Array<{
 		description:
 			"I started my career at Accenture as a Software Engineer. I worked on a variety of projects for clients in the healthcare and retail industries.",
 		logo: (
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 24 24"
-				width="24"
-				height="24"
-			>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
 				<title>SAIC</title>
 				<path
 					fill="currentColor"
@@ -103,12 +88,7 @@ const roles: Array<{
 		description:
 			"I started my career at Accenture as a Software Engineer. I worked on a variety of projects for clients in the healthcare and retail industries.",
 		logo: (
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 24 24"
-				width="24"
-				height="24"
-			>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
 				<title>Smart Sale</title>
 				<path
 					fill="currentColor"
@@ -124,12 +104,7 @@ const roles: Array<{
 		endDate: "2013",
 		description: "",
 		logo: (
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 24 24"
-				width="24"
-				height="24"
-			>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
 				<title>Adobe Illustrator</title>
 				<path
 					fill="currentColor"
@@ -204,36 +179,29 @@ export default function About() {
 					<div className="col-span-1 lg:col-span-8 prose prose-lg">
 						<h1 className="text-5xl font-bold text-foreground leading-tight">
 							Hi, I'm Jane and I’m a{" "}
-							<span className="underline decoration-orange-500">
-								designer & developer
-							</span>
+							<span className="underline decoration-orange-500">designer & developer</span>
 						</h1>
 						<p>
-							I'm a passionate software engineer with over 8 years of experience
-							in developing robust and scalable applications. My journey in the
-							tech world began with a fascination for problem-solving and has
-							evolved into a career focused on creating innovative solutions. I
-							specialize in full-stack development, with expertise in
+							I'm a passionate software engineer with over 8 years of experience in developing
+							robust and scalable applications. My journey in the tech world began with a
+							fascination for problem-solving and has evolved into a career focused on creating
+							innovative solutions. I specialize in full-stack development, with expertise in
 							JavaScript, React, Node.js, and cloud technologies.
 						</p>
 						<p>
-							Throughout my career, I've had the opportunity to work on diverse
-							projects, from building high-performance web applications to
-							developing complex backend systems. I'm particularly interested in
-							user-centric design and always strive to create intuitive,
+							Throughout my career, I've had the opportunity to work on diverse projects, from
+							building high-performance web applications to developing complex backend systems. I'm
+							particularly interested in user-centric design and always strive to create intuitive,
 							efficient interfaces that enhance the user experience.
 						</p>
 						<p>
-							I'm a strong advocate for clean code, test-driven development, and
-							continuous learning. In this rapidly evolving field, I believe
-							it's crucial to stay updated with the latest technologies and best
-							practices. When I'm not coding, you can find me contributing to
-							open-source projects, mentoring junior developers, or exploring
-							new tech stacks.
+							I'm a strong advocate for clean code, test-driven development, and continuous
+							learning. In this rapidly evolving field, I believe it's crucial to stay updated with
+							the latest technologies and best practices. When I'm not coding, you can find me
+							contributing to open-source projects, mentoring junior developers, or exploring new
+							tech stacks.
 						</p>
-						<p className="text-xl my-12 font-bold italic text-foreground">
-							Brian Rabil
-						</p>
+						<p className="text-xl my-12 font-bold italic text-foreground">Brian Rabil</p>
 					</div>
 
 					{/* Right section: Image */}
@@ -254,20 +222,13 @@ export default function About() {
 					{/* Title Section */}
 					<div className="col-span-1 lg:col-span-4 prose prose-lg">
 						<h2 className="text-5xl font-bold text-foreground leading-tight">
-							My career{" "}
-							<span className="underline decoration-blue-500">journey</span> so
-							far
+							My career <span className="underline decoration-blue-500">journey</span> so far
 						</h2>
 						<p className="text-foreground mt-8">
-							Panna french americano macchiato breve roast cinnamon cortado
-							strong white pumpkin et single press aftertaste.
+							Panna french americano macchiato breve roast cinnamon cortado strong white pumpkin et
+							single press aftertaste.
 						</p>
-						<Button
-							type="button"
-							className="mt-6"
-							variant="secondary"
-							size="lg"
-						>
+						<Button type="button" className="mt-6" variant="secondary" size="lg">
 							Download CV <DownloadIcon className="w-4 h-4 ml-2" />
 						</Button>
 					</div>
@@ -282,9 +243,7 @@ export default function About() {
 										<p className="font-semibold text-accent-foreground text-xs">
 											{role.startDate} - {role.endDate}
 										</p>
-										<p className="text-lg font-bold text-foreground">
-											{role.company}
-										</p>
+										<p className="text-lg font-bold text-foreground">{role.company}</p>
 									</div>
 
 									<div className="text-muted-foreground/10 text-8xl font-bold m-0 p-0">
@@ -312,17 +271,11 @@ export default function About() {
 							A tour of my gadgets and workstation
 						</h2>
 						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores
-							impedit perferendis suscipit eaque, iste dolor cupiditate
-							blanditiis ratione. Instant extraction mazagran milk instant milk
-							foam café iced aftertaste iced brewed.
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis
+							suscipit eaque, iste dolor cupiditate blanditiis ratione. Instant extraction mazagran
+							milk instant milk foam café iced aftertaste iced brewed.
 						</p>
-						<Button
-							type="button"
-							className="mt-6"
-							variant="secondary"
-							size="lg"
-						>
+						<Button type="button" className="mt-6" variant="secondary" size="lg">
 							Follow me on X
 						</Button>
 					</div>
@@ -382,15 +335,12 @@ export default function About() {
 					<div className="col-span-1">
 						<h2 className="text-4xl font-bold text-gray-900">
 							A simple stack that you can{" "}
-							<span className="underline decoration-blue-500">
-								always trust
-							</span>
+							<span className="underline decoration-blue-500">always trust</span>
 						</h2>
 						<p className="mt-4 text-gray-600">
-							I've been a software developer for over 13 years, and while my
-							stack has shifted over the years, I kept coming back to the same
-							technologies. The following is the stack that I've developed &
-							honed over the years as a software developer.
+							I've been a software developer for over 13 years, and while my stack has shifted over
+							the years, I kept coming back to the same technologies. The following is the stack
+							that I've developed & honed over the years as a software developer.
 						</p>
 
 						<div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -399,11 +349,7 @@ export default function About() {
 									key={tech.name}
 									className="flex items-center bg-gray-100 p-4 rounded-lg shadow-md"
 								>
-									<img
-										src={tech.logo}
-										alt={`${tech.name} logo`}
-										className="w-10 h-10 mr-4"
-									/>
+									<img src={tech.logo} alt={`${tech.name} logo`} className="w-10 h-10 mr-4" />
 									<div>
 										<p className="font-semibold text-gray-900">{tech.name}</p>
 										<p className="text-sm text-gray-600">{tech.experience}</p>

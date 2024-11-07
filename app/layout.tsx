@@ -60,8 +60,8 @@ export default async function RootLayout({
 									Subscribe to my newsletter
 								</h3>
 								<p className="mt-4 text-primary-foreground text-lg">
-									Join 10,000+ designers and get creative site breakdowns,
-									design musings and tips every Monday.
+									Join 10,000+ designers and get creative site breakdowns, design musings and tips
+									every Monday.
 								</p>
 							</div>
 							<div className="w-1/2">
@@ -103,8 +103,8 @@ export default async function RootLayout({
 								{/* Contact and Social Links */}
 								<div className="mt-8 lg:mt-0 max-w-md flex flex-col gap-y-8 h-full">
 									<p className="text-background text-lg">
-										Iced pumpkin ristretto irish trifecta robusta trade froth
-										affogato barista con barista cappuccino filter roast.
+										Iced pumpkin ristretto irish trifecta robusta trade froth affogato barista con
+										barista cappuccino filter roast.
 									</p>
 									<div className="grid grid-cols-3 gap-3">
 										<Button
@@ -147,18 +147,12 @@ export default async function RootLayout({
 							<div className="mt-24 border-t border-border/20 pt-12 flex flex-row justify-between items-center">
 								<nav className="flex flex-row gap-x-8">
 									{config.nav.map((item) => (
-										<Link
-											key={item.name}
-											href={item.href}
-											className="text-background"
-										>
+										<Link key={item.name} href={item.href} className="text-background">
 											{item.name}
 										</Link>
 									))}
 								</nav>
-								<p className="text-background/80">
-									© 2024 Brian Rabil. All rights reserved.
-								</p>
+								<p className="text-background/80">© 2024 Brian Rabil. All rights reserved.</p>
 							</div>
 						</div>
 					</div>

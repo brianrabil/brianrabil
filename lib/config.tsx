@@ -137,8 +137,7 @@ export const config = {
 		{
 			title: "My Financial",
 			category: ProjectCategory.APP,
-			description:
-				"Designed an intuitive banking application for personal finance management.",
+			description: "Designed an intuitive banking application for personal finance management.",
 			image: "/images/sd-my-financial-mockup.png",
 		},
 		{
@@ -151,22 +150,19 @@ export const config = {
 		{
 			title: "Synthetic Analyst",
 			category: ProjectCategory.APP,
-			description:
-				"Engineered an AI-powered data analysis tool for business intelligence.",
+			description: "Engineered an AI-powered data analysis tool for business intelligence.",
 			image: "/images/saic-sa-module-builder-mockup.png",
 		},
 		{
 			title: "Compeat",
 			category: ProjectCategory.APP,
-			description:
-				"Designed a competitive analysis platform for small businesses.",
+			description: "Designed a competitive analysis platform for small businesses.",
 			image: "/images/sd-compeat-mockup.png",
 		},
 		{
 			title: "CAP Map",
 			category: ProjectCategory.APP,
-			description:
-				"Developed a mapping solution for Civil Air Patrol operations.",
+			description: "Developed a mapping solution for Civil Air Patrol operations.",
 			image: "/images/saic-cap-map-mockup.png",
 		},
 		{
@@ -228,8 +224,7 @@ export const config = {
 		},
 		{
 			id: "2",
-			title:
-				"Efficient JavaScript Tooling in 2024: The Latest Build Tools and Optimizations",
+			title: "Efficient JavaScript Tooling in 2024: The Latest Build Tools and Optimizations",
 			href: "/blog/efficient-javascript-tooling-2024" as Route,
 			category: "Guide",
 			imageUrl: "https://placehold.co/600x400",
@@ -240,8 +235,7 @@ export const config = {
 		},
 		{
 			id: "3",
-			title:
-				"Adopting TypeScript in 2024: Tips for Seamless Integration into Existing Projects",
+			title: "Adopting TypeScript in 2024: Tips for Seamless Integration into Existing Projects",
 			href: "/blog/adopting-typescript-2024" as Route,
 			category: "Guide",
 			imageUrl: "https://placehold.co/600x400",

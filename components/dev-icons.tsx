@@ -10,10 +10,7 @@ interface IconBaseProps {
 
 function IconBase({ el, label, className, svgClassName }: IconBaseProps) {
 	return (
-		<svg
-			className={cn("h-8 w-auto", svgClassName, className)}
-			viewBox="0 0 128 128"
-		>
+		<svg className={cn("h-8 w-auto", svgClassName, className)} viewBox="0 0 128 128">
 			<title>{label}</title>
 			{el}
 		</svg>
@@ -356,12 +353,7 @@ export function ChromeIcon() {
 						<stop offset="0" stopColor="#81B4E0" />
 						<stop offset="1" stopColor="#0C5A94" />
 					</linearGradient>
-					<circle
-						fill="url(#chrome-original-a)"
-						cx="64.149"
-						cy="64.235"
-						r="22.736"
-					/>
+					<circle fill="url(#chrome-original-a)" cx="64.149" cy="64.235" r="22.736" />
 					<linearGradient
 						id="chrome-original-b"
 						gradientUnits="userSpaceOnUse"
@@ -734,12 +726,7 @@ export function TauriIcon() {
 }
 
 export function VercelIcon() {
-	return (
-		<IconBase
-			label="Vercel"
-			el={<path d="M64.002 8.576 128 119.424H0Zm0 0" />}
-		/>
-	);
+	return <IconBase label="Vercel" el={<path d="M64.002 8.576 128 119.424H0Zm0 0" />} />;
 }
 
 export function WebpackIcon() {
@@ -831,10 +818,7 @@ export function FigmaIcon() {
 						fill="#f24e1e"
 						d="M24 21.5C24 9.6 33.6 0 45.5 0H67v43H45.5C33.6 43 24 33.4 24 21.5zm0 0"
 					/>
-					<path
-						fill="#ff7262"
-						d="M67 0h21.5C100.4 0 110 9.6 110 21.5S100.4 43 88.5 43H67zm0 0"
-					/>
+					<path fill="#ff7262" d="M67 0h21.5C100.4 0 110 9.6 110 21.5S100.4 43 88.5 43H67zm0 0" />
 					<path
 						fill="#1abcfe"
 						d="M110 64.5c0 11.9-9.6 21.5-21.5 21.5S67 76.4 67 64.5 76.6 43 88.5 43 110 52.6 110 64.5zm0 0"

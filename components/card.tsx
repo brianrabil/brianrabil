@@ -10,9 +10,7 @@ export function Card({ children }: { children: React.ReactNode }) {
 			gradientOpacity={0.1}
 			gradientSize={200}
 		>
-			<BaseCard className="bg-transparent border-none w-full">
-				{children}
-			</BaseCard>
+			<BaseCard className="bg-transparent border-none w-full">{children}</BaseCard>
 		</BaseMagicCard>
 	);
 }
