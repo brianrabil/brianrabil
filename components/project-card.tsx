@@ -1,5 +1,6 @@
 import { AppWindowIcon, PaintbrushIcon } from "lucide-react";
 import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/card";
 
 export enum ProjectCategory {
 	APP = "Application",
@@ -26,21 +27,23 @@ function getCategoryIcon(category: ProjectCategory) {
 
 export function ProjectCard({ title, category, description, image }: ProjectCardProps) {
 	return (
-		<div className="bg-card border rounded-xl p-8 gap-8 flex overflow-hidden flex-col lg:flex-row lg:items-center lg:justify-between">
-			{/* Text Section */}
-			<div className="lg:w-1/2 space-y-4">
-				<div className="text-muted-foreground font-medium flex items-center space-x-2">
-					{getCategoryIcon(category)}
-					<span>{category}</span>
+		<Card innerClassName="flex flex-col lg:flex-row">
+			<CardHeader className="lg:order-2 lg:w-1/2">
+				{/* Image Section */}
+				<div className="flex flex-col w-full h-full rounded-xl object-cover overflow-hidden">
+					<Image src={image} alt={title} width={600} height={400} className="w-full h-full" />
 				</div>
-				<h3 className="text-2xl font-bold text-foreground">{title}</h3>
-				<p className="text-foreground text-base">{description}</p>
-			</div>
-
-			{/* Image Section */}
-			<div className="lg:w-1/2 mt-8 lg:mt-0 lg:ml-8 w-full h-full rounded-xl overflow-hidden">
-				<Image src={image} alt={`${title} project image`} width={600} height={400} />
-			</div>
-		</div>
+			</CardHeader>
+			<CardContent className="lg:p-12 lg:w-1/2 lg:flex lg:flex-col lg:justify-center lg:gap-y-4">
+				<div className="text-muted-foreground text-sm font-medium inline-flex items-center gap-x-1.5">
+					{getCategoryIcon(category)} {category}
+				</div>
+				<CardTitle className="text-2xl mb-2 lg:mb-0 font-bold">{title}</CardTitle>
+				<CardDescription className="text-foreground text-base items-center flex">
+					{description}
+				</CardDescription>
+			</CardContent>
+			{/* Text Section */}
+		</Card>
 	);
 }
