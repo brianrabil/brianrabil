@@ -2,67 +2,6 @@ import * as Icon from "@/components/dev-icons";
 import { ProjectCategory } from "@/components/project-card";
 import type { Route } from "next";
 
-interface Config {
-	title: string;
-	description: string;
-
-	nav: {
-		name: string;
-		href: Route;
-	}[];
-
-	tools: {
-		name: string;
-		icon: React.ReactNode;
-	}[];
-
-	projects: {
-		title: string;
-		category: ProjectCategory;
-		description: string;
-		image: string;
-	}[];
-
-	social: {
-		x: {
-			name: string;
-			href: string;
-		};
-		github: {
-			name: string;
-			href: string;
-		};
-		linkedin: {
-			name: string;
-			href: string;
-		};
-		rss: {
-			name: string;
-			href: string;
-		};
-	};
-
-	testimonials: {
-		name: string;
-		title: string;
-		image: string;
-		quote: string;
-		feedback: string;
-		rating: number;
-	}[];
-
-	posts: {
-		id: string;
-		title: string;
-		href: Route;
-		category: string;
-		imageUrl: string;
-		date: string;
-		description: string;
-		readTime: string;
-	}[];
-}
-
 export const config = {
 	title: "Brian Rabil",
 	description: "Personal Website",
@@ -75,19 +14,31 @@ export const config = {
 	],
 	social: {
 		x: {
-			name: "X",
+			network: "X",
+			username: "rabilb",
 			href: "https://x.com/brianrabil",
 		},
 		github: {
-			name: "GitHub",
-			href: "#",
+			network: "GitHub",
+			href: "https://github.com/brianrabil",
 		},
 		linkedin: {
-			name: "LinkedIn",
-			href: "#",
+			network: "LinkedIn",
+			href: "https://www.linkedin.com/in/brianrabil/",
+		},
+		youtube: {
+			network: "YouTube",
+			// TODO: Update with actual YouTube channel
+			href: "https://www.youtube.com/@brianrabil",
+		},
+		tiktok: {
+			network: "TikTok",
+			// TODO: Update with actual TikTok channel
+			href: "https://www.tiktok.com/@brianrabil",
 		},
 		rss: {
-			name: "RSS",
+			network: "RSS",
+			// TODO: Update with actual RSS feed
 			href: "#",
 		},
 	},
@@ -245,4 +196,4 @@ export const config = {
 			readTime: "10 min read",
 		},
 	],
-} satisfies Config;
+} as const;

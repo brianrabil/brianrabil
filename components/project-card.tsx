@@ -27,18 +27,18 @@ function getCategoryIcon(category: ProjectCategory) {
 
 export function ProjectCard({ title, category, description, image }: ProjectCardProps) {
 	return (
-		<Card innerClassName="flex flex-col lg:flex-row">
-			<CardHeader className="lg:order-2 lg:w-1/2">
+		<Card innerClassName="flex flex-col md:flex-row">
+			<CardHeader className="md:order-2 md:w-1/2">
 				{/* Image Section */}
 				<div className="flex flex-col w-full h-full rounded-xl object-cover overflow-hidden">
 					<Image src={image} alt={title} width={600} height={400} className="w-full h-full" />
 				</div>
 			</CardHeader>
-			<CardContent className="lg:p-12 lg:w-1/2 lg:flex lg:flex-col lg:justify-center lg:gap-y-4">
+			<CardContent className="md:p-12 md:w-1/2 md:flex md:flex-col md:justify-center md:gap-y-4">
 				<div className="text-muted-foreground text-sm font-medium inline-flex items-center gap-x-1.5">
 					{getCategoryIcon(category)} {category}
 				</div>
-				<CardTitle className="text-2xl mb-2 lg:mb-0 font-bold">{title}</CardTitle>
+				<CardTitle className="text-2xl mb-2 md:mb-0 font-bold">{title}</CardTitle>
 				<CardDescription className="text-foreground text-base items-center flex">
 					{description}
 				</CardDescription>
