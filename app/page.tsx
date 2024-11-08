@@ -1,7 +1,6 @@
 import { Container } from "@/components/container";
 import { ProjectCard } from "@/components/project-card";
 import { Range } from "@/components/range";
-import { GithubIcon, XIcon } from "@/components/social-icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -31,6 +30,7 @@ import type { Viewport } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { SocialIcon } from "react-social-icons";
+import { HighlightText } from "@/components/typography";
 
 export const viewport: Viewport = {
 	themeColor: "black",
@@ -51,23 +51,8 @@ export default async function App() {
 				<Container className="grid grid-cols-1 md:grid-cols-2 md:gap-8 lg:gap-16">
 					{/* Text Section */}
 					<div className="flex flex-col gap-y-12 md:gap-y-8 my-auto z-10">
-						<h1 className="text-center md:text-left text-5xl lg:text-6xl leading-tight font-extrabold text-foreground relative">
-							<span className="relative z-10 text-nowrap">
-								Helping
-								<svg
-									aria-hidden
-									xmlns="http://www.w3.org/2000/svg"
-									width="249"
-									height="22"
-									viewBox="0 0 249 22"
-									fill="currentColor"
-									className="absolute w-full left-0 right-0 -bottom-1/4 fill-blue-500/25"
-								>
-									<title>Underline</title>
-									<path d="M247.564 18.5807C241.772 13.3568 232.473 12.7526 225.225 11.4427C217.124 9.97395 208.996 8.57031 200.846 7.46093C186.542 5.51302 172.169 4.08854 157.79 3.01562C126.033 0.645827 94.0929 0.0338481 62.3387 2.36979C42.1785 3.85416 22.008 5.90885 2.32917 10.8463C-0.0155171 11.4349 0.207047 14.6719 2.6889 14.7083C22.0261 14.9896 41.3866 12.6406 60.7109 11.8568C79.9471 11.0807 99.2274 10.6719 118.484 10.9557C142.604 11.3125 166.719 12.8333 190.722 15.5156C199.956 16.5469 209.195 17.6016 218.411 18.8255C227.864 20.0807 237.259 22 246.767 20.7422C247.709 20.6198 248.426 19.3568 247.564 18.5807Z" />
-								</svg>
-							</span>{" "}
-							businesses turn their ideas into reality
+						<h1 className="text-center md:text-left text-5xl lg:text-6xl leading-tight font-extrabold text-foreground">
+							<HighlightText>Helping</HighlightText> businesses turn their ideas into reality
 						</h1>
 
 						<p className="text-center md:text-left text-xl text-foreground leading-normal">
@@ -122,23 +107,7 @@ export default async function App() {
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-8 lg:gap-12">
 						<div className="relative md:col-span-1">
 							<h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight mb-5 md:mb-0">
-								I'm your{" "}
-								<span className="text-blue-500 relative text-nowrap">
-									all-in-one
-									<svg
-										aria-hidden
-										xmlns="http://www.w3.org/2000/svg"
-										width="249"
-										height="22"
-										viewBox="0 0 249 22"
-										fill="currentColor"
-										className="absolute w-full left-0 right-0 -bottom-1/4 fill-blue-500/25 z-0"
-									>
-										<title>Underline</title>
-										<path d="M247.564 18.5807C241.772 13.3568 232.473 12.7526 225.225 11.4427C217.124 9.97395 208.996 8.57031 200.846 7.46093C186.542 5.51302 172.169 4.08854 157.79 3.01562C126.033 0.645827 94.0929 0.0338481 62.3387 2.36979C42.1785 3.85416 22.008 5.90885 2.32917 10.8463C-0.0155171 11.4349 0.207047 14.6719 2.6889 14.7083C22.0261 14.9896 41.3866 12.6406 60.7109 11.8568C79.9471 11.0807 99.2274 10.6719 118.484 10.9557C142.604 11.3125 166.719 12.8333 190.722 15.5156C199.956 16.5469 209.195 17.6016 218.411 18.8255C227.864 20.0807 237.259 22 246.767 20.7422C247.709 20.6198 248.426 19.3568 247.564 18.5807Z" />
-									</svg>
-								</span>{" "}
-								project solution
+								I'm your <HighlightText>all-in-one</HighlightText> project solution
 							</h2>
 						</div>
 
@@ -233,12 +202,12 @@ export default async function App() {
 
 					<div className="overflow-x-auto">
 						<div className="flex space-x-8 justify-center items-center flex-wrap">
-							{config.tools.map((tool) => (
+							{config.profile.stack.map((tool) => (
 								<div
 									key={tool.name}
 									className="flex-shrink-0 w-20 h-20 p-4 rounded-full  flex justify-center items-center  transition m-2"
 								>
-									{tool.icon}
+									<Image src={tool.logo} alt={`${tool.name} logo`} width={24} height={24} />
 								</div>
 							))}
 						</div>
@@ -373,22 +342,8 @@ export default async function App() {
 				<div className="container mx-auto">
 					<div className="text-center mb-12">
 						<h2 className="max-w-2xl mx-auto text-4xl md:text-5xl font-bold leading-tight text-foreground">
-							<span className="text-blue-500 relative text-nowrap">
-								Thoughts
-								<svg
-									aria-hidden
-									xmlns="http://www.w3.org/2000/svg"
-									width="249"
-									height="22"
-									viewBox="0 0 249 22"
-									fill="currentColor"
-									className="absolute w-full left-0 right-0 -bottom-1/4 fill-blue-500/25"
-								>
-									<title>Underline</title>
-									<path d="M247.564 18.5807C241.772 13.3568 232.473 12.7526 225.225 11.4427C217.124 9.97395 208.996 8.57031 200.846 7.46093C186.542 5.51302 172.169 4.08854 157.79 3.01562C126.033 0.645827 94.0929 0.0338481 62.3387 2.36979C42.1785 3.85416 22.008 5.90885 2.32917 10.8463C-0.0155171 11.4349 0.207047 14.6719 2.6889 14.7083C22.0261 14.9896 41.3866 12.6406 60.7109 11.8568C79.9471 11.0807 99.2274 10.6719 118.484 10.9557C142.604 11.3125 166.719 12.8333 190.722 15.5156C199.956 16.5469 209.195 17.6016 218.411 18.8255C227.864 20.0807 237.259 22 246.767 20.7422C247.709 20.6198 248.426 19.3568 247.564 18.5807Z" />
-								</svg>
-							</span>{" "}
-							on design, business, and indie-hacking
+							<HighlightText>Thoughts</HighlightText> on design, business, and indie-hacking on
+							design, business, and indie-hacking
 						</h2>
 					</div>
 					<div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
