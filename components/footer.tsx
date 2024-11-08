@@ -75,7 +75,7 @@ export function Footer() {
 									asChild
 									className="border-input/20 text-background bg-foreground hover:bg-background/10 hover:text-background transition-colors duration-300"
 								>
-									<a href="mailto:brian@brianrabil.com">
+									<a href={config.social.email.href}>
 										<MailIcon className="w-4 h-4 mr-2" />
 										Email me
 									</a>

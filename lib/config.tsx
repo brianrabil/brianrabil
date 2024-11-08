@@ -13,6 +13,10 @@ export const config = {
 		{ name: "Contact", href: "/contact" },
 	],
 	social: {
+		email: {
+			network: "Email",
+			href: "mailto:brianrabil@gmail.com",
+		},
 		x: {
 			network: "X",
 			username: "rabilb",

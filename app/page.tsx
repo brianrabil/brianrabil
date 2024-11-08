@@ -30,6 +30,7 @@ import {
 import type { Viewport } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { SocialIcon } from "react-social-icons";
 
 export const viewport: Viewport = {
 	themeColor: "black",
@@ -77,17 +78,23 @@ export default async function App() {
 
 						<div className="flex flex-col items-center md:flex-row md:justify-start gap-x-8 gap-y-12">
 							<RainbowButton>Book a call with me</RainbowButton>
-							<div className="flex gap-x-3">
+							<div className="flex gap-x-4">
 								{/* Social Media Icons */}
-								<Button type="button" variant="outline" size="icon" asChild className="h-10 w-10">
-									<a href={config.social.x.href}>
-										<XIcon className="h-4 w-4" />
-									</a>
+								<Button asChild type="button" variant="outline" size="icon" className="h-10 w-10">
+									<SocialIcon
+										fgColor="currentColor"
+										bgColor="transparent"
+										className="max-h-10 max-w-10"
+										url={config.social.x.href}
+									/>
 								</Button>
 								<Button type="button" variant="outline" size="icon" asChild className="h-10 w-10">
-									<a href={config.social.github.href}>
-										<GithubIcon className="h-4 w-4" />
-									</a>
+									<SocialIcon
+										fgColor="currentColor"
+										bgColor="transparent"
+										className="max-h-10 max-w-10"
+										url={config.social.github.href}
+									/>
 								</Button>
 							</div>
 						</div>
