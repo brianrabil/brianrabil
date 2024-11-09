@@ -91,3 +91,5 @@ out/
 
 # Certificates
 certificates
+.vercel
+.env*.local

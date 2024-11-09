@@ -1,0 +1,9 @@
+{
+	"id": "install-vercel",
+	"name": "Vercel CLI",
+	"version": "0.0.1",
+	"dependsOn": {
+		"node": "*"
+	},
+	"options": {}
+}
