@@ -9,6 +9,7 @@
 	"features": {
 		"ghcr.io/devcontainers/features/node:1": {},
 		"ghcr.io/devcontainers/features/python:1": {},
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
 		"./local-features/turbo": {},
 		"./local-features/vercel": {}
 	},

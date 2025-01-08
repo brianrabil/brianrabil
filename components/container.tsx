@@ -9,7 +9,10 @@ interface ContainerProps {
 
 export function Container({ children, className, style }: ContainerProps) {
 	return (
-		<div className={clsx("w-full container mx-auto px-4 sm:px-6 lg:px-8", className)} style={style}>
+		<div
+			className={clsx("w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8", className)}
+			style={style}
+		>
 			{children}
 		</div>
 	);

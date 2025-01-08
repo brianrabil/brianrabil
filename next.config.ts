@@ -1,6 +1,5 @@
 import createMDX from "@next/mdx";
 import type { NextConfig } from "next";
-import withLlamaIndex from "llamaindex/next";
 
 const nextConfig: NextConfig = {
 	images: {
@@ -14,4 +13,4 @@ const withMDX = createMDX({
 });
 
 // Merge MDX config with Next.js config
-export default withLlamaIndex(withMDX(nextConfig));
+export default withMDX(nextConfig);

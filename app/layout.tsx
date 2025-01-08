@@ -13,6 +13,7 @@ import Link from "next/link";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Footer } from "@/components/footer";
+import { TypographyP } from "@/components/typography";
 
 export const metadata: Metadata = {
 	title: "Brian Rabil",
@@ -28,7 +29,7 @@ export default async function RootLayout({
 		<html lang="en">
 			<body className="bg-background ">
 				{/* Header Nav */}
-				<header className="flex items-center h-[96px] border-b">
+				<header className="flex items-center h-[96px] max-w-[100vw] overflow-x-hidden">
 					<Container className="flex justify-between items-center">
 						{/* Left section: Logo */}
 						<div className="text-2xl font-bold text-foreground">
@@ -39,19 +40,19 @@ export default async function RootLayout({
 						<Nav>
 							{config.nav.map((item) => (
 								<NavLink key={item.href.toString()} href={item.href}>
-									{item.name}
+									<TypographyP>{item.name}</TypographyP>
 								</NavLink>
 							))}
 						</Nav>
 
 						{/* Right section: Call to Action */}
-						<Button type="button" variant="outline" asChild>
+						<Button type="button" variant="secondary" size="lg" asChild>
 							<Link href="/contact">Book a call</Link>
 						</Button>
 					</Container>
 				</header>
 
-				<main>{children}</main>
+				<main className="max-w-[100vw] overflow-x-hidden">{children}</main>
 				<Toaster />
 				<Footer />
 				<Analytics />

@@ -1,17 +1,35 @@
+"use client";
+
 import { AppWindowIcon, PaintbrushIcon } from "lucide-react";
 import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/card";
+import { TypographyH4, TypographySmall, TypographyH3, TypographyP } from "@/components/typography";
+import {
+	Carousel,
+	CarouselItem,
+	CarouselContent,
+	CarouselNext,
+	CarouselPrevious,
+} from "@/components/ui/carousel";
+import type { config } from "@/lib/config";
+import Autoplay from "embla-carousel-autoplay";
+import { cn } from "@/lib/utils";
+import { Separator } from "@/components/ui/separator";
 
 export enum ProjectCategory {
 	APP = "Application",
 	BRANDING = "Branding",
 }
 
+type Project = (typeof config.projects)[0];
+
 export interface ProjectCardProps {
-	readonly title: string;
-	readonly category: ProjectCategory;
-	readonly description: string;
-	readonly image: string;
+	readonly title: Project["title"];
+	readonly company: Project["company"];
+	readonly category: Project["category"];
+	readonly description: Project["description"];
+	readonly images: Project["images"];
+	readonly status: Project["status"];
 }
 
 function getCategoryIcon(category: ProjectCategory) {
@@ -25,25 +43,70 @@ function getCategoryIcon(category: ProjectCategory) {
 	}
 }
 
-export function ProjectCard({ title, category, description, image }: ProjectCardProps) {
+export function ProjectCard({
+	title,
+	category,
+	company,
+	description,
+	images,
+	status,
+}: ProjectCardProps) {
 	return (
-		<Card innerClassName="flex flex-col md:flex-row">
-			<CardHeader className="md:order-2 md:w-1/2">
-				{/* Image Section */}
-				<div className="flex flex-col w-full h-full rounded-xl object-cover overflow-hidden">
-					<Image src={image} alt={title} width={600} height={400} className="w-full h-full" />
-				</div>
+		<Card className="shadow-none rounded-2xl">
+			<CardHeader>
+				<Carousel
+					opts={{
+						active: images.length > 1,
+						loop: images.length > 1,
+					}}
+					plugins={[
+						Autoplay({
+							active: images.length > 1,
+							delay: 5000,
+						}),
+					]}
+				>
+					<CarouselContent>
+						{images.map((image) => (
+							<CarouselItem key={image.src}>
+								<Image
+									src={image.src}
+									alt={title}
+									width={600}
+									height={400}
+									className={cn(
+										"w-full h-full rounded-2xl object-cover overflow-hidden aspect-video",
+									)}
+								/>
+							</CarouselItem>
+						))}
+					</CarouselContent>
+					{/* <CarouselPrevious />
+					<CarouselNext /> */}
+				</Carousel>
 			</CardHeader>
-			<CardContent className="md:p-12 md:w-1/2 md:flex md:flex-col md:justify-center md:gap-y-4">
-				<div className="text-muted-foreground text-sm font-medium inline-flex items-center gap-x-1.5">
-					{getCategoryIcon(category)} {category}
+			<CardContent className="flex flex-row justify-between">
+				{/* <CardDescription className="flex items-center gap-1 mb-2 text-base"></CardDescription> */}
+				{/* <Separator className="mx-2" orientation="vertical" /> */}
+				<div className="flex flex-col">
+					<div className="flex items-center gap-1 mb-2 text-base">
+						<Image
+							src={company.logo}
+							alt={company.name}
+							width={20}
+							height={20}
+							className="w-5 h-5 rounded-full"
+						/>
+						<span className="text-lg text-foreground">{company.name}</span>
+					</div>
+					<TypographyH4>{title}</TypographyH4>
 				</div>
-				<CardTitle className="text-2xl mb-2 md:mb-0 font-bold">{title}</CardTitle>
-				<CardDescription className="text-foreground text-base items-center flex">
-					{description}
-				</CardDescription>
+				<div>
+					{status === "featured" && <span className="text-sm text-foreground">Featured</span>}
+					{status === "archived" && <span className="text-sm text-foreground">Archived</span>}
+				</div>
+				{/* <TypographyP className="whitespace-nowrap truncate">{description}</TypographyP> */}
 			</CardContent>
-			{/* Text Section */}
 		</Card>
 	);
 }

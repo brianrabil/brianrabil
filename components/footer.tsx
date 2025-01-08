@@ -10,21 +10,22 @@ import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { MailIcon } from "lucide-react";
 import { SocialIcon } from "react-social-icons";
+import { TypographyH3, TypographyP, TypographySmall } from "@/components/typography";
 
 export function Footer() {
 	return (
-		<footer className="flex flex-col">
+		<footer className="flex flex-col max-w-[100vw] overflow-x-hidden">
 			<div className="relative -mb-[1px]">
 				<Container>
 					<Card className="bg-blue-600 border-none p-6 md:p-14 flex shadow-xl flex-col md:flex-row md:gap-x-5 lg:gap-x-24 rounded-xl">
 						<div className="flex flex-col w-full md:w-1/2">
-							<h3 className="text-4xl text-center md:text-left leading-tight font-bold text-primary-foreground">
+							<TypographyH3 className="text-center md:text-left text-primary-foreground">
 								Subscribe to my newsletter
-							</h3>
-							<p className="mt-4 text-center md:text-left text-primary-foreground text-lg">
+							</TypographyH3>
+							<TypographyP className="mt-4 text-center md:text-left text-primary-foreground">
 								Join 10,000+ designers and get creative site breakdowns, design musings and tips
 								every Monday.
-							</p>
+							</TypographyP>
 						</div>
 						<div className="w-full md:w-1/2 flex items-center">
 							<form className="mt-6 flex justify-center gap-x-4 relative w-full">
@@ -51,9 +52,9 @@ export function Footer() {
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 						{/* Call to Action */}
 						<div className="md:max-w-lg ms-center flex flex-col gap-y-8 h-full items-center md:items-start">
-							<h4 className="text-4xl font-bold text-background text-center md:text-left">
+							<TypographyH3 className="text-center md:text-left text-background">
 								Getting ready for a new venture?
-							</h4>
+							</TypographyH3>
 							<Button type="button" variant="secondary" size="lg" asChild>
 								<Link href="/contact">
 									Book a Call
@@ -64,10 +65,10 @@ export function Footer() {
 
 						{/* Contact and Social Links */}
 						<div className="max-w-md flex flex-col gap-y-8 h-full md:ml-auto">
-							<p className="text-background text-lg">
+							<TypographyP className="text-background">
 								Iced pumpkin ristretto irish trifecta robusta trade froth affogato barista con
 								barista cappuccino filter roast.
-							</p>
+							</TypographyP>
 							<div className="grid grid-cols-2 md:grid-cols-3 gap-3">
 								<Button
 									type="button"
@@ -169,13 +170,13 @@ export function Footer() {
 						<nav className="flex flex-row gap-x-6">
 							{config.nav.map((item) => (
 								<Link key={item.name} href={item.href} className="text-background">
-									{item.name}
+									<TypographySmall>{item.name}</TypographySmall>
 								</Link>
 							))}
 						</nav>
-						<p className="text-muted-foreground">
+						<TypographySmall className="text-muted-foreground">
 							© {new Date().getFullYear()} {config.title}. All rights reserved.
-						</p>
+						</TypographySmall>
 					</div>
 				</Container>
 			</div>

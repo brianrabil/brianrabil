@@ -6,12 +6,13 @@ declare module "*.json" {
 
 namespace NodeJS {
 	interface ProcessEnv {
-		readonly AUTH_ADMIN_DEFAULT_EMAIL: string;
-		readonly AUTH_ADMIN_DEFAULT_NAME: string;
-		readonly AUTH_ADMIN_DEFAULT_PASSWORD: string;
-		readonly AUTH_SECRET: string;
-		readonly NEXT_PUBLIC_VAPID_PUBLIC_KEY: string;
-		readonly VAPID_PRIVATE_KEY: string;
-		readonly DATABASE_URL: string;
+		BROWSERBASE_API_KEY: string;
+		BROWSERBASE_PROJECT_ID: string;
+		OPENAI_API_KEY: string;
+		BROWSERLESS_WS_ENDPOINT: string;
+		BROWSERLESS_TOKEN: string;
+
+		X_DOT_COM_USERNAME: string;
+		X_DOT_COM_PASSWORD: string;
 	}
 }

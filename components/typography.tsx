@@ -6,62 +6,54 @@ interface TypographyProps {
 	className?: string;
 }
 
-export function TypographyD2({ children }: TypographyProps) {
-	return (
-		<h2 className="text-3xl font-bold mb-2 tracking-tight text-gray-900 sm:text-4xl">{children}</h2>
-	);
+export const typographyStyles = {
+	h1: "text-4xl md:text-5xl lg:text-6xl xl:text-7xl scroll-m-20 justify-center max-w-[1200px] overflow-visible p-0 relative w-full font-light mb-2 tracking-tight text-foreground leading-tight",
+	h2: "scroll-m-20 text-4xl font-medium leading-[56px] text-left text-foreground break-words",
+	h3: "scroll-m-20 text-xl md:text-2xl lg:text-3xl text-foreground mb-4 font-light tracking-tight first:mt-0 leading-tight",
+	h4: "scroll-m-20 text-lg md:text-xl lg:text-2xl font-light tracking-tight leading-tight",
+	p: "leading-7 text-base md:text-lg lg:text-xl tracking-normal text-left max-w-[1200px] text-foreground font-light [&:not(:first-child)]:mt-6",
+	small: "text-sm font-light leading-none",
+	large: "text-lg font-light leading-tight",
+	inlineCode:
+		"relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-light leading-tight",
+	lead: "text-xl leading-8 font-light text-muted-foreground max-w-[1200px]",
+	highlight: "relative z-10 text-nowrap font-light text-primary leading-tight",
+} as const;
+
+export function TypographyH1({ children, className }: TypographyProps) {
+	return <h1 className={cn(typographyStyles.h1, className)}>{children}</h1>;
 }
 
-export function TypographyH1({ children }: TypographyProps) {
-	return (
-		<h1 className="mb-8 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-			{children}
-		</h1>
-	);
-}
-
-export function TypographyH2({ children }: TypographyProps) {
-	return (
-		<h2 className="scroll-m-20 border-b pb-2 text-3xl mb-4 font-semibold tracking-tight first:mt-0">
-			{children}
-		</h2>
-	);
+export function TypographyH2({ children, className }: TypographyProps) {
+	return <h2 className={cn(typographyStyles.h2, className)}>{children}</h2>;
 }
 
 export function TypographyH3({ children, className }: TypographyProps) {
-	return (
-		<h3 className={cn("scroll-m-20 text-2xl font-semibold tracking-tight", className)}>
-			{children}
-		</h3>
-	);
+	return <h3 className={cn(typographyStyles.h3, className)}>{children}</h3>;
 }
 
-export function TypographyH4({ children }: TypographyProps) {
-	return <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">{children}</h4>;
+export function TypographyH4({ children, className }: TypographyProps) {
+	return <h4 className={cn(typographyStyles.h4, className)}>{children}</h4>;
 }
 
-export function TypographyP({ children }: TypographyProps) {
-	return <p className="leading-7 [&:not(:first-child)]:mt-6">{children}</p>;
+export function TypographyP({ children, className }: TypographyProps) {
+	return <p className={cn(typographyStyles.p, className)}>{children}</p>;
 }
 
-export function TypographySmall({ children }: TypographyProps) {
-	return <small className="text-sm font-medium leading-none">{children}</small>;
+export function TypographySmall({ children, className }: TypographyProps) {
+	return <small className={cn(typographyStyles.small, className)}>{children}</small>;
 }
 
-export function TypographyLarge({ children }: TypographyProps) {
-	return <div className="text-lg font-semibold">{children}</div>;
+export function TypographyLarge({ children, className }: TypographyProps) {
+	return <div className={cn(typographyStyles.large, className)}>{children}</div>;
 }
 
-export function TypographyInlineCode({ children }: TypographyProps) {
-	return (
-		<code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
-			{children}
-		</code>
-	);
+export function TypographyInlineCode({ children, className }: TypographyProps) {
+	return <code className={cn(typographyStyles.inlineCode, className)}>{children}</code>;
 }
 
 export function LeadText({ children, className }: TypographyProps) {
-	return <p className={cn("text-xl leading-8 text-muted-foreground", className)}>{children}</p>;
+	return <p className={cn(typographyStyles.lead, className)}>{children}</p>;
 }
 
 export function HighlightText({
@@ -69,7 +61,7 @@ export function HighlightText({
 	className,
 }: { children: React.ReactNode; className?: string }) {
 	return (
-		<span className={cn("relative z-10 text-nowrap text-primary", className)}>
+		<span className={cn(typographyStyles.highlight, className)}>
 			{children}
 			<svg
 				aria-hidden
