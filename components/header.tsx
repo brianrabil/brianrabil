@@ -115,7 +115,6 @@ function MobileNavigation(props: React.HTMLAttributes<HTMLDivElement>) {
             <MobileNavItem href="/about">About</MobileNavItem>
             <MobileNavItem href="/articles">Articles</MobileNavItem>
             <MobileNavItem href="/projects">Projects</MobileNavItem>
-            <MobileNavItem href="/speaking">Speaking</MobileNavItem>
             <MobileNavItem href="/uses">Uses</MobileNavItem>
           </ul>
         </nav>
@@ -160,7 +159,6 @@ function DesktopNavigation(props: React.ComponentPropsWithoutRef<"nav">) {
         <NavItem href="/about">About</NavItem>
         <NavItem href="/articles">Articles</NavItem>
         <NavItem href="/projects">Projects</NavItem>
-        <NavItem href="/speaking">Speaking</NavItem>
         <NavItem href="/uses">Uses</NavItem>
       </ul>
     </nav>
@@ -241,8 +239,8 @@ function Avatar({
 export function Header() {
   const isHomePage = usePathname() === "/";
 
-  const headerRef = useRef<React.ElementRef<"div">>(null);
-  const avatarRef = useRef<React.ElementRef<"div">>(null);
+  const headerRef = useRef<React.ComponentRef<"div">>(null);
+  const avatarRef = useRef<React.ComponentRef<"div">>(null);
   const isInitial = useRef(true);
 
   useEffect(() => {
