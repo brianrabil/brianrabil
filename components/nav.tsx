@@ -7,7 +7,12 @@ import type React from "react";
 
 type LinkProps = React.ComponentProps<typeof Link>;
 
-export function NavLink({ href, children, className, ...restProps }: LinkProps) {
+export function NavLink({
+	href,
+	children,
+	className,
+	...restProps
+}: LinkProps) {
 	const to = href.toString();
 	const pathname = usePathname();
 	const isActive = to === "/" ? pathname === to : pathname.startsWith(to);
@@ -36,5 +41,9 @@ export interface NavProps {
 }
 
 export function Nav({ children, className }: NavProps) {
-	return <nav className={cn("flex items-center space-x-6", className)}>{children}</nav>;
+	return (
+		<nav className={cn("flex items-center space-x-6", className)}>
+			{children}
+		</nav>
+	);
 }

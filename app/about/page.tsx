@@ -1,272 +1,129 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/card";
-import { config } from "@/lib/config";
-import { HighlightText } from "@/components/typography";
-import { Button } from "@/components/ui/button";
-import { DownloadIcon } from "lucide-react";
+import { Container } from "@/components/container";
+import {
+	GitHubIcon,
+	InstagramIcon,
+	LinkedInIcon,
+	XIcon,
+} from "@/components/social-icons";
+import portraitImage from "@/images/photos/portrait-1.png";
+import clsx from "clsx";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import type React from "react";
-import { Container } from "@/components/container";
-import { SocialIcon } from "react-social-icons";
-import {
-	Table,
-	TableHeader,
-	TableBody,
-	TableHead,
-	TableRow,
-	TableCell,
-} from "@/components/ui/table";
+
+function SocialLink({
+	className,
+	href,
+	children,
+	icon: Icon,
+}: {
+	className?: string;
+	href: string;
+	icon: React.ComponentType<{ className?: string }>;
+	children: React.ReactNode;
+}) {
+	return (
+		<li className={clsx(className, "flex")}>
+			<Link
+				href={href}
+				className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+			>
+				<Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
+				<span className="ml-4">{children}</span>
+			</Link>
+		</li>
+	);
+}
+
+function MailIcon(props: React.ComponentPropsWithoutRef<"svg">) {
+	return (
+		<svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+			<path
+				fillRule="evenodd"
+				d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
+			/>
+		</svg>
+	);
+}
+
+export const metadata: Metadata = {
+	title: "About",
+	description:
+		"I’m Spencer Sharp. I live in New York City, where I design the future.",
+};
 
 export default function About() {
 	return (
-		<>
-			<section className="bg-secondary py-24 relative">
-				<Container className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-					{/* Left section: Introduction Text */}
-					<div className="col-span-1 lg:col-span-8 prose prose-lg">
-						<h1 className="text-5xl font-bold text-foreground leading-tight">
-							Hi, I'm {config.profile.firstName} and I’m a{" "}
-							<HighlightText>{config.profile.jobTitle}</HighlightText>
-						</h1>
-						<p>
-							I'm a passionate software engineer with over 8 years of experience in developing
-							robust and scalable applications. My journey in the tech world began with a
-							fascination for problem-solving and has evolved into a career focused on creating
-							innovative solutions. I specialize in full-stack development, with expertise in
-							JavaScript, React, Node.js, and cloud technologies.
-						</p>
-						<p>
-							Throughout my career, I've had the opportunity to work on diverse projects, from
-							building high-performance web applications to developing complex backend systems. I'm
-							particularly interested in user-centric design and always strive to create intuitive,
-							efficient interfaces that enhance the user experience.
-						</p>
-						<p>
-							I'm a strong advocate for clean code, test-driven development, and continuous
-							learning. In this rapidly evolving field, I believe it's crucial to stay updated with
-							the latest technologies and best practices. When I'm not coding, you can find me
-							contributing to open-source projects, mentoring junior developers, or exploring new
-							tech stacks.
-						</p>
-						<p className="text-xl my-12 font-bold italic text-foreground">Brian Rabil</p>
-					</div>
-
-					{/* Right section: Image */}
-					<div className="col-span-1 lg:col-span-4">
+		<Container className="mt-16 sm:mt-32">
+			<div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
+				<div className="lg:pl-20">
+					<div className="max-w-xs px-2.5 lg:max-w-none">
 						<Image
-							src="https://placehold.co/990x1346"
-							alt="Placeholder profile image"
-							width={990}
-							height={1346}
-							className="h-full w-full object-cover rounded-lg overflow-hidden"
-						/>
-					</div>
-				</Container>
-			</section>
-
-			<section className="bg-background py-24">
-				<Container className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-					{/* Title Section */}
-					<div className="col-span-1 lg:col-span-4 prose prose-lg">
-						<h2 className="text-5xl font-bold text-foreground leading-tight">
-							My career <HighlightText>journey</HighlightText> so far
-						</h2>
-						<p className="text-foreground mt-8">
-							Panna french americano macchiato breve roast cinnamon cortado strong white pumpkin et
-							single press aftertaste.
-						</p>
-						<Button type="button" className="mt-6" variant="secondary" size="lg">
-							Download CV <DownloadIcon className="w-4 h-4 ml-2" />
-						</Button>
-					</div>
-
-					{/* Roles Grid */}
-					<div className="col-span-1 lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
-						{config.profile.career.map((role, index) => (
-							<Card key={role.company}>
-								<CardHeader className="flex flex-row justify-between items-center">
-									<div className="flex flex-col space-y-2">
-										{role.logo && (
-											<Image src={role.logo} alt={`${role.company} logo`} width={24} height={24} />
-										)}
-										<p className="font-semibold text-accent-foreground text-xs">
-											{role.startDate} - {role.endDate}
-										</p>
-										<p className="text-lg font-bold text-foreground">{role.company}</p>
-									</div>
-
-									<div className="text-muted-foreground/10 text-8xl font-bold m-0 p-0">
-										{`0${index + 1}`}
-									</div>
-								</CardHeader>
-								{/* Number behind each item */}
-
-								{/* Role Info */}
-								<CardContent>
-									<div className="">
-										<p className="text-muted-foreground">{role.description}</p>
-									</div>
-								</CardContent>
-							</Card>
-						))}
-					</div>
-				</Container>
-			</section>
-
-			<section className="bg-secondary py-24">
-				<div className="container grid grid-cols-1 lg:grid-cols-12 gap-12">
-					<div className="col-span-1 lg:col-span-6 prose prose-lg">
-						<h2 className="text-5xl font-bold text-foreground leading-tight">
-							A tour of my gadgets and workstation
-						</h2>
-						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis
-							suscipit eaque, iste dolor cupiditate blanditiis ratione. Instant extraction mazagran
-							milk instant milk foam café iced aftertaste iced brewed.
-						</p>
-						<Button type="button" className="mt-6" variant="outline" size="lg">
-							Follow me on{" "}
-							<SocialIcon
-								className="max-w-5 max-h-5"
-								bgColor="transparent"
-								fgColor="currentColor"
-								url={config.social.x.href}
-								as="span"
-							/>
-						</Button>
-					</div>
-					<div className="col-span-1 lg:col-span-6">
-						<Image
-							src="https://placehold.co/743x1048"
-							alt="Placeholder profile image"
-							width={743}
-							height={1048}
-							className="object-cover rounded-lg overflow-hidden"
+							src={portraitImage}
+							alt=""
+							sizes="(min-width: 1024px) 32rem, 20rem"
+							className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
 						/>
 					</div>
 				</div>
-			</section>
-
-			<section className="bg-background py-24">
-				<div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-					{/* Left Section: Image and Badge */}
-					<div className="relative col-span-1">
-						<Image
-							src="https://placehold.co/743x1048"
-							alt="Placeholder profile image"
-							width={743}
-							height={1048}
-							className="h-full w-full object-cover rounded-lg overflow-hidden"
-						/>
-						{/* Badge */}
-						<div className="absolute bottom-4 left-4 bg-blue-600 text-white p-4 rounded-lg shadow-lg">
-							<p className="font-semibold">55+ Clients have loved my work</p>
-							<div className="flex mt-2">
-								{/* Avatars Placeholder */}
-								<img
-									src="/path-to-avatar1.jpg"
-									alt="Client 1"
-									className="w-8 h-8 rounded-full border-2 border-white -ml-2"
-								/>
-								<img
-									src="/path-to-avatar2.jpg"
-									alt="Client 2"
-									className="w-8 h-8 rounded-full border-2 border-white -ml-2"
-								/>
-								<img
-									src="/path-to-avatar3.jpg"
-									alt="Client 3"
-									className="w-8 h-8 rounded-full border-2 border-white -ml-2"
-								/>
-								<img
-									src="/path-to-avatar4.jpg"
-									alt="Client 4"
-									className="w-8 h-8 rounded-full border-2 border-white -ml-2"
-								/>
-							</div>
-						</div>
-					</div>
-
-					{/* Right Section: Tech Stack */}
-					<div className="col-span-1">
-						<h2 className="text-4xl font-bold text-gray-900">
-							A simple stack that you can <HighlightText>always trust</HighlightText>
-						</h2>
-						<p className="mt-4 text-foreground">
-							I've been a software developer for over 13 years, and while my stack has shifted over
-							the years, I kept coming back to the same technologies. The following is the stack
-							that I've developed & honed over the years as a software developer.
+				<div className="lg:order-first lg:row-span-2">
+					<h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+						I’m Spencer Sharp. I live in New York City, where I design the
+						future.
+					</h1>
+					<div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+						<p>
+							I’ve loved making things for as long as I can remember, and wrote
+							my first program when I was 6 years old, just two weeks after my
+							mom brought home the brand new Macintosh LC 550 that I taught
+							myself to type on.
 						</p>
-
-						<div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-							{config.profile.stack
-								.filter((tech) => tech.featured)
-								.map((tech) => (
-									<Card key={tech.name}>
-										<CardHeader>
-											<div className="flex items-center gap-4">
-												<Image src={tech.logo} alt={`${tech.name} logo`} width={28} height={28} />
-												<div>
-													<CardTitle>{tech.name}</CardTitle>
-													<CardDescription>{tech.description}</CardDescription>
-												</div>
-											</div>
-										</CardHeader>
-									</Card>
-								))}
-						</div>
+						<p>
+							The only thing I loved more than computers as a kid was space.
+							When I was 8, I climbed the 40-foot oak tree at the back of our
+							yard while wearing my older sister’s motorcycle helmet, counted
+							down from three, and jumped — hoping the tree was tall enough that
+							with just a bit of momentum I’d be able to get to orbit.
+						</p>
+						<p>
+							I spent the next few summers indoors working on a rocket design,
+							while I recovered from the multiple surgeries it took to fix my
+							badly broken legs. It took nine iterations, but when I was 15 I
+							sent my dad’s Blackberry into orbit and was able to transmit a
+							photo back down to our family computer from space.
+						</p>
+						<p>
+							Today, I’m the founder of Planetaria, where we’re working on
+							civilian space suits and manned shuttle kits you can assemble at
+							home so that the next generation of kids really <em>can</em> make
+							it to orbit — from the comfort of their own backyards.
+						</p>
 					</div>
 				</div>
-			</section>
-			{/* <section className="bg-background py-12 md:py-20 lg:py-24">
-				<Container>
-					<div className="flex flex-col ">
-						<h1>
-							<h2 className="text-4xl font-bold text-foreground text-center md:text-left mb-12">
-								My <HighlightText>Complete</HighlightText> Tech Stack
-							</h2>
-						</h1>
-						<p className="text-foreground text-lg">
-							Here's a comprehensive list of technologies I have used in my development workflow.
-						</p>
-					</div>
-
-					<Table>
-						<TableHeader>
-							<TableRow>
-								<TableHead className="w-[20px]" />
-								<TableHead>Name</TableHead>
-								<TableHead>Description</TableHead>
-								<TableHead>Category</TableHead>
-							</TableRow>
-						</TableHeader>
-						<TableBody>
-							{config.profile.stack.map((tech) => (
-								<TableRow key={tech.name}>
-									<TableCell>
-										<Image src={tech.logo} alt={`${tech.name} logo`} width={24} height={24} />
-									</TableCell>
-									<TableCell>
-										<a
-											href={tech.url}
-											target="_blank"
-											rel="noopener noreferrer"
-											className="font-medium hover:underline"
-										>
-											{tech.name}
-										</a>
-									</TableCell>
-									<TableCell>{tech.description}</TableCell>
-									<TableCell>
-										<Badge variant="outline">{tech.category}</Badge>
-									</TableCell>
-								</TableRow>
-							))}
-						</TableBody>
-					</Table>
-				</Container>
-			</section> */}
-		</>
+				<div className="lg:pl-20">
+					<ul>
+						<SocialLink href="#" icon={XIcon}>
+							Follow on X
+						</SocialLink>
+						<SocialLink href="#" icon={InstagramIcon} className="mt-4">
+							Follow on Instagram
+						</SocialLink>
+						<SocialLink href="#" icon={GitHubIcon} className="mt-4">
+							Follow on GitHub
+						</SocialLink>
+						<SocialLink href="#" icon={LinkedInIcon} className="mt-4">
+							Follow on LinkedIn
+						</SocialLink>
+						<SocialLink
+							href="mailto:spencer@planetaria.tech"
+							icon={MailIcon}
+							className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
+						>
+							spencer@planetaria.tech
+						</SocialLink>
+					</ul>
+				</div>
+			</div>
+		</Container>
 	);
 }

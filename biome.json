@@ -7,9 +7,7 @@
 		"defaultBranch": "main"
 	},
 	"formatter": {
-		"enabled": true,
-		"indentStyle": "tab",
-		"lineWidth": 100
+		"enabled": true
 	},
 	"organizeImports": {
 		"enabled": true
@@ -23,6 +21,11 @@
 	"javascript": {
 		"formatter": {
 			"quoteStyle": "double"
+		}
+	},
+	"json": {
+		"formatter": {
+			"enabled": true
 		}
 	}
 }

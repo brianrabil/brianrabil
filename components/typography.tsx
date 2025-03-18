@@ -41,15 +41,23 @@ export function TypographyP({ children, className }: TypographyProps) {
 }
 
 export function TypographySmall({ children, className }: TypographyProps) {
-	return <small className={cn(typographyStyles.small, className)}>{children}</small>;
+	return (
+		<small className={cn(typographyStyles.small, className)}>{children}</small>
+	);
 }
 
 export function TypographyLarge({ children, className }: TypographyProps) {
-	return <div className={cn(typographyStyles.large, className)}>{children}</div>;
+	return (
+		<div className={cn(typographyStyles.large, className)}>{children}</div>
+	);
 }
 
 export function TypographyInlineCode({ children, className }: TypographyProps) {
-	return <code className={cn(typographyStyles.inlineCode, className)}>{children}</code>;
+	return (
+		<code className={cn(typographyStyles.inlineCode, className)}>
+			{children}
+		</code>
+	);
 }
 
 export function LeadText({ children, className }: TypographyProps) {

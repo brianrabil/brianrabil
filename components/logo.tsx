@@ -1,7 +1,6 @@
-import Image from "next/image";
-import { cn } from "@/lib/utils";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { TypographyH1 } from "@/components/typography";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { cn } from "@/lib/utils";
 
 export function Logo({ className }: { className?: string }) {
 	return (

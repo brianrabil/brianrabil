@@ -13,24 +13,26 @@ interface AnimatedSubscribeButtonProps {
 }
 
 const MotionButton = motion.create(
-	forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>((props, ref) => (
-		<button ref={ref} {...props} />
-	)),
+	forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(
+		(props, ref) => <button ref={ref} {...props} />,
+	),
 	{
 		forwardMotionProps: true,
 	},
 );
 
 const MotionSpan = motion.create(
-	forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLSpanElement>>((props, ref) => (
-		<span ref={ref} {...props} />
-	)),
+	forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLSpanElement>>(
+		(props, ref) => <span ref={ref} {...props} />,
+	),
 	{
 		forwardMotionProps: true,
 	},
 );
 
-export const AnimatedSubscribeButton: React.FC<AnimatedSubscribeButtonProps> = ({
+export const AnimatedSubscribeButton: React.FC<
+	AnimatedSubscribeButtonProps
+> = ({
 	buttonColor,
 	subscribeStatus,
 	buttonTextColor,

@@ -15,10 +15,7 @@
 		"jsx": "preserve",
 		"baseUrl": ".",
 		"paths": {
-			"@/app/*": ["app/*"],
-			"@/components/*": ["components/*"],
-			"@/lib/*": ["lib/*"],
-			"@/markdown/*": ["markdown/*"]
+			"@/*": ["*"]
 		},
 		"incremental": true,
 		"plugins": [
