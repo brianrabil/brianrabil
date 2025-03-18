@@ -23,7 +23,7 @@ import Link from "next/link";
 export function BlogSection() {
   return (
     <section className="bg-background py-16 md:py-20 lg:py-24 max-w-[100vw] overflow-x-hidden">
-      <Container className="max-w-screen-md">
+      <Container className="max-w-(--breakpoint-md)">
         <TypographyH2 className="text-center mb-12">
           <HighlightText>Thoughts</HighlightText> on design, business, and
           indie-hacking

@@ -36,7 +36,7 @@ export function FeaturesSection() {
 						{/* Feature Items */}
 						<div className="mt-8 flex flex-col space-y-16">
 							<div className="flex items-start space-x-8">
-								<div className="w-20 h-20 shadow-sm bg-background aspect-square text-foreground rounded-full flex justify-center items-center">
+								<div className="w-20 h-20 shadow-xs bg-background aspect-square text-foreground rounded-full flex justify-center items-center">
 									{/* Icon Placeholder - Replace with an actual icon */}
 									<span className="text-3xl">🏆</span>
 								</div>
@@ -50,7 +50,7 @@ export function FeaturesSection() {
 							</div>
 
 							<div className="flex items-start space-x-8">
-								<div className="w-20 h-20 shadow-sm bg-background aspect-square text-foreground rounded-full flex justify-center items-center">
+								<div className="w-20 h-20 shadow-xs bg-background aspect-square text-foreground rounded-full flex justify-center items-center">
 									<span className="text-2xl">⏱</span>
 								</div>
 								<div>
@@ -63,7 +63,7 @@ export function FeaturesSection() {
 							</div>
 
 							<div className="flex items-start space-x-8">
-								<div className="w-20 h-20 shadow-sm bg-background aspect-square text-foreground rounded-full flex justify-center items-center">
+								<div className="w-20 h-20 shadow-xs bg-background aspect-square text-foreground rounded-full flex justify-center items-center">
 									<span className="text-2xl">📞</span>
 								</div>
 								<div>

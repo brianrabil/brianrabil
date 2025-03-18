@@ -19,7 +19,7 @@ export function ToolsSection({ tools }: ToolsSectionProps) {
             {tools.map((tool) => (
               <div
                 key={tool.name}
-                className="flex-shrink-0 w-32 h-32 p-4 rounded-full  flex justify-center items-center  transition m-2"
+                className="shrink-0 w-32 h-32 p-4 rounded-full  flex justify-center items-center  transition m-2"
               >
                 <Image
                   src={tool.logo}
