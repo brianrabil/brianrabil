@@ -1,15 +1,21 @@
 import createMDX from "@next/mdx";
 import type { NextConfig } from "next";
+import rehypePrism from "rehype-highlight";
+import remarkGfm from "remark-gfm";
+import rehypeKatex from "rehype-katex";
 
 const nextConfig: NextConfig = {
-	images: {
-		remotePatterns: [{ hostname: "placehold.co/**" }],
-		dangerouslyAllowSVG: true,
-	},
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  images: {
+    dangerouslyAllowSVG: true,
+  },
 };
 
 const withMDX = createMDX({
-	// Add markdown plugins here, as desired
+  options: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypeKatex, rehypePrism],
+  },
 });
 
 // Merge MDX config with Next.js config
