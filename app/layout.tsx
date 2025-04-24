@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description: appConfig.description,
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_SITE_URL}/api/og`,
+        url: `${process.env.NEXT_PUBLIC_SITE_URL}/opengraph-image`,
         alt: appConfig.fullName,
       },
     ],
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: appConfig.title,
     description: appConfig.description,
-    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/api/og`],
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/opengraph-image`],
   },
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
   alternates: {
