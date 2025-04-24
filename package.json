@@ -34,6 +34,7 @@
 		"@types/web-push": "^3.6.4",
 		"@vercel/analytics": "^1.5.0",
 		"@vercel/functions": "^1.6.0",
+		"@vercel/og": "^0.6.8",
 		"@vercel/speed-insights": "^1.2.0",
 		"ai": "^3.4.33",
 		"cheerio": "^1.0.0",
