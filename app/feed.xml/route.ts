@@ -42,7 +42,7 @@ export async function GET(req: Request) {
 	const articleIds = articles.map((article) => article.replace(/\.mdx$/, ""));
 
 	for (const id of articleIds) {
-		const url = String(new URL(`/articles/${id}`, req.url));
+		const url = `${siteUrl}/articles/${id}`;
 		const html = await (await fetch(url)).text();
 		const $ = cheerio.load(html);
 
