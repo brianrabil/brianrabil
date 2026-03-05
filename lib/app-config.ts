@@ -3,7 +3,7 @@ import type { AppConfig } from "@/lib/zod";
 export const appConfig: AppConfig = {
   title: "Brian Rabil",
   description:
-    "Solo founder building a portfolio of AI-native products. Depth over velocity.",
+    "Building practical AI software with a focus on local-first systems, AI agents, and developer infrastructure.",
   fullName: "Brian Rabil",
   email: "brianrabil@gmail.com",
   location: "Dallas, TX",
@@ -93,7 +93,7 @@ export const appConfig: AppConfig = {
       used: [],
       variant: "app",
       description:
-        "AI-native portfolio and personal site.",
+        "This site.",
       link: [
         {
           href: "https://brianrabil.com",
@@ -112,7 +112,7 @@ export const appConfig: AppConfig = {
       status: "live",
       used: ["Next.js"],
       description:
-        "Reading-first RSS client with structured, filterable feeds.",
+        "Reading-focused RSS client with powerful filtering and structured feeds.",
       variant: "app",
       link: [
         {
@@ -133,7 +133,7 @@ export const appConfig: AppConfig = {
       used: ["Next.js"],
       variant: "app",
       description:
-        "AI job search that surfaces high-fit roles fast.",
+        "AI-assisted job discovery platform that surfaces high-fit opportunities quickly.",
       link: [
         {
           href: "https://jobhop.ai",
@@ -151,7 +151,7 @@ export const appConfig: AppConfig = {
       },
       status: "backlog",
       description:
-        "Turn any webpage into structured AI prompts.",
+        "Convert webpages into structured prompts and knowledge inputs for AI workflows.",
       used: ["WXT"],
       variant: "app",
       link: [],
@@ -166,7 +166,7 @@ export const appConfig: AppConfig = {
       used: ["Next.js", "Vercel"],
       status: "backlog",
       description:
-        "Content ops workspace for drafting and publishing.",
+        "Workspace for planning, drafting, and publishing content across multiple platforms.",
       variant: "app",
       link: [],
     },
@@ -181,7 +181,7 @@ export const appConfig: AppConfig = {
       used: ["Next.js"],
       variant: "app",
       description:
-        "Prompt-to-wall-art with framing and fulfillment.",
+        "Generate artwork with AI and have it produced and shipped as framed wall art.",
       link: [],
     },
     {
@@ -195,7 +195,7 @@ export const appConfig: AppConfig = {
       used: ["Rust"],
       variant: "app",
       description:
-        "Local-first AI writing studio for long-form.",
+        "Local-first writing environment for long-form AI-assisted work.",
       link: [],
     },
     {
@@ -207,7 +207,7 @@ export const appConfig: AppConfig = {
       },
       status: "building",
       description:
-        "Social simulation with autonomous AI personas.",
+        "A social simulation platform powered by autonomous AI personas.",
       used: ["Nuxt"],
       link: [],
       variant: "app",
@@ -221,7 +221,7 @@ export const appConfig: AppConfig = {
       },
       status: "building",
       description:
-        "Private desktop AI with fully local inference.",
+        "Private desktop AI environment focused on local inference and multi-agent workflows.",
       used: ["Rust"],
       variant: "app",
       link: [],
@@ -237,7 +237,7 @@ export const appConfig: AppConfig = {
       used: ["Next.js"],
       variant: "directory",
       description:
-        "Directory for shadcn components and MCP servers.",
+        "A curated directory of shadcn UI components, MCP servers, and developer tools.",
       link: [],
     },
     {
@@ -251,7 +251,7 @@ export const appConfig: AppConfig = {
       used: ["Rust"],
       variant: "app",
       description:
-        "Local video clipper with on-device transcription.",
+        "Local video clipping tool with on-device transcription and fast editing.",
       link: [],
     },
     {
@@ -263,7 +263,7 @@ export const appConfig: AppConfig = {
       },
       status: "backlog",
       description:
-        "AI media manager with smart search and streaming UI.",
+        "AI-assisted media manager with intelligent search and a streaming-style browsing interface.",
       used: ["Rust"],
       variant: "app",
       link: [],
@@ -277,7 +277,7 @@ export const appConfig: AppConfig = {
       },
       status: "backlog",
       description:
-        "Chrome extension for a calmer X timeline.",
+        "A Chrome extension designed to create a calmer, more structured timeline experience on X.",
       used: ["WXT"],
       variant: "app",
       link: [],
@@ -291,7 +291,7 @@ export const appConfig: AppConfig = {
       },
       status: "building",
       description:
-        "Realistic AI persona engine for social sims.",
+        "A system for running large-scale AI persona simulations used to test social product ideas and interaction models.",
       used: ["Oasis"],
       link: [],
       variant: "package",
@@ -307,7 +307,7 @@ export const appConfig: AppConfig = {
       used: ["shadcn/ui"],
       variant: "package",
       description:
-        "Social and community UI components.",
+        "A registry of high-quality social and community UI components designed for modern web apps.",
       link: [],
     },
     {
@@ -321,7 +321,7 @@ export const appConfig: AppConfig = {
       used: ["shadcn/ui"],
       variant: "package",
       description:
-        "Reusable directory framework for listing apps.",
+        "Reusable framework for launching and operating modern directories, including search, submissions, moderation workflows, and monetization.",
       link: [],
     },
   ],
