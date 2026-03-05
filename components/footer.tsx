@@ -5,7 +5,14 @@ import Link from "next/link";
 
 function VercelLogo({ className }: { className?: string }) {
 	return (
-		<svg className={className} viewBox="0 0 76 65" fill="currentColor" aria-label="Vercel">
+		<svg
+			className={className}
+			viewBox="0 0 76 65"
+			fill="currentColor"
+			role="img"
+			aria-label="Vercel"
+		>
+			<title>Vercel</title>
 			<path d="M37.5274 0L75.0548 65H0L37.5274 0Z" />
 		</svg>
 	);
@@ -19,17 +26,69 @@ export function Footer() {
 					<ContainerInner>
 						<div className="py-8 sm:py-10">
 							<div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
-								<Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-								<Link href="/articles" className="hover:text-foreground transition-colors">Writing</Link>
-								<Link href="/#products" className="hover:text-foreground transition-colors">Products</Link>
-								<Link href={appConfig.social.x.href} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">X</Link>
-								<Link href={appConfig.social.github.href} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">GitHub</Link>
-								<Link href={appConfig.social.linkedin.href} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">LinkedIn</Link>
-								<Link href={appConfig.social.rss.href} className="hover:text-foreground transition-colors">RSS</Link>
-								<a href="/resume.md" download className="hover:text-foreground transition-colors">Resume</a>
+								<Link
+									href="/"
+									className="hover:text-foreground transition-colors"
+								>
+									Home
+								</Link>
+								<Link
+									href="/articles"
+									className="hover:text-foreground transition-colors"
+								>
+									Writing
+								</Link>
+								<Link
+									href="/#products"
+									className="hover:text-foreground transition-colors"
+								>
+									Products
+								</Link>
+								<Link
+									href={appConfig.social.x.href}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="hover:text-foreground transition-colors"
+								>
+									X
+								</Link>
+								<Link
+									href={appConfig.social.github.href}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="hover:text-foreground transition-colors"
+								>
+									GitHub
+								</Link>
+								<Link
+									href={appConfig.social.linkedin.href}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="hover:text-foreground transition-colors"
+								>
+									LinkedIn
+								</Link>
+								<Link
+									href={appConfig.social.rss.href}
+									className="hover:text-foreground transition-colors"
+								>
+									RSS
+								</Link>
+								<a
+									href="/resume.md"
+									download
+									className="hover:text-foreground transition-colors"
+								>
+									Resume
+								</a>
 								<AdminLoginSheet>
-								<button type="button" className="hover:text-foreground transition-colors cursor-pointer">Admin</button>
-							</AdminLoginSheet>
+									<button
+										type="button"
+										className="hover:text-foreground transition-colors cursor-pointer hidden"
+									>
+										Admin
+									</button>
+								</AdminLoginSheet>
 							</div>
 						</div>
 

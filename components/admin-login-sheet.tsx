@@ -1,5 +1,6 @@
 "use client";
 
+import { GitHubIcon } from "@/components/social-icons";
 import { Button } from "@/components/ui/button";
 import {
 	Drawer,
@@ -11,156 +12,171 @@ import {
 	DrawerTitle,
 	DrawerTrigger,
 } from "@/components/ui/drawer";
-import {
-	Field,
-	FieldError,
-	FieldLabel,
-} from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { authClient } from "@/lib/auth-client";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
 import { useState } from "react";
 
-export function AdminLoginSheet({
-	children,
-}: { children: React.ReactNode }) {
-	const router = useRouter();
+const CanvasRevealEffect = dynamic(
+	() =>
+		import("@/components/ui/canvas-reveal-effect").then(
+			(mod) => mod.CanvasRevealEffect,
+		),
+	{ ssr: false },
+);
+
+export function AdminLoginSheet({ children }: { children: React.ReactNode }) {
 	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
 	const [loading, setLoading] = useState(false);
-	const [success, setSuccess] = useState(false);
+	const [sent, setSent] = useState(false);
 	const [open, setOpen] = useState(false);
 
-	const handleSignIn = async (e: React.FormEvent) => {
+	// TODO: wire up auth provider
+	const handleGitHub = async () => {};
+
+	const handleMagicLink = async (e: React.FormEvent) => {
 		e.preventDefault();
 		setError("");
 		setLoading(true);
-
-		const { error } = await authClient.signIn.email({
-			email,
-			password,
-		});
-
-		if (error) {
-			setError(error.message || "Invalid credentials");
-			setLoading(false);
-			return;
-		}
-
-		setSuccess(true);
-		setLoading(false);
+		// TODO: wire up auth provider
 		setTimeout(() => {
-			setOpen(false);
-			router.push("/dashboard");
-		}, 800);
+			setSent(true);
+			setLoading(false);
+		}, 500);
 	};
 
 	function handleOpenChange(next: boolean) {
 		setOpen(next);
 		if (!next) {
 			setEmail("");
-			setPassword("");
 			setError("");
-			setSuccess(false);
+			setSent(false);
+			setLoading(false);
 		}
 	}
 
 	return (
-		<Drawer
-			shouldScaleBackground={false}
-			open={open}
-			onOpenChange={handleOpenChange}
-		>
-			<DrawerTrigger asChild>{children}</DrawerTrigger>
-			<DrawerPortal>
-				<DrawerOverlay />
-				<DrawerContent className="mx-auto max-w-md">
-					<DrawerHeader className="px-6 pt-4 pb-0 text-left">
-						<DrawerTitle>Admin</DrawerTitle>
-						<DrawerDescription className="text-xs">
-							Authorized personnel only.
-						</DrawerDescription>
-					</DrawerHeader>
+		<>
+			<AnimatePresence>
+				{open && (
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						transition={{ duration: 0.4 }}
+						className="fixed inset-0 z-40"
+					>
+						<CanvasRevealEffect
+							animationSpeed={3}
+							containerClassName="bg-black"
+							colors={[
+								[255, 255, 255],
+								[255, 255, 255],
+							]}
+							dotSize={6}
+							totalSize={20}
+							opacities={[0.3, 0.3, 0.3, 0.5, 0.5, 0.5, 0.8, 0.8, 0.8, 1]}
+							showGradient={false}
+							origin="bottom"
+						/>
+						<div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.6)_100%)]" />
+					</motion.div>
+				)}
+			</AnimatePresence>
 
-					<div className="px-6 pb-8 pt-4">
-						<AnimatePresence mode="wait">
-							{success ? (
-								<motion.div
-									key="success"
-									initial={{ opacity: 0, y: 4 }}
-									animate={{ opacity: 1, y: 0 }}
-									className="flex items-center gap-2.5 rounded-lg border border-emerald-500/20 bg-emerald-500/10 p-3.5"
-								>
-									<CheckCircle className="size-4 text-emerald-500" />
-									<div>
-										<p className="text-sm font-medium">
-											Authenticated
-										</p>
-										<p className="text-xs text-muted-foreground">
-											Redirecting to dashboard...
-										</p>
-									</div>
-								</motion.div>
-							) : (
-								<motion.form
-									key="form"
-									onSubmit={handleSignIn}
-									className="space-y-4"
-								>
-									<Field>
-										<FieldLabel>Email</FieldLabel>
+			<Drawer
+				shouldScaleBackground={false}
+				open={open}
+				onOpenChange={handleOpenChange}
+			>
+				<DrawerTrigger asChild>{children}</DrawerTrigger>
+				<DrawerPortal>
+					<DrawerOverlay className="bg-transparent" />
+					<DrawerContent className="mx-auto max-w-md">
+						<DrawerHeader className="px-6 pt-4 pb-0 text-left">
+							<DrawerTitle>Admin</DrawerTitle>
+							<DrawerDescription className="text-xs">
+								Authorized personnel only.
+							</DrawerDescription>
+						</DrawerHeader>
+
+						<div className="px-6 pb-8 pt-4 space-y-4">
+							{/* GitHub OAuth */}
+							<Button
+								variant="outline"
+								className="w-full gap-2"
+								onClick={handleGitHub}
+							>
+								<GitHubIcon className="size-4 fill-current" />
+								Continue with GitHub
+							</Button>
+
+							{/* Divider */}
+							<div className="relative">
+								<div className="absolute inset-0 flex items-center">
+									<span className="w-full border-t" />
+								</div>
+								<div className="relative flex justify-center text-xs uppercase">
+									<span className="bg-background px-2 text-muted-foreground">
+										or
+									</span>
+								</div>
+							</div>
+
+							{/* Magic link */}
+							<AnimatePresence mode="wait">
+								{sent ? (
+									<motion.div
+										key="sent"
+										initial={{ opacity: 0, y: 4 }}
+										animate={{ opacity: 1, y: 0 }}
+										className="flex items-center gap-2.5 rounded-lg border p-3.5"
+									>
+										<CheckCircle className="size-4 text-emerald-500" />
+										<div>
+											<p className="text-sm font-medium">Check your inbox</p>
+											<p className="text-xs text-muted-foreground">{email}</p>
+										</div>
+									</motion.div>
+								) : (
+									<motion.form
+										key="form"
+										onSubmit={handleMagicLink}
+										className="flex gap-2"
+									>
 										<Input
 											type="email"
 											placeholder="you@example.com"
 											value={email}
-											onChange={(e) =>
-												setEmail(e.target.value)
-											}
+											onChange={(e) => setEmail(e.target.value)}
 											required
 											autoComplete="email"
 										/>
-									</Field>
+										<Button
+											type="submit"
+											disabled={loading}
+											className="shrink-0 gap-1"
+										>
+											{loading ? (
+												<Loader2 className="size-4 animate-spin" />
+											) : (
+												<>
+													Send link
+													<ArrowRight className="size-3" />
+												</>
+											)}
+										</Button>
+									</motion.form>
+								)}
+							</AnimatePresence>
 
-									<Field>
-										<FieldLabel>Password</FieldLabel>
-										<Input
-											type="password"
-											placeholder="Password"
-											value={password}
-											onChange={(e) =>
-												setPassword(e.target.value)
-											}
-											required
-											autoComplete="current-password"
-										/>
-										{error && (
-											<FieldError>{error}</FieldError>
-										)}
-									</Field>
-
-									<Button
-										type="submit"
-										disabled={loading}
-										className="w-full"
-									>
-										{loading ? (
-											<Loader2 className="size-4 animate-spin" />
-										) : (
-											<>
-												Sign in
-												<ArrowRight className="ml-1.5 size-4" />
-											</>
-										)}
-									</Button>
-								</motion.form>
-							)}
-						</AnimatePresence>
-					</div>
-				</DrawerContent>
-			</DrawerPortal>
-		</Drawer>
+							{error && <p className="text-sm text-destructive">{error}</p>}
+						</div>
+					</DrawerContent>
+				</DrawerPortal>
+			</Drawer>
+		</>
 	);
 }
