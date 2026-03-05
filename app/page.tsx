@@ -179,7 +179,9 @@ export default async function Home() {
 								Writing
 							</h2>
 							<p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
-								Notes and essays about building AI products and developer systems.
+								Field notes from shipping AI-native software: agent systems,
+								reliability, and product execution. Patterns, checklists, and
+								implementation details—written for builders.
 							</p>
 						</div>
 						<Link href="/articles" className="text-xs text-muted-foreground hover:text-foreground transition-colors font-mono flex items-center gap-1">

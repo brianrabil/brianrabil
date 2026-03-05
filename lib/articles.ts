@@ -5,6 +5,12 @@ interface Article {
 	description: string;
 	author: string;
 	date: string;
+	series?: string;
+	tags?: string[];
+	readingTimeMinutes?: number;
+	updated?: string;
+	featured?: boolean;
+	pillar?: boolean;
 }
 
 export interface ArticleWithSlug extends Article {
