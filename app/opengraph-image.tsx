@@ -55,7 +55,7 @@ export default function OG() {
 					lineHeight: 1.4,
 				}}
 			>
-				AI &amp; Full-Stack Engineer
+				Solo Founder &amp; AI Engineer
 			</div>
 		</div>,
 		{

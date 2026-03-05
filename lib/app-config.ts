@@ -85,9 +85,9 @@ export const appConfig: AppConfig = {
     {
       name: "Brian Rabil",
       logo: {
-        primary: "/logo-light.svg",
-        light: "/logo-light.svg",
-        dark: "/logo-dark.svg",
+        primary: "/avatar.png",
+        light: "/avatar.png",
+        dark: "/avatar.png",
       },
       status: "live",
       used: [],
@@ -201,9 +201,9 @@ export const appConfig: AppConfig = {
     {
       name: "Bae",
       logo: {
-        primary: "/logo-primary.svg",
-        light: "/logo-primary.svg",
-        dark: "/logo-primary.svg",
+        primary: "/branding/bae-logo-primary.svg",
+        light: "/branding/bae-logo-light.svg",
+        dark: "/branding/bae-logo-dark.svg",
       },
       status: "building",
       description:

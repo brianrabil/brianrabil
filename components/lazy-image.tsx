@@ -31,14 +31,15 @@ export function LazyImage({
 	const imgRef = React.useRef<HTMLImageElement | null>(null);
 	const isInView = useInView(ref, { once: true });
 
-	const [imgSrc, setImgSrc] = React.useState<string | undefined>(
-		inView ? undefined : src
-	);
+	const [errorSrc, setErrorSrc] = React.useState<string | null>(null);
 	const [isLoading, setIsLoading] = React.useState(true);
+
+	// Derive image source during render instead of using effects
+	const imgSrc = errorSrc ?? (inView && !isInView ? undefined : src);
 
 	const handleError = () => {
 		if (fallback) {
-			setImgSrc(fallback);
+			setErrorSrc(fallback);
 		}
 		setIsLoading(false);
 	};
@@ -46,13 +47,6 @@ export function LazyImage({
 	const handleLoad = React.useCallback(() => {
 		setIsLoading(false);
 	}, []);
-
-	// Load image only when inView
-	React.useEffect(() => {
-		if (inView && isInView && !imgSrc) {
-			setImgSrc(src);
-		}
-	}, [inView, isInView, src, imgSrc]);
 
 	// Handle cached images instantly
 	React.useEffect(() => {

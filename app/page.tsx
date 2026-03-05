@@ -22,12 +22,12 @@ export default async function Home() {
 				<Container className="relative mt-32 sm:mt-44 pb-20 sm:pb-28">
 					<div className="max-w-3xl animate-fade-in-up">
 						<h1 className="font-heading text-5xl tracking-tight text-foreground sm:text-7xl">
-							Building the
-							<br />
-							<span className="text-muted-foreground">post-labor stack.</span>
+						Building the
+						<br />
+						<span className="text-muted-foreground">post-labor stack.</span>
 						</h1>
 						<p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl animate-fade-in-up delay-100">
-							Solo founder. Local-first apps, agent infrastructure, simulation engines, developer tools.
+						Solo founder building AI products that couldn&apos;t exist without genuine depth. Agent harnesses, local inference, social simulation, developer toolkits — one person, one compounding system.
 						</p>
 					</div>
 				</Container>
@@ -40,12 +40,12 @@ export default async function Home() {
 						<div className="p-6 sm:p-8 flex flex-col justify-center">
 							<p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground/50">Mission</p>
 							<h2 className="mt-3 font-heading text-xl font-medium tracking-tight text-foreground sm:text-2xl leading-snug">
-								Software that runs itself so people don&apos;t have to.
+							The portfolio is the product.
 							</h2>
 						</div>
 						<div className="p-6 sm:p-8 flex items-center">
 							<p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-								I build local-first apps, agent infrastructure, and developer tools — a portfolio of products designed for a world where AI handles the repetitive work and humans focus on what matters.
+							Most AI products are thin wrappers. I build the layer underneath. I wrote a Rust inference engine before wiring up agents — because you can&apos;t design a harness you don&apos;t fully understand. I built a social simulation to understand feed mechanics before extracting the UI toolkit. An RSS reader became a directory platform after years of sitting with what&apos;s actually broken about how we navigate information. Nothing here is a side project. It&apos;s one system, built depth-first.
 							</p>
 						</div>
 					</div>
@@ -70,17 +70,22 @@ export default async function Home() {
 								<ProductCard key={product.name} product={product} />
 							))}
 							{Array.from({ length: (4 - (appConfig.projects.length % 4)) % 4 + 8 }).map((_, i) => (
-								<div key={`empty-${i}`} className="group relative flex flex-col border-border border-r border-b p-4">
+								<div key={`empty-${i}`} className="group relative flex flex-col border-border border-r border-b p-4 overflow-hidden">
+									<div
+										className="absolute inset-0 animate-empty-scan"
+										style={{
+											animationDelay: `${i * 1.7}s`,
+											background: 'linear-gradient(180deg, transparent 0%, hsl(var(--foreground) / 0.02) 50%, transparent 100%)',
+											backgroundSize: '100% 40%',
+											backgroundRepeat: 'no-repeat',
+										}}
+									/>
 									<div className="flex items-start justify-between gap-3">
-										<div className="h-7 w-7" />
+										<div className="h-7 w-7 rounded-sm bg-muted-foreground/[0.03]" />
 									</div>
-									<div className="mt-3 flex-1 flex items-center justify-center">
-										<span
-											className="text-sm text-muted-foreground/15 font-mono animate-pulse"
-											style={{ animationDelay: `${i * 200}ms`, animationDuration: '3s' }}
-										>
-											+
-										</span>
+									<div className="mt-3 flex-1 flex flex-col justify-center gap-1.5">
+										<div className="h-2.5 w-16 rounded-sm bg-muted-foreground/[0.04]" />
+										<div className="h-2 w-24 rounded-sm bg-muted-foreground/[0.03]" />
 									</div>
 									<div className="mt-auto pt-3" />
 								</div>
@@ -138,10 +143,10 @@ export default async function Home() {
 						<div className="p-6 sm:p-8">
 							<p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground/50">Newsletter</p>
 							<h2 className="mt-3 font-heading text-xl font-medium tracking-tight text-foreground sm:text-2xl leading-snug">
-								Get notified when I ship something new.
+							Follow along.
 							</h2>
 							<p className="mt-3 text-sm text-muted-foreground">
-								No spam. Occasional updates on products, writing, and what I&apos;m building next.
+							Occasional updates when I ship something new. No noise.
 							</p>
 						</div>
 						<div className="p-6 sm:p-8 flex items-center">

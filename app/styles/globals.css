@@ -102,6 +102,13 @@
 		from { opacity: 0; transform: translateY(-8px); }
 		to { opacity: 1; transform: translateY(0); }
 	}
+	@keyframes empty-scan {
+		0%, 100% { background-position: 0 -40%; opacity: 0; }
+		10% { opacity: 1; }
+		90% { opacity: 1; }
+		50% { background-position: 0 140%; opacity: 1; }
+	}
+	--animate-empty-scan: empty-scan 6s ease-in-out infinite;
 }
 
 @utility container {

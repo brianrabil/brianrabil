@@ -1,15 +1,22 @@
 "use client"
 
-import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect"
 import type { AppConfig } from "@/lib/zod"
 import { Badge } from "@/components/ui/badge"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion } from "motion/react"
 import { ExternalLink, Github, Loader2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import dynamic from "next/dynamic"
 import { useState } from "react"
 
+const CanvasRevealEffect = dynamic(
+	() => import("@/components/ui/canvas-reveal-effect").then(m => m.CanvasRevealEffect),
+	{ ssr: false }
+)
+
 type Product = AppConfig["projects"][number]
+
+const DEFAULT_COLORS = [[140, 140, 140]]
 
 const PRODUCT_COLORS: Record<string, number[][]> = {
 	"Brian Rabil": [[140, 140, 140]],
@@ -78,12 +85,12 @@ export function ProductCard({ product }: { product: Product }) {
 	const isExternal = primaryLink
 		? primaryLink.href.startsWith("http://") || primaryLink.href.startsWith("https://")
 		: false
-	const colors = PRODUCT_COLORS[product.name] ?? [[140, 140, 140]]
+	const colors = PRODUCT_COLORS[product.name] ?? DEFAULT_COLORS
 
 	const content = (
 		<>
 			<AnimatePresence>
-				{hovered && (
+				{hovered ? (
 					<motion.div
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
@@ -99,10 +106,10 @@ export function ProductCard({ product }: { product: Product }) {
 							showGradient={false}
 						/>
 					</motion.div>
-				)}
+				) : null}
 			</AnimatePresence>
 			<div className="relative z-10 flex items-start justify-between gap-3">
-				<div className="relative h-7 w-7 shrink-0">
+				<div className={`relative h-7 w-7 shrink-0 ${product.logo.light?.endsWith(".png") ? "rounded-full overflow-hidden" : ""}`}>
 					<Image
 						src={logoLight}
 						alt={`${product.name} logo`}

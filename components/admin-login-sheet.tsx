@@ -13,7 +13,7 @@ import {
 	DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useState } from "react";
