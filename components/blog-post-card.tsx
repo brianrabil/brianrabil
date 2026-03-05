@@ -40,7 +40,7 @@ export function BlogPostCard({
 				<time dateTime={date}>{date}</time>
 				<Badge variant="secondary">{category}</Badge>
 			</div>
-			<h3 className="mt-3 text-lg font-semibold leading-6 text-white">
+			<h3 className="font-heading mt-3 text-lg font-medium leading-6 text-white">
 				<Link href={href}>
 					<span className="absolute inset-0" />
 					{title}

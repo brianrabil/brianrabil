@@ -93,3 +93,7 @@ out/
 certificates
 .vercel
 .env*.local
+
+# SQLite
+*.db
+*.db-journal

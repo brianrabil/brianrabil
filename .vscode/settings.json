@@ -1,44 +1,42 @@
 {
-	"editor.tabSize": 2,
-	"editor.indentSize": "tabSize",
-	"editor.detectIndentation": true,
-	"editor.renderWhitespace": "all",
-	"editor.formatOnSave": true,
-	"editor.defaultFormatter": "biomejs.biome",
-	"editor.codeActionsOnSave": {
-		"quickfix.biome": "explicit"
-	},
-	"cSpell.words": [
-		"biomejs",
-		"BROWSERLESS",
-		"bunx",
-		"clsx",
-		"dall",
-		"devcontainer",
-		"devcontainers",
-		"devicons",
-		"libsql",
-		"llamaindex",
-		"lucide",
-		"nextra",
-		"ollama",
-		"OPENAI",
-		"Rabil",
-		"sonarjs",
-		"sonner",
-		"tailwindcss",
-		"webpush"
-	],
-	"[jsonc]": {
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"[javascript]": {
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"[json]": {
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"[xml]": {
-		"editor.defaultFormatter": "DotJoshJohnson.xml"
-	}
+  "editor.tabSize": 2,
+  "editor.indentSize": "tabSize",
+  "editor.detectIndentation": true,
+  "editor.renderWhitespace": "all",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "explicit",
+  },
+  "cSpell.words": [
+    "biomejs",
+    "BROWSERLESS",
+    "bunx",
+    "clsx",
+    "dall",
+    "devicons",
+    "libsql",
+    "llamaindex",
+    "lucide",
+    "nextra",
+    "ollama",
+    "OPENAI",
+    "Rabil",
+    "sonarjs",
+    "sonner",
+    "tailwindcss",
+    "webpush",
+  ],
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome",
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome",
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome",
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "DotJoshJohnson.xml",
+  },
 }

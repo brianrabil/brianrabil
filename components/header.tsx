@@ -1,439 +1,155 @@
 "use client";
 
 import { Container } from "@/components/container";
-import {
-	Popover,
-	PopoverContent,
-	PopoverTrigger,
-} from "@/components/ui/popover";
-import avatarImage from "@/images/avatar.png";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { appConfig } from "@/lib/app-config";
 import { cn } from "@/lib/utils";
+import { Calendar, MapPin, Sun, Moon, Rss } from "lucide-react";
+import Link from "next/link"
 import { useTheme } from "next-themes";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
-function CloseIcon(props: React.ComponentPropsWithoutRef<"svg">) {
+function GitHubIcon(props: React.ComponentPropsWithoutRef<"svg">) {
 	return (
 		<svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
 			<path
-				d="m17.25 6.75-10.5 10.5M6.75 6.75l10.5 10.5"
-				fill="none"
-				stroke="currentColor"
-				strokeWidth="1.5"
-				strokeLinecap="round"
-				strokeLinejoin="round"
+				fillRule="evenodd"
+				clipRule="evenodd"
+				d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"
 			/>
 		</svg>
 	);
 }
 
-function ChevronDownIcon(props: React.ComponentPropsWithoutRef<"svg">) {
-	return (
-		<svg viewBox="0 0 8 6" aria-hidden="true" {...props}>
-			<path
-				d="M1.75 1.75 4 4.25l2.25-2.5"
-				fill="none"
-				strokeWidth="1.5"
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			/>
-		</svg>
-	);
-}
-
-function SunIcon(props: React.ComponentPropsWithoutRef<"svg">) {
-	return (
-		<svg
-			viewBox="0 0 24 24"
-			strokeWidth="1.5"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-			aria-hidden="true"
-			{...props}
-		>
-			<path d="M8 12.25A4.25 4.25 0 0 1 12.25 8v0a4.25 4.25 0 0 1 4.25 4.25v0a4.25 4.25 0 0 1-4.25 4.25v0A4.25 4.25 0 0 1 8 12.25v0Z" />
-			<path
-				d="M12.25 3v1.5M21.5 12.25H20M18.791 18.791l-1.06-1.06M18.791 5.709l-1.06 1.06M12.25 20v1.5M4.5 12.25H3M6.77 6.77 5.709 5.709M6.77 17.73l-1.061 1.061"
-				fill="none"
-			/>
-		</svg>
-	);
-}
-
-function MoonIcon(props: React.ComponentPropsWithoutRef<"svg">) {
+function XIcon(props: React.ComponentPropsWithoutRef<"svg">) {
 	return (
 		<svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-			<path
-				d="M17.25 16.22a6.937 6.937 0 0 1-9.47-9.47 7.451 7.451 0 1 0 9.47 9.47ZM12.75 7C17 7 17 2.75 17 2.75S17 7 21.25 7C17 7 17 11.25 17 11.25S17 7 12.75 7Z"
-				strokeWidth="1.5"
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			/>
+			<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
 		</svg>
-	);
-}
-
-function MobileNavItem({
-	href,
-	children,
-}: {
-	href: string;
-	children: React.ReactNode;
-}) {
-	return (
-		<li>
-			<Link href={href} className="block py-2">
-				{children}
-			</Link>
-		</li>
-	);
-}
-
-function MobileNavigation(props: React.HTMLAttributes<HTMLDivElement>) {
-	return (
-		<Popover {...props}>
-			<PopoverTrigger className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-xs dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
-				Menu
-				<ChevronDownIcon className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
-			</PopoverTrigger>
-			<PopoverContent
-				className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 data-[state=closed]:scale-95 data-[state=closed]:opacity-0 dark:bg-zinc-900 dark:ring-zinc-800"
-				sideOffset={8}
-			>
-				<div className="flex flex-row-reverse items-center justify-between">
-					<button type="button" aria-label="Close menu" className="-m-1 p-1">
-						<CloseIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
-					</button>
-					<h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-						Navigation
-					</h2>
-				</div>
-				<nav className="mt-6">
-					<ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
-						<MobileNavItem href="/about">About</MobileNavItem>
-						<MobileNavItem href="/articles">Articles</MobileNavItem>
-						<MobileNavItem href="/projects">Projects</MobileNavItem>
-						<MobileNavItem href="/uses">Uses</MobileNavItem>
-					</ul>
-				</nav>
-			</PopoverContent>
-		</Popover>
-	);
-}
-
-function NavItem({
-	href,
-	children,
-}: {
-	href: string;
-	children: React.ReactNode;
-}) {
-	const isActive = usePathname() === href;
-
-	return (
-		<li>
-			<Link
-				href={href}
-				className={cn(
-					"relative block px-3 py-2 transition",
-					isActive
-						? "text-red-500 dark:text-red-400"
-						: "hover:text-red-500 dark:hover:text-red-400",
-				)}
-			>
-				{children}
-				{isActive && (
-					<span className="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-red-500/0 via-red-500/40 to-red-500/0 dark:from-red-400/0 dark:via-red-400/40 dark:to-red-400/0" />
-				)}
-			</Link>
-		</li>
-	);
-}
-
-function DesktopNavigation(props: React.ComponentPropsWithoutRef<"nav">) {
-	return (
-		<nav {...props}>
-			<ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-xs dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
-				<NavItem href="/about">About</NavItem>
-				<NavItem href="/articles">Articles</NavItem>
-				<NavItem href="/projects">Projects</NavItem>
-				<NavItem href="/uses">Uses</NavItem>
-			</ul>
-		</nav>
 	);
 }
 
 function ThemeToggle() {
 	const { resolvedTheme, setTheme } = useTheme();
-	const otherTheme = resolvedTheme === "dark" ? "light" : "dark";
 	const [mounted, setMounted] = useState(false);
 
-	useEffect(() => {
-		setMounted(true);
-	}, []);
+	useEffect(() => setMounted(true), []);
 
 	return (
 		<button
-			type="button"
-			aria-label={mounted ? `Switch to ${otherTheme} theme` : "Toggle theme"}
-			className="group rounded-full bg-white/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-xs transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
-			onClick={() => setTheme(otherTheme)}
+			onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+			className="inline-flex h-8 w-8 items-center justify-center text-foreground/60 dark:text-foreground/70 transition-colors hover:text-foreground cursor-pointer"
+			aria-label="Toggle theme"
 		>
-			<SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-red-50 [@media(prefers-color-scheme:dark)]:stroke-red-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-red-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-red-600" />
-			<MoonIcon className="hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media_not_(prefers-color-scheme:dark)]:fill-red-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-red-500 [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400" />
+			{mounted ? (
+				resolvedTheme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />
+			) : (
+				<Sun className="h-4 w-4" />
+			)}
 		</button>
 	);
 }
 
-function clamp(number: number, a: number, b: number) {
-	const min = Math.min(a, b);
-	const max = Math.max(a, b);
-	return Math.min(Math.max(number, min), max);
-}
-
-function AvatarContainer({
-	className,
-	...props
-}: React.ComponentPropsWithoutRef<"div">) {
-	return (
-		<div
-			className={cn(
-				className,
-				"h-10 w-10 rounded-full bg-white/90 p-0.5 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-xs dark:bg-zinc-800/90 dark:ring-white/10",
-			)}
-			{...props}
-		/>
-	);
-}
-
-function Avatar({
-	large = false,
-	className,
-	...props
-}: Omit<React.ComponentPropsWithoutRef<typeof Link>, "href"> & {
-	large?: boolean;
-}) {
-	return (
-		<Link
-			href="/"
-			aria-label="Home"
-			className={cn(className, "pointer-events-auto")}
-			{...props}
-		>
-			<Image
-				src={avatarImage}
-				alt=""
-				sizes={large ? "4rem" : "2.25rem"}
-				className={cn(
-					"rounded-full bg-zinc-100 object-cover dark:bg-zinc-800",
-					large ? "h-16 w-16" : "h-9 w-9",
-				)}
-				priority
-			/>
-		</Link>
-	);
-}
-
 export function Header() {
-	const isHomePage = usePathname() === "/";
-
-	const headerRef = useRef<React.ComponentRef<"div">>(null);
-	const avatarRef = useRef<React.ComponentRef<"div">>(null);
-	const isInitial = useRef(true);
+	const [scrolled, setScrolled] = useState(false);
 
 	useEffect(() => {
-		const downDelay = avatarRef.current?.offsetTop ?? 0;
-		const upDelay = 64;
-
-		function setProperty(property: string, value: string) {
-			document.documentElement.style.setProperty(property, value);
+		function onScroll() {
+			setScrolled(window.scrollY > 10);
 		}
-
-		function removeProperty(property: string) {
-			document.documentElement.style.removeProperty(property);
-		}
-
-		function updateHeaderStyles() {
-			if (!headerRef.current) {
-				return;
-			}
-
-			const { top, height } = headerRef.current.getBoundingClientRect();
-			const scrollY = clamp(
-				window.scrollY,
-				0,
-				document.body.scrollHeight - window.innerHeight,
-			);
-
-			if (isInitial.current) {
-				setProperty("--header-position", "sticky");
-			}
-
-			setProperty("--content-offset", `${downDelay}px`);
-
-			if (isInitial.current || scrollY < downDelay) {
-				setProperty("--header-height", `${downDelay + height}px`);
-				setProperty("--header-mb", `${-downDelay}px`);
-			} else if (top + height < -upDelay) {
-				const offset = Math.max(height, scrollY - upDelay);
-				setProperty("--header-height", `${offset}px`);
-				setProperty("--header-mb", `${height - offset}px`);
-			} else if (top === 0) {
-				setProperty("--header-height", `${scrollY + height}px`);
-				setProperty("--header-mb", `${-scrollY}px`);
-			}
-
-			if (top === 0 && scrollY > 0 && scrollY >= downDelay) {
-				setProperty("--header-inner-position", "fixed");
-				removeProperty("--header-top");
-				removeProperty("--avatar-top");
-			} else {
-				removeProperty("--header-inner-position");
-				setProperty("--header-top", "0px");
-				setProperty("--avatar-top", "0px");
-			}
-		}
-
-		function updateAvatarStyles() {
-			if (!isHomePage) {
-				return;
-			}
-
-			const fromScale = 1;
-			const toScale = 36 / 64;
-			const fromX = 0;
-			const toX = 2 / 16;
-
-			const scrollY = downDelay - window.scrollY;
-
-			let scale = (scrollY * (fromScale - toScale)) / downDelay + toScale;
-			scale = clamp(scale, fromScale, toScale);
-
-			let x = (scrollY * (fromX - toX)) / downDelay + toX;
-			x = clamp(x, fromX, toX);
-
-			setProperty(
-				"--avatar-image-transform",
-				`translate3d(${x}rem, 0, 0) scale(${scale})`,
-			);
-
-			const borderScale = 1 / (toScale / scale);
-			const borderX = (-toX + x) * borderScale;
-			const borderTransform = `translate3d(${borderX}rem, 0, 0) scale(${borderScale})`;
-
-			setProperty("--avatar-border-transform", borderTransform);
-			setProperty("--avatar-border-opacity", scale === toScale ? "1" : "0");
-		}
-
-		function updateStyles() {
-			updateHeaderStyles();
-			updateAvatarStyles();
-			isInitial.current = false;
-		}
-
-		updateStyles();
-		window.addEventListener("scroll", updateStyles, { passive: true });
-		window.addEventListener("resize", updateStyles);
-
-		return () => {
-			window.removeEventListener("scroll", updateStyles);
-			window.removeEventListener("resize", updateStyles);
-		};
-	}, [isHomePage]);
+		onScroll();
+		window.addEventListener("scroll", onScroll, { passive: true });
+		return () => window.removeEventListener("scroll", onScroll);
+	}, []);
 
 	return (
-		<>
-			<header
-				className="pointer-events-none relative z-50 flex flex-none flex-col"
-				style={{
-					height: "var(--header-height)",
-					marginBottom: "var(--header-mb)",
-				}}
-			>
-				{isHomePage && (
-					<>
-						<div
-							ref={avatarRef}
-							className="order-last mt-[calc(--spacing(16)-(--spacing(3)))]"
-						/>
-						<Container
-							className="top-0 order-last -mb-3 pt-3"
-							style={{
-								position:
-									"var(--header-position)" as React.CSSProperties["position"],
-							}}
-						>
-							<div
-								className="top-(--avatar-top,--spacing(3)) w-full"
-								style={{
-									position:
-										"var(--header-inner-position)" as React.CSSProperties["position"],
-								}}
-							>
-								<div className="relative">
-									<AvatarContainer
-										className="absolute top-3 left-0 origin-left transition-opacity"
-										style={{
-											opacity: "var(--avatar-border-opacity, 0)",
-											transform: "var(--avatar-border-transform)",
-										}}
-									/>
-									<Avatar
-										large
-										className="block h-16 w-16 origin-left"
-										style={{ transform: "var(--avatar-image-transform)" }}
-									/>
-								</div>
-							</div>
-						</Container>
-					</>
-				)}
-				<div
-					ref={headerRef}
-					className="top-0 z-10 h-16 pt-6"
-					style={{
-						position:
-							"var(--header-position)" as React.CSSProperties["position"],
-					}}
-				>
-					<Container
-						className="top-(--header-top,--spacing(6)) w-full"
-						style={{
-							position:
-								"var(--header-inner-position)" as React.CSSProperties["position"],
-						}}
-					>
-						<div className="relative flex gap-4">
-							<div className="flex flex-1">
-								{!isHomePage && (
-									<AvatarContainer>
-										<Avatar />
-									</AvatarContainer>
-								)}
-							</div>
-							<div className="flex flex-1 justify-end md:justify-center">
-								<div className="pointer-events-auto md:hidden hidden">
-									<MobileNavigation />
-								</div>
-								<DesktopNavigation className="pointer-events-auto hidden md:block" />
-							</div>
-							<div className="flex justify-end md:flex-1">
-								<div className="pointer-events-auto">
-									<ThemeToggle />
-								</div>
-							</div>
-						</div>
-					</Container>
-				</div>
-			</header>
-			{isHomePage && (
-				<div
-					className="flex-none"
-					style={{ height: "var(--content-offset)" }}
-				/>
+		<header
+			className={cn(
+				"fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color] duration-300",
+				scrolled
+					? "border-b border-border/50 bg-background"
+					: "border-b border-transparent bg-transparent",
 			)}
-		</>
+		>
+			<Container>
+				<div className="flex h-12 items-center justify-between gap-4">
+					<HoverCard openDelay={100} closeDelay={100}>
+						<HoverCardTrigger asChild>
+							<Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-foreground/80 transition-colors">
+								<Avatar className="size-5">
+									<AvatarImage src="/avatar.png" alt="Brian Rabil" />
+									<AvatarFallback className="text-[8px]">BR</AvatarFallback>
+								</Avatar>
+								@brianrabil
+							</Link>
+						</HoverCardTrigger>
+						<HoverCardContent className="w-72" align="start">
+							<div className="flex gap-3">
+								<Avatar className="size-10 shrink-0">
+									<AvatarImage src="/avatar.png" alt="Brian Rabil" />
+									<AvatarFallback>BR</AvatarFallback>
+								</Avatar>
+								<div className="space-y-1">
+									<div>
+										<p className="text-sm font-medium">{appConfig.fullName}</p>
+										<p className="text-muted-foreground text-xs">@brianrabil</p>
+									</div>
+									<p className="text-sm text-foreground">{appConfig.jobTitle}</p>
+									<div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1">
+										<div className="flex items-center gap-1">
+											<MapPin className="size-3 text-muted-foreground/60" />
+											<span className="text-muted-foreground text-xs">{appConfig.location}</span>
+										</div>
+										<div className="flex items-center gap-1">
+											<Calendar className="size-3 text-muted-foreground/60" />
+											<span className="text-muted-foreground text-xs">Building since 2014</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</HoverCardContent>
+					</HoverCard>
+					<nav aria-label="Primary">
+						<ul className="flex items-center gap-1">
+							<li>
+								<Link
+									href={appConfig.social.x.href}
+									className="inline-flex h-8 w-8 items-center justify-center text-foreground/60 dark:text-foreground/70 transition-colors hover:text-foreground"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="X (Twitter)"
+								>
+									<XIcon className="h-4 w-4 fill-current" />
+								</Link>
+							</li>
+							<li>
+								<Link
+									href={appConfig.social.github.href}
+									className="inline-flex h-8 w-8 items-center justify-center text-foreground/60 dark:text-foreground/70 transition-colors hover:text-foreground"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="GitHub"
+								>
+									<GitHubIcon className="h-4 w-4 fill-current" />
+								</Link>
+							</li>
+							<li>
+								<Link
+									href={appConfig.social.rss.href}
+									className="inline-flex h-8 w-8 items-center justify-center text-foreground/60 dark:text-foreground/70 transition-colors hover:text-foreground"
+									aria-label="RSS Feed"
+								>
+									<Rss className="h-4 w-4" />
+								</Link>
+							</li>
+							<li>
+								<ThemeToggle />
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</Container>
+		</header>
 	);
 }

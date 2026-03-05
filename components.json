@@ -1,18 +1,24 @@
 {
-	"$schema": "https://ui.shadcn.com/schema.json",
-	"style": "new-york",
-	"rsc": true,
-	"tsx": true,
-	"tailwind": {
-		"config": "tailwind.config.ts",
-		"css": "app/styles/globals.css",
-		"baseColor": "zinc",
-		"cssVariables": true,
-		"prefix": ""
-	},
-	"aliases": {
-		"components": "components",
-		"utils": "lib/utils",
-		"hooks": "lib/hooks"
-	}
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "app/styles/globals.css",
+    "baseColor": "zinc",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "iconLibrary": "radix",
+  "aliases": {
+    "components": "components",
+    "utils": "lib/utils",
+    "hooks": "lib/hooks"
+  },
+  "registries": {
+    "@reui": "https://reui.io/r/{style}/{name}.json",
+    "@efferd": "https://efferd.com/r/{name}.json",
+    "@aceternity": "https://ui.aceternity.com/registry/{name}.json"
+  }
 }

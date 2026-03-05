@@ -7,10 +7,10 @@ interface TypographyProps {
 }
 
 export const typographyStyles = {
-	h1: "text-4xl md:text-5xl lg:text-6xl xl:text-7xl scroll-m-20 justify-center max-w-[1200px] overflow-visible p-0 relative w-full font-light mb-2 tracking-tight text-foreground leading-tight",
-	h2: "scroll-m-20 text-4xl font-medium leading-[56px] text-left text-foreground break-words",
-	h3: "scroll-m-20 text-xl md:text-2xl lg:text-3xl text-foreground mb-4 font-light tracking-tight first:mt-0 leading-tight",
-	h4: "scroll-m-20 text-lg md:text-xl lg:text-2xl font-light tracking-tight leading-tight",
+	h1: "font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl scroll-m-20 justify-center max-w-[1200px] overflow-visible p-0 relative w-full font-light mb-2 tracking-tight text-foreground leading-tight",
+	h2: "font-heading scroll-m-20 text-4xl font-medium leading-[56px] text-left text-foreground break-words",
+	h3: "font-heading scroll-m-20 text-xl md:text-2xl lg:text-3xl text-foreground mb-4 font-light tracking-tight first:mt-0 leading-tight",
+	h4: "font-heading scroll-m-20 text-lg md:text-xl lg:text-2xl font-light tracking-tight leading-tight",
 	p: "leading-7 text-base md:text-lg lg:text-xl tracking-normal text-left max-w-[1200px] text-foreground font-light not-first:mt-6",
 	small: "text-sm font-light leading-none",
 	large: "text-lg font-light leading-tight",

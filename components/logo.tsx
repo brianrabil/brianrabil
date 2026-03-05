@@ -9,7 +9,7 @@ export function Logo({ className }: { className?: string }) {
 				<AvatarImage src="/brianrabil-avatar.png" alt="Brian Rabil" />
 				<AvatarFallback>BR</AvatarFallback>
 			</Avatar>
-			<TypographyH1 className="font-medium text-sm md:text-base lg:text-sm xl:text-xl text-foreground m-0">
+			<TypographyH1 className="font-pixel font-medium text-sm md:text-base lg:text-sm xl:text-xl text-foreground m-0">
 				Brian Rabil
 			</TypographyH1>
 		</div>

@@ -14,19 +14,23 @@ function ChevronRightIcon(props: React.ComponentPropsWithoutRef<"svg">) {
 	);
 }
 
-export function Card<T extends React.ElementType = "div">({
+export function Card({
 	as,
 	className,
 	children,
-}: Omit<React.ComponentPropsWithoutRef<T>, "as" | "className"> & {
-	as?: T;
+}: {
+	as?: React.ElementType;
 	className?: string;
+	children?: React.ReactNode;
 }) {
-	const Component = as ?? "div";
+	const Component = (as ?? "div") as "div";
 
 	return (
 		<Component
-			className={cn(className, "group relative flex flex-col items-start")}
+			className={cn(
+				className,
+				"group relative flex flex-col items-start rounded-none border border-border bg-card p-5 transition-colors hover:bg-muted/30",
+			)}
 		>
 			{children}
 		</Component>
@@ -35,31 +39,32 @@ export function Card<T extends React.ElementType = "div">({
 
 Card.Link = function CardLink({
 	children,
+	className,
 	...props
 }: React.ComponentPropsWithoutRef<typeof Link>) {
 	return (
 		<>
-			<div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50" />
-			<Link {...props}>
-				<span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
-				<span className="relative z-10">{children}</span>
+			<Link {...props} className={cn("relative", className)}>
+				<span className="absolute inset-0 z-20 rounded-none" />
+				<span className="relative z-10 text-foreground">{children}</span>
 			</Link>
 		</>
 	);
 };
 
-Card.Title = function CardTitle<T extends React.ElementType = "h2">({
+Card.Title = function CardTitle({
 	as,
 	href,
 	children,
-}: Omit<React.ComponentPropsWithoutRef<T>, "as" | "href"> & {
-	as?: T;
+}: {
+	as?: React.ElementType;
 	href?: string;
+	children?: React.ReactNode;
 }) {
-	const Component = as ?? "h2";
+	const Component = (as ?? "h2") as "h2";
 
 	return (
-		<Component className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+		<Component className="font-heading text-base font-medium text-foreground text-balance">
 			{href ? <Card.Link href={href}>{children}</Card.Link> : children}
 		</Component>
 	);
@@ -71,7 +76,7 @@ Card.Description = function CardDescription({
 	children: React.ReactNode;
 }) {
 	return (
-		<p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+		<p className="relative z-10 mt-3 text-sm text-muted-foreground text-pretty">
 			{children}
 		</p>
 	);
@@ -81,7 +86,7 @@ Card.Cta = function CardCta({ children }: { children: React.ReactNode }) {
 	return (
 		<div
 			aria-hidden="true"
-			className="relative z-10 mt-4 flex items-center text-sm font-medium text-red-500"
+			className="relative z-10 mt-5 flex items-center text-sm font-medium text-foreground"
 		>
 			{children}
 			<ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
@@ -89,23 +94,26 @@ Card.Cta = function CardCta({ children }: { children: React.ReactNode }) {
 	);
 };
 
-Card.Eyebrow = function CardEyebrow<T extends React.ElementType = "p">({
+Card.Eyebrow = function CardEyebrow({
 	as,
 	decorate = false,
 	className,
 	children,
 	...props
-}: Omit<React.ComponentPropsWithoutRef<T>, "as" | "decorate"> & {
-	as?: T;
+}: {
+	as?: React.ElementType;
 	decorate?: boolean;
+	className?: string;
+	children?: React.ReactNode;
+	[key: string]: unknown;
 }) {
-	const Component = as ?? "p";
+	const Component = (as ?? "p") as "p";
 
 	return (
 		<Component
 			className={cn(
 				className,
-				"relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500",
+				"relative z-10 order-first mb-3 flex items-center text-sm text-muted-foreground",
 				decorate && "pl-3.5",
 			)}
 			{...props}
@@ -115,7 +123,7 @@ Card.Eyebrow = function CardEyebrow<T extends React.ElementType = "p">({
 					className="absolute inset-y-0 left-0 flex items-center"
 					aria-hidden="true"
 				>
-					<span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
+					<span className="h-4 w-0.5 rounded-full bg-border" />
 				</span>
 			)}
 			{children}

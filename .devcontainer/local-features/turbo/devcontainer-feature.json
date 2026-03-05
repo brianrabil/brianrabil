@@ -1,9 +1,0 @@
-{
-	"id": "install-turbo",
-	"name": "Turbo",
-	"version": "0.0.1",
-	"dependsOn": {
-		"node": "*"
-	},
-	"options": {}
-}

@@ -15,18 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			priority: 0.8,
 		},
 		{
-			url: "https://brianrabil.com/uses",
-			lastModified: new Date(),
-			changeFrequency: "monthly",
-			priority: 0.8,
-		},
-		{
-			url: "https://brianrabil.com/projects",
-			lastModified: new Date(),
-			changeFrequency: "monthly",
-			priority: 0.8,
-		},
-		{
 			url: "https://brianrabil.com/thank-you",
 			lastModified: new Date(),
 			changeFrequency: "monthly",

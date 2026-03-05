@@ -1,8 +1,26 @@
 import { Providers } from "@/app/providers";
 import { Layout } from "@/components/layout";
 import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "@/app/styles/globals.css";
 import { appConfig } from "@/lib/app-config";
+
+const geistSans = Geist({
+	subsets: ["latin"],
+	variable: "--font-geist-sans",
+});
+
+const geistMono = Geist_Mono({
+	subsets: ["latin"],
+	variable: "--font-geist-mono",
+});
+
+const geistPixel = localFont({
+	src: "./fonts/GeistPixel-Square.woff2",
+	variable: "--font-geist-pixel",
+	display: "swap",
+});
 
 export const metadata: Metadata = {
 	title: {
@@ -63,8 +81,12 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className="h-full antialiased" suppressHydrationWarning>
-			<body className="flex h-full bg-zinc-50 dark:bg-black">
+		<html
+			lang="en"
+			className={`${geistSans.variable} ${geistMono.variable} ${geistPixel.variable} h-full antialiased`}
+			suppressHydrationWarning
+		>
+			<body className="flex h-full bg-background font-body text-foreground">
 				<Providers>
 					<div className="flex w-full">
 						<Layout>{children}</Layout>
