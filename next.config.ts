@@ -1,6 +1,7 @@
 import createMDX from "@next/mdx";
 import type { NextConfig } from "next";
-import rehypePrism from "rehype-highlight";
+// @ts-expect-error -- no type declarations for this package
+import rehypePrism from "@mapbox/rehype-prism";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 
