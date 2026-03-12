@@ -227,17 +227,17 @@ export const appConfig: AppConfig = {
       link: [],
     },
     {
-      name: "Shadcn Galaxy",
+      name: "ui",
       logo: {
-        primary: "/branding/shadcn-galaxy-logo-light.svg",
-        light: "/branding/shadcn-galaxy-logo-light.svg",
-        dark: "/branding/shadcn-galaxy-logo-dark.svg",
+        primary: "/branding/brianrabil-ui-logo-dark.svg",
+        light: "/branding/brianrabil-ui-logo-dark.svg",
+        dark: "/branding/brianrabil-ui-logo-light.svg",
       },
       status: "building",
       used: ["Next.js"],
       variant: "directory",
       description:
-        "A curated directory of shadcn UI components, MCP servers, and developer tools.",
+        "A curated registry of UI components, blocks, tools, and MCP servers for design engineers.",
       link: [],
     },
     {
@@ -295,34 +295,6 @@ export const appConfig: AppConfig = {
       used: ["Oasis"],
       link: [],
       variant: "package",
-    },
-    {
-      name: "Socialcn",
-      logo: {
-        primary: "/branding/socialcn-logo-primary.svg",
-        light: "/branding/socialcn-logo-light.svg",
-        dark: "/branding/socialcn-logo-dark.svg",
-      },
-      status: "building",
-      used: ["shadcn/ui"],
-      variant: "package",
-      description:
-        "A registry of high-quality social and community UI components designed for modern web apps.",
-      link: [],
-    },
-    {
-      name: "Directory OS",
-      logo: {
-        primary: "/branding/directory-os-logo-primary.svg",
-        light: "/branding/directory-os-logo-light.svg",
-        dark: "/branding/directory-os-logo-dark.svg",
-      },
-      status: "building",
-      used: ["shadcn/ui"],
-      variant: "package",
-      description:
-        "Reusable framework for launching and operating modern directories, including search, submissions, moderation workflows, and monetization.",
-      link: [],
     },
   ],
   workHistory: [

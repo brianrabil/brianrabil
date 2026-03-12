@@ -37,13 +37,10 @@ export default async function Home() {
 		})
 		.filter((article): article is ArticleWithSlug => article !== null);
 	const orderedProductNames = [
-		"Directory OS",
-		"Socialcn",
 		"World Engine",
 		"Feedframe",
 		"Reelway",
 		"Snapclip",
-		"Shadcn Galaxy",
 		"Gigaswarm",
 		"Bae",
 		"Inflect",
@@ -52,6 +49,7 @@ export default async function Home() {
 		"Indexwell",
 		"Jobhop",
 		"RSSX",
+		"ui",
 		"Brian Rabil",
 	];
 	const orderedProducts = orderedProductNames
