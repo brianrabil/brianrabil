@@ -4,39 +4,21 @@ import { NewsletterForm } from "@/components/newsletter-form";
 import { ProductCard } from "@/components/product-card";
 import { Button } from "@/components/ui/button";
 import { appConfig } from "@/lib/app-config";
-import { type ArticleWithSlug, getAllArticles } from "@/lib/articles";
+import { getAllArticles } from "@/lib/articles";
 import { formatDate } from "@/lib/formatDate";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default async function Home() {
 	const articles = await getAllArticles();
-	const featuredArticles = [
-		{
-			slug: "hello-world",
-			title:
-				"Building Production-Ready AI Agents: Architecture Patterns That Scale",
-			description:
-				"Architecture patterns for deploying AI agents reliably in production.",
-		},
-		{
-			slug: "the-ai-product-reliability-playbook",
-			title: "The AI Product Reliability Playbook",
-			description: "How to move from AI demos to dependable products.",
-		},
-		{
-			slug: "how-to-find-your-wedge-as-an-indie-ai-builder",
-			title: "How to Find Your Wedge as an Indie AI Builder",
-			description:
-				"A framework for identifying product opportunities in the AI ecosystem.",
-		},
-	]
-		.map(({ slug, title, description }) => {
-			const article = articles.find((item) => item.slug === slug);
-			if (!article) return null;
-			return { ...article, title, description };
-		})
-		.filter((article): article is ArticleWithSlug => article !== null);
+	const hiddenFeaturedArticleSlugs = new Set([
+		"hello-world",
+		"the-ai-product-reliability-playbook",
+		"how-to-find-your-wedge-as-an-indie-ai-builder",
+	]);
+	const featuredArticles = articles
+		.filter((article) => !hiddenFeaturedArticleSlugs.has(article.slug))
+		.slice(0, 3);
 	const orderedProductNames = [
 		"World Engine",
 		"Reelway",
