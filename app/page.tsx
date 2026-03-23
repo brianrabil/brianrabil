@@ -49,7 +49,6 @@ export default async function Home() {
 			{/* Hero */}
 			<div className="relative overflow-hidden">
 				<HeroSwirl />
-				<div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
 				<Container className="relative mt-32 sm:mt-44 pb-20 sm:pb-28">
 					<div className="max-w-3xl animate-fade-in-up">
 						<p className="text-[11px] font-mono uppercase tracking-[0.15em] text-muted-foreground/50">
