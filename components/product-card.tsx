@@ -50,7 +50,7 @@ function StatusBadge({ status }: { status: string }) {
 	switch (status) {
 		case "live":
 			return (
-				<Badge className="gap-1 rounded-full border-emerald-500/30 bg-emerald-500/10 px-1.5 py-0 text-[10px] font-medium text-emerald-600 shadow-none dark:text-emerald-400">
+				<Badge className="pointer-events-none gap-1 rounded-full border-emerald-500/30 bg-emerald-500/10 px-1.5 py-0 text-[10px] font-medium text-emerald-600 shadow-none dark:text-emerald-400">
 					<span className="relative flex h-1.5 w-1.5">
 						<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
 						<span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
@@ -60,15 +60,22 @@ function StatusBadge({ status }: { status: string }) {
 			)
 		case "building":
 			return (
-				<Badge className="gap-1 rounded-full border-amber-500/30 bg-amber-500/10 px-1.5 py-0 text-[10px] font-medium text-amber-600 shadow-none dark:text-amber-400">
+				<Badge className="pointer-events-none gap-1 rounded-full border-amber-500/30 bg-amber-500/10 px-1.5 py-0 text-[10px] font-medium text-amber-600 shadow-none dark:text-amber-400">
 					<Loader2 className="h-2.5 w-2.5 animate-spin" />
 					Building
 				</Badge>
 			)
+		case "planning":
+			return (
+				<Badge className="pointer-events-none gap-1 rounded-full border-blue-500/30 bg-blue-500/10 px-1.5 py-0 text-[10px] font-medium text-blue-600 shadow-none dark:text-blue-400">
+					<Loader2 className="h-2.5 w-2.5 animate-spin" />
+					Planning
+				</Badge>
+			)
 		default:
 			return (
-				<Badge variant="outline" className="rounded-full px-1.5 py-0 text-[10px] font-normal text-muted-foreground/60 shadow-none">
-					Planning
+				<Badge variant="outline" className="pointer-events-none rounded-full px-1.5 py-0 text-[10px] font-normal text-muted-foreground/40 shadow-none border-border/50">
+					Backlog
 				</Badge>
 			)
 	}

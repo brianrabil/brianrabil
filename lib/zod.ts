@@ -32,6 +32,7 @@ const ProjectSchema = object({
   }),
   status: z.enum([
     "backlog",
+    "planning",
     "building",
     "live",
     "folded",

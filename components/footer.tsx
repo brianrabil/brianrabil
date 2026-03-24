@@ -57,12 +57,10 @@ export function Footer() {
 											X
 										</Link>
 										<Link
-											href={appConfig.social.linkedin.href}
-											target="_blank"
-											rel="noopener noreferrer"
+											href="/feed.xml"
 											className="hover:text-foreground transition-colors"
 										>
-											LinkedIn
+											RSS
 										</Link>
 										<AdminLoginSheet>
 											<button

@@ -97,3 +97,6 @@ certificates
 # SQLite
 *.db
 *.db-journal
+
+# Turborepo
+.turbo

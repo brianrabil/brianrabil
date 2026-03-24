@@ -19,24 +19,17 @@ const SORT_OPTIONS = [
 	{ value: "newest", label: "Newest" },
 ] as const;
 
-const START_HERE_SLUGS = [
-	"the-ai-product-reliability-playbook",
-	"hello-world",
-	"writing-product-specs-that-ai-can-actually-build",
-];
+/** Show the full filter UI only when there are enough articles to warrant it. */
+const FILTER_THRESHOLD = 3;
 
 type SortMode = (typeof SORT_OPTIONS)[number]["value"];
-
-function formatReadingTime(readingTimeMinutes?: number) {
-	return `${readingTimeMinutes ?? 8} min`;
-}
 
 function formatMetaLine(article: ArticleWithSlug) {
 	const badge = article.series || "Article";
 	const dateLabel = article.updated
 		? `Updated ${formatDate(article.updated)}`
 		: formatDate(article.date);
-	return `${badge} · ${formatReadingTime(article.readingTimeMinutes)} · ${dateLabel}`;
+	return `${badge} · ${dateLabel}`;
 }
 
 function matchQuery(article: ArticleWithSlug, query: string) {
@@ -60,11 +53,37 @@ function articleWeight(article: ArticleWithSlug) {
 	return 1;
 }
 
+function PillButton({
+	active,
+	onClick,
+	children,
+}: {
+	active: boolean;
+	onClick: () => void;
+	children: React.ReactNode;
+}) {
+	return (
+		<button
+			type="button"
+			onClick={onClick}
+			className={`rounded-full border px-3 py-1.5 text-xs font-mono tracking-wide transition ${
+				active
+					? "border-foreground/30 bg-foreground/10 text-foreground"
+					: "border-border text-muted-foreground hover:border-foreground/30 hover:text-foreground"
+			}`}
+		>
+			{children}
+		</button>
+	);
+}
+
 export function ArticlesIndexClient({ articles }: { articles: ArticleWithSlug[] }) {
 	const [search, setSearch] = useState("");
 	const [activeSeries, setActiveSeries] = useState("All");
 	const [activeTag, setActiveTag] = useState("All");
 	const [sortMode, setSortMode] = useState<SortMode>("featured");
+
+	const showFilters = articles.length >= FILTER_THRESHOLD;
 
 	const filtered = useMemo(() => {
 		const results = articles.filter(
@@ -88,173 +107,128 @@ export function ArticlesIndexClient({ articles }: { articles: ArticleWithSlug[] 
 		return withSorting;
 	}, [articles, activeSeries, activeTag, search, sortMode]);
 
-	const startHere = useMemo(
-		() =>
-			START_HERE_SLUGS.map((slug) =>
-				articles.find((article) => article.slug === slug),
-			).filter((article): article is ArticleWithSlug => Boolean(article)),
-		[articles],
-	);
-
-	const seriesCounts = useMemo(() => {
+	/* Only show series that actually have articles */
+	const seriesWithArticles = useMemo(() => {
 		return SERIES_OPTIONS.map((series) => ({
 			name: series,
 			count: articles.filter((article) => article.series === series).length,
-		}));
+		})).filter((s) => s.count > 0);
 	}, [articles]);
 
+	/* Only show tags that actually have articles */
 	const tagOptions = useMemo(() => {
-		const withCounts = TAG_OPTIONS.map((tag) => ({
+		return TAG_OPTIONS.map((tag) => ({
 			name: tag,
 			count: articles.filter((article) =>
 				article.tags?.some((item) => item === tag),
 			).length,
 		})).filter((tag) => tag.count > 0);
-		return withCounts;
 	}, [articles]);
+
+	const hasActiveFilter = activeSeries !== "All" || activeTag !== "All" || search.length > 0;
 
 	return (
 		<div className="md:max-w-4xl">
-			<div className="mb-16">
-				<h2 className="font-heading text-2xl font-medium tracking-tight text-foreground">
-					Start here
-				</h2>
-				<p className="mt-2 text-sm text-muted-foreground">
-					Three must-reads if you want the core patterns first.
-				</p>
-				<div className="mt-5 grid divide-y divide-border border-b border-l border-r border-border">
-					{startHere.map((article) => (
-						<a
-							key={article.slug}
-							href={`/articles/${article.slug}`}
-							className="group flex flex-col gap-2 p-5 transition-colors hover:bg-muted/30 sm:flex-row sm:items-baseline sm:justify-between"
-						>
-							<div>
-								<h3 className="font-medium text-foreground group-hover:text-foreground/80">
-									{article.title}
-								</h3>
-								<p className="mt-1.5 text-sm text-muted-foreground">
-									{article.description}
-								</p>
-							</div>
-							<p className="text-xs text-muted-foreground/70 font-mono whitespace-nowrap">
-								{formatMetaLine(article)}
-							</p>
-						</a>
-					))}
+			{/* --- Filters: only shown when there's enough content to filter --- */}
+			{showFilters && (
+				<div className="mb-8 space-y-4">
+					{/* Search + sort row */}
+					<div className="flex flex-wrap items-center gap-3">
+						<label className="flex-1 min-w-[210px]">
+							<span className="sr-only">Search title or summary</span>
+							<input
+								value={search}
+								onChange={(event) => setSearch(event.target.value)}
+								placeholder="Search"
+								className="h-10 w-full border border-border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground"
+							/>
+						</label>
+
+						<label className="text-xs text-muted-foreground flex items-center gap-2">
+							<span className="font-mono">Sort</span>
+							<select
+								value={sortMode}
+								onChange={(event) => setSortMode(event.target.value as SortMode)}
+								className="h-10 border border-border bg-background px-2.5 py-1 text-sm text-foreground"
+							>
+								{SORT_OPTIONS.map((option) => (
+									<option key={option.value} value={option.value}>
+										{option.label}
+									</option>
+								))}
+							</select>
+						</label>
+					</div>
+
+					{/* Unified filter pills: series + tags in one row */}
+					{(seriesWithArticles.length > 0 || tagOptions.length > 1) && (
+						<div className="flex flex-wrap items-center gap-2">
+							{seriesWithArticles.length > 0 && (
+								<>
+									{seriesWithArticles.map(({ name }) => (
+										<PillButton
+											key={name}
+											active={activeSeries === name}
+											onClick={() =>
+												setActiveSeries((v) => (v === name ? "All" : name))
+											}
+										>
+											{name}
+										</PillButton>
+									))}
+								</>
+							)}
+
+							{seriesWithArticles.length > 0 && tagOptions.length > 1 && (
+								<span className="h-4 w-px bg-border" />
+							)}
+
+							{tagOptions.length > 1 &&
+								tagOptions.map(({ name }) => (
+									<PillButton
+										key={name}
+										active={activeTag === name}
+										onClick={() =>
+											setActiveTag((v) => (v === name ? "All" : name))
+										}
+									>
+										{name}
+									</PillButton>
+								))}
+						</div>
+					)}
 				</div>
-			</div>
+			)}
 
-			<div className="mb-10 border border-border">
-				<div className="p-5 sm:p-6 border-b border-border">
-					<h2 className="font-heading text-2xl font-medium tracking-tight text-foreground">
-						Series
-					</h2>
-					<p className="mt-2 text-sm text-muted-foreground">
-						Engineering categories, with active themes and reusable patterns.
-					</p>
-				</div>
-				<div className="flex flex-wrap gap-2 p-5 sm:p-6">
-					{seriesCounts.map(({ name, count }) => (
-						<button
-							key={name}
-							type="button"
-							onClick={() =>
-								setActiveSeries((value) => (value === name ? "All" : name))
-							}
-							className={`rounded-full border px-3 py-1.5 text-xs font-mono tracking-wide transition ${
-								activeSeries === name
-									? "border-foreground/30 bg-foreground/10 text-foreground"
-									: "border-border text-muted-foreground hover:border-foreground/30 hover:text-foreground"
-							}`}
-						>
-							{name} <span className="text-[10px]">({count})</span>
-						</button>
-					))}
-				</div>
-			</div>
-
-			<div className="mb-4 flex flex-wrap items-center gap-3">
-				<label className="flex-1 min-w-[210px]">
-					<span className="sr-only">Search title or summary</span>
-					<input
-						value={search}
-						onChange={(event) => setSearch(event.target.value)}
-						placeholder="Search title or summary"
-						className="h-10 w-full rounded-md border border-border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground"
-					/>
-				</label>
-
-				<label className="text-xs text-muted-foreground flex items-center gap-2">
-					<span className="font-mono">Sort</span>
-					<select
-						value={sortMode}
-						onChange={(event) => setSortMode(event.target.value as SortMode)}
-						className="h-10 rounded-md border border-border bg-background px-2.5 py-1 text-sm text-foreground"
-					>
-						{SORT_OPTIONS.map((option) => (
-							<option key={option.value} value={option.value}>
-								{option.label}
-							</option>
-						))}
-					</select>
-				</label>
-			</div>
-
-			<div className="mb-8 flex flex-wrap gap-2">
-				<button
-					type="button"
-					onClick={() => setActiveTag("All")}
-					className={`rounded-full border px-3 py-1.5 text-xs font-mono tracking-wide transition ${
-						activeTag === "All"
-							? "border-foreground/30 bg-foreground/10 text-foreground"
-							: "border-border text-muted-foreground hover:border-foreground/30 hover:text-foreground"
-					}`}
-				>
-					All
-				</button>
-				{tagOptions.map(({ name, count }) => (
-					<button
-						key={name}
-						type="button"
-						onClick={() => setActiveTag((value) => (value === name ? "All" : name))}
-						className={`rounded-full border px-3 py-1.5 text-xs font-mono tracking-wide transition ${
-							activeTag === name
-								? "border-foreground/30 bg-foreground/10 text-foreground"
-								: "border-border text-muted-foreground hover:border-foreground/30 hover:text-foreground"
-						}`}
-					>
-						{name} <span className="text-[10px]">({count})</span>
-					</button>
-				))}
-			</div>
-
-			<section aria-label="All articles" className="mt-2">
-				<h2 className="font-heading text-2xl font-medium tracking-tight text-foreground">
-					All articles
-				</h2>
+			{/* --- Article list --- */}
+			<section aria-label="All articles">
 				{filtered.length === 0 ? (
-					<p className="text-sm text-muted-foreground">
-						No articles match your filters yet.
-					</p>
+					<div className="py-12 text-center">
+						<p className="text-sm text-muted-foreground">
+							No articles match your filters.
+						</p>
+						{hasActiveFilter && (
+							<button
+								type="button"
+								onClick={() => {
+									setSearch("");
+									setActiveSeries("All");
+									setActiveTag("All");
+								}}
+								className="mt-3 text-xs font-mono text-muted-foreground underline underline-offset-4 hover:text-foreground transition"
+							>
+								Clear filters
+							</button>
+						)}
+					</div>
 				) : (
 					<div className="grid divide-y divide-border border border-border">
 						{filtered.map((article) => (
 							<a
 								key={article.slug}
 								href={`/articles/${article.slug}`}
-								className="group grid gap-1.5 border-b border-border p-5 last:border-b-0 transition-colors hover:bg-muted/25"
+								className="group grid gap-1.5 p-5 transition-colors hover:bg-muted/25"
 							>
-								<div className="flex items-center gap-2">
-									<span className="inline-flex items-center rounded-full border border-foreground/15 px-2 py-0.5 text-[11px] font-mono text-muted-foreground">
-										{article.series || "Article"}
-									</span>
-									{article.tags?.[0] ? (
-										<span className="text-[11px] text-muted-foreground/80 font-mono">
-											{article.tags[0]}
-										</span>
-									) : null}
-								</div>
 								<h3 className="text-lg font-medium text-foreground">
 									{article.title}
 								</h3>

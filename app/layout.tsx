@@ -83,7 +83,7 @@ export default function RootLayout({
 	return (
 		<html
 			lang="en"
-			className={`${geistSans.variable} ${geistMono.variable} ${geistPixel.variable} h-full antialiased`}
+			className={`${geistSans.variable} ${geistMono.variable} ${geistPixel.variable} h-full antialiased scroll-smooth`}
 			suppressHydrationWarning
 		>
 			<body className="flex h-full bg-background font-body text-foreground">

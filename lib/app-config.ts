@@ -3,11 +3,11 @@ import type { AppConfig } from "@/lib/zod";
 export const appConfig: AppConfig = {
   title: "Brian Rabil",
   description:
-    "Building practical AI software with a focus on local-first systems, AI agents, and developer infrastructure.",
+    "Building a fleet of AI-native products — agent systems, operator tools, and infrastructure designed to compound.",
   fullName: "Brian Rabil",
   email: "brianrabil@gmail.com",
   location: "Dallas, TX",
-  jobTitle: "Solo Founder",
+  jobTitle: "Founder & Systems Builder",
   education: {
     university: "Harvard University",
     degree: "Bachelor of Liberal Arts, Computer Science (Expected)",
@@ -31,56 +31,20 @@ export const appConfig: AppConfig = {
     { name: "Figma", logo: "/images/logos/figma-original.svg" },
     { name: "GitHub", logo: "/images/logos/github-original.svg" },
     { name: "Docker", logo: "/images/logos/docker-original.svg" },
-    { name: "Kubernetes", logo: "/images/logos/kubernetes-original.svg" },
     { name: "Vercel", logo: "/images/logos/vercel-original.svg" },
     { name: "PostgreSQL", logo: "/images/logos/postgresql-original.svg" },
-    { name: "Prisma", logo: "/images/logos/prisma-light.svg" },
-    { name: "MongoDB", logo: "/images/logos/mongodb-original.svg" },
     { name: "Node.js", logo: "/images/logos/nodejs-original.svg" },
     { name: "Python", logo: "/images/logos/python-original.svg" },
     { name: "OpenAI", logo: "/images/logos/openai-light.svg" },
     { name: "Shadcn UI", logo: "/images/logos/shadcn-light.svg" },
     { name: "Bun", logo: "/images/logos/bun-original.svg" },
-    { name: "LangGraph", logo: "/images/logos/langgraph.svg" },
     { name: "Vercel AI SDK", logo: "/images/logos/vercel-ai-sdk.svg" },
-    { name: "CrewAI", logo: "/images/logos/crewai.svg" },
-    { name: "Langflow", logo: "/images/logos/langflow.svg" },
+    { name: "Rust", logo: "/images/logos/rust-original.svg" },
+    { name: "Tauri", logo: "/images/logos/tauri-original.svg" },
+    { name: "Convex", logo: "/images/logos/convex-original.svg" },
+    { name: "Drizzle", logo: "/images/logos/drizzle-original.svg" },
   ],
-  services: [
-    {
-      title: "Technical Consulting",
-      services: [
-        "System Modernization",
-        "SEO Strategy",
-        "Performance Optimization",
-      ],
-    },
-    {
-      title: "UX/UI Design",
-      services: [
-        "Wireframing & Prototyping",
-        "User Research",
-        "Usability Testing",
-      ],
-    },
-    {
-      title: "App Development",
-      services: [
-        "Rapid Prototyping",
-        "Web & Mobile Apps",
-        "API Development",
-        "CI/CD Automation",
-      ],
-    },
-    {
-      title: "AI Solutions",
-      services: [
-        "AI Integration",
-        "Process Automation",
-        "Custom AI Development",
-      ],
-    },
-  ],
+  services: [],
   projects: [
     {
       name: "Brian Rabil",
@@ -93,7 +57,7 @@ export const appConfig: AppConfig = {
       used: [],
       variant: "app",
       description:
-        "This site.",
+        "Command center. This site.",
       link: [
         {
           href: "https://brianrabil.com",
@@ -112,7 +76,7 @@ export const appConfig: AppConfig = {
       status: "live",
       used: ["Next.js"],
       description:
-        "Reading-focused RSS client with powerful filtering and structured feeds.",
+        "AI-enhanced RSS reader with structured feeds, powerful filtering, and semantic search. Reading infrastructure for operators.",
       variant: "app",
       link: [
         {
@@ -133,7 +97,7 @@ export const appConfig: AppConfig = {
       used: ["Next.js"],
       variant: "app",
       description:
-        "AI-assisted job discovery platform that surfaces high-fit opportunities quickly.",
+        "AI-assisted job discovery. Surfaces high-fit opportunities fast. Built for people in transition.",
       link: [
         {
           href: "https://jobhop.ai",
@@ -164,9 +128,9 @@ export const appConfig: AppConfig = {
         dark: "/branding/hyperpost-logo-dark.svg",
       },
       used: ["Next.js", "Vercel"],
-      status: "backlog",
+      status: "planning",
       description:
-        "Workspace for planning, drafting, and publishing content across multiple platforms.",
+        "AI business operator — generate, deploy, and manage entire businesses through a single agent interface. Users own their code.",
       variant: "app",
       link: [],
     },
@@ -181,7 +145,7 @@ export const appConfig: AppConfig = {
       used: ["Next.js"],
       variant: "app",
       description:
-        "Generate artwork with AI and have it produced and shipped as framed wall art.",
+        "AI-generated artwork, produced and shipped as framed wall art.",
       link: [],
     },
     {
@@ -191,11 +155,11 @@ export const appConfig: AppConfig = {
         light: "/branding/ebook-agent-logo-light.svg",
         dark: "/branding/ebook-agent-logo-dark.svg",
       },
-      status: "backlog",
+      status: "planning",
       used: ["Rust"],
       variant: "app",
       description:
-        "Local-first writing environment for long-form AI-assisted work.",
+        "Local-first writing environment for long-form AI-assisted work. File-over-app philosophy.",
       link: [],
     },
     {
@@ -207,7 +171,7 @@ export const appConfig: AppConfig = {
       },
       status: "building",
       description:
-        "A social simulation platform powered by autonomous AI personas.",
+        "Social simulation platform powered by autonomous AI personas. A World Engine application.",
       used: ["Nuxt"],
       link: [],
       variant: "app",
@@ -221,7 +185,7 @@ export const appConfig: AppConfig = {
       },
       status: "building",
       description:
-        "Private desktop AI environment focused on local inference and multi-agent workflows.",
+        "Private desktop AI environment. Local inference, multi-agent workflows, and the hedge against cloud dependency.",
       used: ["Rust"],
       variant: "app",
       link: [],
@@ -237,7 +201,7 @@ export const appConfig: AppConfig = {
       used: ["Next.js"],
       variant: "directory",
       description:
-        "A curated registry of UI components, blocks, tools, and MCP servers for design engineers.",
+        "Curated component registry — UI blocks, patterns, and design infrastructure consumed across the entire fleet.",
       link: [],
     },
     {
@@ -247,11 +211,11 @@ export const appConfig: AppConfig = {
         light: "/branding/ai-clipper-logo-light.svg",
         dark: "/branding/ai-clipper-logo-dark.svg",
       },
-      status: "backlog",
+      status: "planning",
       used: ["Rust"],
       variant: "app",
       description:
-        "Local video clipping tool with on-device transcription and fast editing.",
+        "Local video clipping with on-device transcription. Fast editing, no cloud dependency.",
       link: [],
     },
     {
@@ -261,9 +225,9 @@ export const appConfig: AppConfig = {
         light: "/branding/ai-torrent-app-logo-light.svg",
         dark: "/branding/ai-torrent-app-logo-dark.svg",
       },
-      status: "backlog",
+      status: "planning",
       description:
-        "AI-assisted media manager with intelligent search and a streaming-style browsing interface.",
+        "AI-assisted media manager. Intelligent search, streaming-style browsing.",
       used: ["Rust"],
       variant: "app",
       link: [],
@@ -277,7 +241,7 @@ export const appConfig: AppConfig = {
       },
       status: "backlog",
       description:
-        "A Chrome extension designed to create a calmer, more structured timeline experience on X.",
+        "Structured timeline experience for X. Chrome extension.",
       used: ["WXT"],
       variant: "app",
       link: [],
@@ -291,7 +255,7 @@ export const appConfig: AppConfig = {
       },
       status: "building",
       description:
-        "A system for running large-scale AI persona simulations used to test social product ideas and interaction models.",
+        "Large-scale AI persona simulation infrastructure. Test social dynamics, interaction models, and product ideas at population scale.",
       used: ["Oasis"],
       link: [],
       variant: "package",
