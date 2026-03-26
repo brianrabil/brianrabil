@@ -261,7 +261,7 @@ export const appConfig: AppConfig = {
       variant: "package",
     },
     {
-      name: "Institute for Autonomous Companies",
+      name: "IAC",
       logo: {
         primary: "/logo-primary.svg",
         light: "/logo-primary.svg",
@@ -269,13 +269,13 @@ export const appConfig: AppConfig = {
       },
       status: "building",
       description:
-        "Research institute exploring the economics, governance, and infrastructure of companies that run autonomously.",
+        "Institute for Autonomous Companies. Research on the economics and governance of companies that run themselves.",
       used: ["Next.js", "Vercel"],
       variant: "research",
       link: [
         {
           href: "https://institute-for-autonomous-companies.vercel.app",
-          label: "institute-for-autonomous-companies.vercel.app",
+          label: "iac.vercel.app",
           icon: "external",
         },
       ],
