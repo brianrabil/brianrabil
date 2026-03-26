@@ -33,6 +33,7 @@ const PRODUCT_COLORS: Record<string, number[][]> = {
 	"Reelway": [[79, 70, 229], [124, 58, 237]],
 	"Feedframe": [[14, 165, 233], [56, 189, 248]],
 	"World Engine": [[220, 38, 38], [239, 68, 68]],
+	"Institute for Autonomous Companies": [[16, 185, 129], [5, 150, 105]],
 }
 
 const getLinkIcon = (icon: string) => {

@@ -14,6 +14,7 @@ export default async function Home() {
 	const articles = await getAllArticles();
 	const featuredArticles = articles.slice(0, 3);
 	const orderedProductNames = [
+		"Institute for Autonomous Companies",
 		"World Engine",
 		"Reelway",
 		"Snapclip",
