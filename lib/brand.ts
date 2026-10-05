@@ -143,6 +143,14 @@ export const BRAND_PRODUCTS: readonly BrandProduct[] = [
 		assets: fleetAssets("ui"),
 	},
 	{
+		name: "Zig World",
+		slug: "zig-world",
+		tier: "fleet",
+		status: "Interim",
+		assets: [],
+		note: "No mark yet. The site shows a ZW monogram until one is drawn.",
+	},
+	{
 		name: "Media Server",
 		slug: "media-server",
 		tier: "fleet",

@@ -26,7 +26,7 @@ Named for the B-2 stealth bomber: black, flat, exact. Shared with vswarm.
 
 Two tiers.
 
-**Flagships** have their own iconic mark and a custom wordmark, like separate companies.
+**Flagships** have their own iconic mark and a custom wordmark, like separate companies. Command Center (the agentic Linux distro) is the lead flagship and comes first on the home page; Hyperpost and vswarm are flagships whose looks are the drafts for its brand.
 
 | Product | Mark | Wordmark | Status | Files |
 | --- | --- | --- | --- | --- |
@@ -43,7 +43,8 @@ Each folder holds `mark`, `wordmark`, and `lockup`, each in `-dark.svg` and `-li
 | Brain | Placeholder only. The name, mark, and wordmark will all be redone once a new name is chosen (themes: brain, world model, workspace) | Rebrand pending |
 | Arcwrite | Its original mark from the product repo (`ebook-agent/packages/branding`): a square folding into a diamond | Kept; the round-3 ship was rejected |
 | Command Center | The agentic Linux distro (repo `agentic-linux`); Office Machine and Workstation are folded into it. Mark: a tilted orbit with three square agent nodes around a diamond command core; animated, a signal travels the orbit, each node flares as it passes, and the core pulses (`components/command-center-mark.tsx`). Inspired by the "Brainstorm Loop" loader specimen on loading.daniasyrofi.com, redrawn as our own. Wordmark: heavy all-caps COMMAND CENTER (Geist Black until a custom one is drawn). The brand has attitude; Hyperpost and vswarm are the drafts for its look | Mark in review; wordmark pending |
-| ui, RSSX | Round-3 ships in `public/marks/` | Interim |
+| RSSX | Brian's original project (first commit 2021-09-06) and the portfolio's live product. RSS is v1; the long-term plan is agentic search (in the vein of Parallel) once it can be slotted in, so the radar identity should stretch from feeds to search. Identity: radar and scanning (range rings, sweep, blips); rssx.ai is being rebranded to this system on the `rebrand/stealth` branch of the rssx repo | Rebrand in progress |
+| ui | Round-3 ship in `public/marks/` | Interim |
 | Media Server | Monogram until it has a name | Needs a name |
 
 Rules for new marks: test each one standing alone (app tile, avatar circle, 16px favicon, lockup next to its name) before it joins the set; avoid shapes that read as common UI icons (play, send, warning) or as someone else's mark; nothing cute except Workbot; no ornament (the "tramp stamp" diamond was rejected).
@@ -69,3 +70,32 @@ The home page lists the rules a change has to meet (`components/build-standards.
 ## Stack page
 
 `/stack` is one line per tool: icon, name, and a role of a few words. Product counts and badges are not shown; `lib/stack.ts` still records which products use each tool, and a tool is listed only if a product's code depends on it. Icons come from `@thesvg/react`; marks it lacks (Workflow, eve) are copied from the vendor's own site as `currentColor` SVGs in `components/stack-icons.tsx`. Single-colour marks set a `tone` so they invert per theme. Minor libraries are left off.
+
+## Portfolio architecture
+
+Every capability ships as an MCP server first, so it plugs into eve, Claude Code, Cursor, Codex, and any other MCP client, and can stand alone as a product. Each one has three doors on one core:
+
+- **MCP server** for agents (stdio and Streamable HTTP), packaged in an Agent Plugin (agent-plugins.org 1.0) with its skills.
+- **CLI** for people and scripts, built with incur (wevm/incur: typed zod commands that also generate the skill files and serve MCP, so one definition gives all three) in the OpenSpec style, compiled with `bun build --compile`.
+- **Dashboard** (Bun full-stack, vgpu, B2 sound) for watching it work; MCP Apps render the same views inline where hosts support them.
+
+Agent Plugins are the preferred package but not every client supports them yet, and a plugin is only skills plus MCP. So every capability also installs unpackaged: skills with `npx skills add brianrabil/skills --skill <name>`, and the MCP server with a one-line `claude mcp add …` or a pasteable `mcp.json` snippet. Claude Code additionally gets its own plugin layer (subagents, hooks, commands).
+
+Current and planned servers: brianrabil.com `/mcp`, `explore`, Workbot, Brain, the RSSX inbox.
+
+## Set pieces
+
+Every product has one set piece: a single live visual that shows what the product does in five seconds, used on its site, its card on brianrabil.com, demos, and marketing clips. Rules: it shows the real mechanism of the product (not decoration), one per viewport, built on the shared rendering stack (vgpu; portable components in the ui registry), pauses off-screen, holds still under reduced motion, and follows the presence setting.
+
+| Product | Set piece |
+| --- | --- |
+| Command Center | Agents working across the desktop canvas (distro site hero) |
+| Hyperpost | Comet streak along the wordmark |
+| vswarm | Warp-in streaks |
+| Brain | Evolving knowledge graph |
+| RSSX | Radar globe, upgrading to a photoreal night Earth |
+| Workbot | The walker landing and walking the code graph |
+| Zig World | Proposed: events flowing into SQLite and the log side by side; a simulated crash replays and recovers |
+| Media Server | Proposed: a deep vgpu wall of library posters with a gliding camera |
+| Arcwrite | Proposed: a book assembling itself, agent edits flowing in as ink |
+| ui | Stealth Native gallery: web and native side by side with live diff scores |

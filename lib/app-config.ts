@@ -67,7 +67,7 @@ export const appConfig: AppConfig = {
 			},
 			status: "alpha",
 			description:
-				"An open-source harness for running AI agents on your own machine, with local or hosted models.",
+				"A local subagent you plug into Claude Code. It runs on your machine with a local model and works through long jobs in the background.",
 			used: ["Nitro", "AI SDK", "Chat SDK", "Workflow"],
 			link: [],
 		},
@@ -129,6 +129,16 @@ export const appConfig: AppConfig = {
 			description:
 				"A registry of shadcn components and blocks used across these products.",
 			used: ["Next.js", "shadcn"],
+			link: [],
+		},
+		{
+			name: "Zig World",
+			slug: "zig-world",
+			category: "kit",
+			status: "building",
+			description:
+				"A Workflow World with its engine in Zig: durable workflow state in SQLite or an append-only log, loaded into Node through Node-API and embeddable from any language that calls C. No dependencies.",
+			used: ["Zig", "SQLite", "Workflow"],
 			link: [],
 		},
 	],

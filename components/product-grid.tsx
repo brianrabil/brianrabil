@@ -13,10 +13,10 @@ import { ArrowUpRight } from "lucide-react";
 const LOCKUP_FILES = new Set(["hyperpost", "vswarm"]);
 
 /** Featured products get full-width cards at the top, in this order. */
-const FEATURED = ["hyperpost", "vswarm", "workbot", "brain"];
+const FEATURED = ["command-center", "hyperpost", "vswarm", "workbot", "brain"];
 
 /** Regular cards that sit at the end of the grid, in this order. */
-const LAST = ["media-server", "rssx"];
+const LAST = ["media-server", "rssx", "zig-world"];
 
 function isFeatured(product: Product) {
 	return FEATURED.includes(product.slug);
@@ -58,8 +58,10 @@ function InterimLockup({
 				</span>
 				<span
 					className={cn(
-						"font-black uppercase leading-none tracking-[-0.03em] text-fg",
-						large ? "text-[40px]" : "text-[26px]",
+						"font-black uppercase tracking-[-0.03em] text-fg [text-wrap:balance]",
+						// Caps have no descenders, so wrapped lines sit tight. Leading
+						// goes after the size so tailwind-merge keeps it.
+						large ? "text-[40px] leading-[0.92]" : "text-[26px] leading-[0.92]",
 					)}
 				>
 					{product.name}
@@ -82,8 +84,8 @@ function InterimLockup({
 			)}
 			<span
 				className={cn(
-					"leading-none text-fg",
-					large ? "text-[40px]" : "text-[26px]",
+					"text-fg",
+					large ? "text-[40px] leading-[1.05]" : "text-[26px] leading-[1.05]",
 					isWorkbot
 						? "font-extrabold lowercase tracking-[-0.05em]"
 						: "font-semibold tracking-[-0.03em]",
