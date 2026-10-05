@@ -1,8 +1,7 @@
 import { Providers } from "@/app/providers";
 import { Layout } from "@/components/layout";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import localFont from "next/font/local";
 import "@/app/styles/globals.css";
 import { appConfig } from "@/lib/app-config";
 
@@ -16,11 +15,12 @@ const geistMono = Geist_Mono({
 	variable: "--font-geist-mono",
 });
 
-const geistPixel = localFont({
-	src: "./fonts/GeistPixel-Square.woff2",
-	variable: "--font-geist-pixel",
-	display: "swap",
-});
+export const viewport: Viewport = {
+	themeColor: [
+		{ media: "(prefers-color-scheme: dark)", color: "#080808" },
+		{ media: "(prefers-color-scheme: light)", color: "#f2f2f0" },
+	],
+};
 
 export const metadata: Metadata = {
 	title: {
@@ -28,18 +28,6 @@ export const metadata: Metadata = {
 		default: appConfig.title,
 	},
 	description: appConfig.description,
-	keywords: [
-		"AI Engineer",
-		"Full-Stack Developer",
-		"Cloud Infrastructure",
-		"AI Solutions",
-		"Web Development",
-		"DevOps",
-		"Next.js",
-		"Tanstack Start",
-		"MVP",
-		"App Developer",
-	],
 	openGraph: {
 		type: "website",
 		url: process.env.NEXT_PUBLIC_SITE_URL,
@@ -83,10 +71,10 @@ export default function RootLayout({
 	return (
 		<html
 			lang="en"
-			className={`${geistSans.variable} ${geistMono.variable} ${geistPixel.variable} h-full antialiased scroll-smooth`}
+			className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
 			suppressHydrationWarning
 		>
-			<body className="flex h-full bg-background font-body text-foreground">
+			<body className="flex h-full bg-page font-sans text-fg">
 				<Providers>
 					<div className="flex w-full">
 						<Layout>{children}</Layout>

@@ -2,8 +2,9 @@
 
 import { useMemo, useState } from "react";
 
-import { formatDate } from "@/lib/formatDate";
+import { ArticleList } from "@/components/article-list";
 import type { ArticleWithSlug } from "@/lib/articles";
+import { cn } from "@/lib/utils";
 
 const SERIES_OPTIONS = [
 	"Agent Systems",
@@ -23,14 +24,6 @@ const SORT_OPTIONS = [
 const FILTER_THRESHOLD = 3;
 
 type SortMode = (typeof SORT_OPTIONS)[number]["value"];
-
-function formatMetaLine(article: ArticleWithSlug) {
-	const badge = article.series || "Article";
-	const dateLabel = article.updated
-		? `Updated ${formatDate(article.updated)}`
-		: formatDate(article.date);
-	return `${badge} · ${dateLabel}`;
-}
 
 function matchQuery(article: ArticleWithSlug, query: string) {
 	const normalized = query.toLowerCase().trim();
@@ -66,18 +59,22 @@ function PillButton({
 		<button
 			type="button"
 			onClick={onClick}
-			className={`rounded-full border px-3 py-1.5 text-xs font-mono tracking-wide transition ${
+			aria-pressed={active}
+			className={cn(
+				"h-10 rounded-full border px-3 md:h-8 text-[13px] font-medium transition-[color,background-color,border-color,transform] duration-150 active:scale-[0.97]",
 				active
-					? "border-foreground/30 bg-foreground/10 text-foreground"
-					: "border-border text-muted-foreground hover:border-foreground/30 hover:text-foreground"
-			}`}
+					? "border-fg bg-fg text-frame"
+					: "border-line-2 text-fg-2 hover:border-fg-3 hover:text-fg",
+			)}
 		>
 			{children}
 		</button>
 	);
 }
 
-export function ArticlesIndexClient({ articles }: { articles: ArticleWithSlug[] }) {
+export function ArticlesIndexClient({
+	articles,
+}: { articles: ArticleWithSlug[] }) {
 	const [search, setSearch] = useState("");
 	const [activeSeries, setActiveSeries] = useState("All");
 	const [activeTag, setActiveTag] = useState("All");
@@ -90,8 +87,7 @@ export function ArticlesIndexClient({ articles }: { articles: ArticleWithSlug[] 
 			(article) =>
 				matchQuery(article, search) &&
 				(activeSeries === "All" || article.series === activeSeries) &&
-				(activeTag === "All" ||
-					article.tags?.some((tag) => tag === activeTag)),
+				(activeTag === "All" || article.tags?.some((tag) => tag === activeTag)),
 		);
 
 		const withSorting = [...results].sort((a, z) => {
@@ -125,31 +121,35 @@ export function ArticlesIndexClient({ articles }: { articles: ArticleWithSlug[] 
 		})).filter((tag) => tag.count > 0);
 	}, [articles]);
 
-	const hasActiveFilter = activeSeries !== "All" || activeTag !== "All" || search.length > 0;
+	const hasActiveFilter =
+		activeSeries !== "All" || activeTag !== "All" || search.length > 0;
 
 	return (
-		<div className="md:max-w-4xl">
+		<div className="max-w-4xl">
 			{/* --- Filters: only shown when there's enough content to filter --- */}
 			{showFilters && (
 				<div className="mb-8 space-y-4">
 					{/* Search + sort row */}
 					<div className="flex flex-wrap items-center gap-3">
-						<label className="flex-1 min-w-[210px]">
+						<label className="min-w-0 flex-1 basis-56">
 							<span className="sr-only">Search title or summary</span>
 							<input
 								value={search}
 								onChange={(event) => setSearch(event.target.value)}
-								placeholder="Search"
-								className="h-10 w-full border border-border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground"
+								placeholder="Search titles and summaries"
+								type="search"
+								className="h-11 w-full rounded-md border border-input-edge bg-frame px-3 text-base text-fg transition-[border-color] duration-150 placeholder:text-fg-3 hover:border-fg-2 md:h-10 [@media(pointer:fine)]:text-sm"
 							/>
 						</label>
 
-						<label className="text-xs text-muted-foreground flex items-center gap-2">
-							<span className="font-mono">Sort</span>
+						<label className="flex items-center gap-2 text-sm text-fg-2">
+							<span>Sort</span>
 							<select
 								value={sortMode}
-								onChange={(event) => setSortMode(event.target.value as SortMode)}
-								className="h-10 border border-border bg-background px-2.5 py-1 text-sm text-foreground"
+								onChange={(event) =>
+									setSortMode(event.target.value as SortMode)
+								}
+								className="h-11 rounded-md border border-input-edge bg-frame px-2.5 text-base text-fg transition-[border-color] duration-150 hover:border-fg-2 md:h-10 [@media(pointer:fine)]:text-sm"
 							>
 								{SORT_OPTIONS.map((option) => (
 									<option key={option.value} value={option.value}>
@@ -163,24 +163,21 @@ export function ArticlesIndexClient({ articles }: { articles: ArticleWithSlug[] 
 					{/* Unified filter pills: series + tags in one row */}
 					{(seriesWithArticles.length > 0 || tagOptions.length > 1) && (
 						<div className="flex flex-wrap items-center gap-2">
-							{seriesWithArticles.length > 0 && (
-								<>
-									{seriesWithArticles.map(({ name }) => (
-										<PillButton
-											key={name}
-											active={activeSeries === name}
-											onClick={() =>
-												setActiveSeries((v) => (v === name ? "All" : name))
-											}
-										>
-											{name}
-										</PillButton>
-									))}
-								</>
-							)}
+							{seriesWithArticles.length > 0 &&
+								seriesWithArticles.map(({ name }) => (
+									<PillButton
+										key={name}
+										active={activeSeries === name}
+										onClick={() =>
+											setActiveSeries((v) => (v === name ? "All" : name))
+										}
+									>
+										{name}
+									</PillButton>
+								))}
 
 							{seriesWithArticles.length > 0 && tagOptions.length > 1 && (
-								<span className="h-4 w-px bg-border" />
+								<span aria-hidden="true" className="mx-1 h-4 w-px bg-line-2" />
 							)}
 
 							{tagOptions.length > 1 &&
@@ -201,11 +198,18 @@ export function ArticlesIndexClient({ articles }: { articles: ArticleWithSlug[] 
 			)}
 
 			{/* --- Article list --- */}
-			<section aria-label="All articles">
+			<section aria-labelledby="all-articles">
+				<h2 id="all-articles" className="sr-only">
+					All articles
+				</h2>
 				{filtered.length === 0 ? (
-					<div className="py-12 text-center">
-						<p className="text-sm text-muted-foreground">
-							No articles match your filters.
+					<div className="rounded-xl border border-dashed border-line-2 px-6 py-12 text-center">
+						<p className="text-sm text-fg">
+							{search.trim() ? (
+								<>No articles match “{search.trim()}”</>
+							) : (
+								"No articles match these filters"
+							)}
 						</p>
 						{hasActiveFilter && (
 							<button
@@ -215,33 +219,14 @@ export function ArticlesIndexClient({ articles }: { articles: ArticleWithSlug[] 
 									setActiveSeries("All");
 									setActiveTag("All");
 								}}
-								className="mt-3 text-xs font-mono text-muted-foreground underline underline-offset-4 hover:text-foreground transition"
+								className="mt-3 text-sm font-medium text-fg-2 underline decoration-fg-3 underline-offset-4 transition-colors duration-150 hover:text-fg hover:decoration-fg"
 							>
 								Clear filters
 							</button>
 						)}
 					</div>
 				) : (
-					<div className="grid divide-y divide-border border border-border">
-						{filtered.map((article) => (
-							<a
-								key={article.slug}
-								href={`/articles/${article.slug}`}
-								className="group grid gap-1.5 p-5 transition-colors hover:bg-muted/25"
-							>
-								<h3 className="text-lg font-medium text-foreground">
-									{article.title}
-								</h3>
-								<p className="text-sm text-muted-foreground">
-									{article.description}
-								</p>
-								<div className="mt-1 flex items-center justify-between gap-3 text-xs font-mono text-muted-foreground/70">
-									<span>{formatMetaLine(article)}</span>
-									<span className="text-muted-foreground">Read →</span>
-								</div>
-							</a>
-						))}
-					</div>
+					<ArticleList articles={filtered} />
 				)}
 			</section>
 		</div>

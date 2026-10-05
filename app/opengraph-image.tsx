@@ -1,66 +1,83 @@
+import { appConfig } from "@/lib/app-config";
 import { ImageResponse } from "next/og";
 
-export default function OG() {
+export const alt = "AI software products, built and owned by Brian Rabil";
+export const size = { width: 1200, height: 630 };
+export const contentType = "image/png";
+
+async function loadGeist(weight: 500 | 800) {
+	const css = await fetch(
+		`https://fonts.googleapis.com/css2?family=Geist:wght@${weight}&display=swap`,
+	).then((response) => response.text());
+	const url = css.match(/src: url\((.+?)\) format/)?.[1];
+	if (!url) throw new Error("Geist font URL not found");
+	return fetch(url).then((response) => response.arrayBuffer());
+}
+
+export default async function OG() {
+	const [medium, extraBold] = await Promise.all([
+		loadGeist(500),
+		loadGeist(800),
+	]);
+
 	return new ImageResponse(
 		<div
 			style={{
 				display: "flex",
-				height: "100%",
+				flexDirection: "column",
+				justifyContent: "space-between",
 				width: "100%",
-				alignItems: "center",
-				justifyContent: "center",
-				letterSpacing: "-.02em",
-				fontWeight: 700,
-				background: "white",
+				height: "100%",
+				padding: 72,
+				background: "#080808",
+				backgroundImage:
+					"radial-gradient(circle at 1px 1px, rgba(237,237,237,0.09) 1px, transparent 0)",
+				backgroundSize: "12px 12px",
+				color: "#ededed",
+				fontFamily: "Geist",
 			}}
 		>
 			<div
 				style={{
-					left: 42,
-					top: 42,
-					position: "absolute",
 					display: "flex",
-					alignItems: "center",
+					fontSize: 30,
+					fontWeight: 800,
+					letterSpacing: "-0.05em",
 				}}
 			>
-				<span
+				brianrabil
+			</div>
+			<div style={{ display: "flex", flexDirection: "column" }}>
+				<div
 					style={{
-						width: 24,
-						height: 24,
-						background: "black",
-					}}
-				/>
-				<span
-					style={{
-						marginLeft: 8,
-						fontSize: 20,
+						display: "flex",
+						fontSize: 76,
+						fontWeight: 500,
+						lineHeight: 1,
+						letterSpacing: "-0.06em",
+						maxWidth: 900,
 					}}
 				>
-					brianrabil.com
-				</span>
-			</div>
-			<div
-				style={{
-					display: "flex",
-					flexWrap: "wrap",
-					justifyContent: "center",
-					padding: "20px 50px",
-					margin: "0 42px",
-					fontSize: 40,
-					width: "auto",
-					maxWidth: 550,
-					textAlign: "center",
-					backgroundColor: "black",
-					color: "white",
-					lineHeight: 1.4,
-				}}
-			>
-				Solo Founder &amp; AI Engineer
+					AI software products, built and owned by Brian Rabil.
+				</div>
+				<div
+					style={{
+						display: "flex",
+						marginTop: 32,
+						fontSize: 28,
+						color: "#9b9b9b",
+					}}
+				>
+					Hyperpost · Workbot · Brain · vswarm
+				</div>
 			</div>
 		</div>,
 		{
-			width: 1200,
-			height: 600,
+			...size,
+			fonts: [
+				{ name: "Geist", data: medium, weight: 500, style: "normal" },
+				{ name: "Geist", data: extraBold, weight: 800, style: "normal" },
+			],
 		},
 	);
 }

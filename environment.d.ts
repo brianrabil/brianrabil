@@ -1,3 +1,5 @@
+/// <reference types="@webgpu/types" />
+
 declare global {
 	namespace NodeJS {
 		interface ProcessEnv {

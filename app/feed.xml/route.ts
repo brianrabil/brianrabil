@@ -1,5 +1,6 @@
 import { appConfig } from "@/lib/app-config";
 import { getAllArticles } from "@/lib/articles";
+import { getAllFinds } from "@/lib/finds";
 import { Feed } from "feed";
 
 export async function GET() {
@@ -28,7 +29,24 @@ export async function GET() {
 		},
 	});
 
-	const articles = await getAllArticles();
+	const [articles, finds] = await Promise.all([
+		getAllArticles(),
+		getAllFinds(),
+	]);
+
+	for (const find of finds) {
+		const publicUrl = `${siteUrl}/finds/${find.slug}`;
+
+		feed.addItem({
+			title: find.title,
+			id: publicUrl,
+			link: publicUrl,
+			description: find.summary,
+			author: [{ name: find.author }],
+			category: [{ name: find.category }],
+			date: new Date(`${find.date}T12:00:00Z`),
+		});
+	}
 
 	for (const article of articles) {
 		const publicUrl = `${siteUrl}/articles/${article.slug}`;
@@ -48,7 +66,7 @@ export async function GET() {
 		status: 200,
 		headers: {
 			"content-type": "application/xml",
-			"cache-control": "s-maxage=31556952",
+			"cache-control": "s-maxage=3600, stale-while-revalidate=86400",
 		},
 	});
 }

@@ -1,13 +1,12 @@
 import { ArticlesIndexClient } from "@/components/articles-index-client";
-import { NewsletterSection } from "@/components/newsletter-section";
 import { SimpleLayout } from "@/components/simple-layout";
 import { getAllArticles } from "@/lib/articles";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Writing",
+	title: "Essays",
 	description:
-		"Field notes from shipping AI-native software: agent systems, reliability, and product execution.",
+		"Essays by Brian Rabil on AI agents, infrastructure, and policy.",
 };
 
 export default async function ArticlesIndex() {
@@ -15,13 +14,9 @@ export default async function ArticlesIndex() {
 
 	return (
 		<>
-			<SimpleLayout
-				title="Writing"
-				intro="Patterns, checklists, and implementation details from shipping AI-native software."
-			>
+			<SimpleLayout title="Essays">
 				<ArticlesIndexClient articles={articles} />
 			</SimpleLayout>
-			<NewsletterSection className="mt-20 sm:mt-28 mb-8" />
 		</>
 	);
 }

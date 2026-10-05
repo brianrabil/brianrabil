@@ -25,12 +25,12 @@
 		],
 		"tsBuildInfoFile": "node_modules/.cache/tsbuild"
 	},
-	"exclude": ["node_modules"],
+	"exclude": ["node_modules", "agents"],
 	"include": [
 		"next-env.d.ts",
 		"**/*.ts",
 		"**/*.tsx",
-".next/types/**/*.ts",
+		".next/types/**/*.ts",
 		"scripts"
 	]
 }

@@ -27,5 +27,8 @@
 		"formatter": {
 			"enabled": true
 		}
+	},
+	"files": {
+		"ignore": ["agents/**"]
 	}
 }

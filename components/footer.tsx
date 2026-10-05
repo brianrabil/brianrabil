@@ -1,101 +1,110 @@
 import { AdminLoginSheet } from "@/components/admin-login-sheet";
-import { ContainerInner, ContainerOuter } from "@/components/container";
+import { Container } from "@/components/container";
+import { GitHubIcon, XIcon } from "@/components/social-icons";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { appConfig } from "@/lib/app-config";
 import Link from "next/link";
 
-function VercelLogo({ className }: { className?: string }) {
-	return (
-		<svg
-			className={className}
-			viewBox="0 0 76 65"
-			fill="currentColor"
-			role="img"
-			aria-label="Vercel"
-		>
-			<title>Vercel</title>
-			<path d="M37.5274 0L75.0548 65H0L37.5274 0Z" />
-		</svg>
-	);
-}
+const SITE_LINKS = [
+	{ href: "/#fleet", label: "Products" },
+	{ href: "/stack", label: "Stack" },
+	{ href: "/skills", label: "Skills" },
+	{ href: "/brand", label: "Brand" },
+	{ href: "/finds", label: "Finds" },
+	{ href: "/articles", label: "Essays" },
+	{ href: "/archive", label: "Archive" },
+];
+
+/** Machine-readable versions of the site. */
+const FEED_LINKS = [
+	{ href: "/feed.xml", label: "RSS" },
+	{ href: "/llms.txt", label: "llms.txt" },
+	{ href: "/mcp.json", label: "MCP" },
+];
+
+const SOCIAL_LINKS = [
+	{ href: appConfig.social.x.href, label: "X", Icon: XIcon },
+	{ href: appConfig.social.github.href, label: "GitHub", Icon: GitHubIcon },
+];
+
+const linkClass =
+	"inline-flex min-h-11 items-center text-sm text-fg-2 transition-colors duration-150 hover:text-fg md:min-h-0";
 
 export function Footer() {
 	return (
-		<footer className="mt-32 flex-none">
-			<div className="border-t border-border">
-				<ContainerOuter>
-						<ContainerInner>
-							<div className="py-8 sm:py-10">
-								<div className="space-y-4">
-									<div>
-										<p className="text-sm font-medium text-foreground">Brian Rabil</p>
-										<p className="text-xs text-muted-foreground">Software products and AI systems</p>
-									</div>
-									<div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
-										<Link href="/" className="hover:text-foreground transition-colors">
-											Home
-										</Link>
-										<Link href="/#products" className="hover:text-foreground transition-colors">
-											Products
-										</Link>
-										<Link href="/articles" className="hover:text-foreground transition-colors">
-											Writing
-										</Link>
-										<Link
-											href={appConfig.social.github.href}
-											target="_blank"
-											rel="noopener noreferrer"
-											className="hover:text-foreground transition-colors"
-										>
-											GitHub
-										</Link>
-										<Link
-											href={appConfig.social.x.href}
-											target="_blank"
-											rel="noopener noreferrer"
-											className="hover:text-foreground transition-colors"
-										>
-											X
-										</Link>
-										<Link
-											href="/feed.xml"
-											className="hover:text-foreground transition-colors"
-										>
-											RSS
-										</Link>
-										<AdminLoginSheet>
-											<button
-												type="button"
-												className="hover:text-foreground transition-colors cursor-pointer hidden"
-											>
-												Admin
-											</button>
-										</AdminLoginSheet>
-									</div>
-								</div>
-							</div>
-
-						<div className="flex items-center justify-between border-t border-border py-5">
-							<p className="text-[10px] font-mono text-muted-foreground/40 tabular-nums">
-								&copy; {new Date().getFullYear()} {appConfig.fullName}
-							</p>
+		<footer className="flex-none bg-frame">
+			<Container className="flex flex-wrap items-center justify-between gap-6 pt-12 pb-10">
+				<Link
+					href="/"
+					aria-label={`${appConfig.fullName}, home`}
+					className="flex items-center gap-2"
+				>
+					<Avatar className="size-6">
+						<AvatarImage src="/avatar.png" alt="" />
+						<AvatarFallback className="text-[10px]">BR</AvatarFallback>
+					</Avatar>
+					<span className="text-lg font-extrabold lowercase tracking-tighter text-fg">
+						brianrabil
+					</span>
+				</Link>
+				<ul className="-mr-2.5 flex items-center gap-1">
+					{SOCIAL_LINKS.map(({ href, label, Icon }) => (
+						<li key={label}>
 							<a
-								href="https://vercel.com?utm_source=brianrabil&utm_campaign=oss"
+								href={href}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="group inline-flex items-center gap-1.5 border border-border px-2 py-0.5 text-[10px] font-mono text-muted-foreground/50 transition-colors hover:text-muted-foreground hover:border-muted-foreground/30"
+								aria-label={label}
+								className="grid size-11 place-items-center rounded-full text-fg-2 transition-[color,background-color] duration-150 hover:bg-hover hover:text-fg md:size-9"
 							>
-								<span className="relative flex h-1 w-1">
-									<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
-									<span className="relative inline-flex h-1 w-1 rounded-full bg-emerald-500" />
-								</span>
-								<span className="hidden sm:inline">Operational</span>
-								<span className="h-2 w-px bg-border" />
-								<VercelLogo className="h-2 w-auto" />
+								<Icon className="size-4 fill-current" />
 							</a>
-						</div>
-					</ContainerInner>
-				</ContainerOuter>
-			</div>
+						</li>
+					))}
+					{/* TODO: remove `hidden` once auth is re-enabled. */}
+					<li className="hidden">
+						<AdminLoginSheet>
+							<button type="button" className={linkClass}>
+								Admin
+							</button>
+						</AdminLoginSheet>
+					</li>
+				</ul>
+			</Container>
+
+			<Container>
+				<nav aria-label="Site" className="border-t border-line py-6">
+					<ul className="flex flex-wrap gap-x-7 gap-y-1">
+						{SITE_LINKS.map((link) => (
+							<li key={link.href}>
+								<Link href={link.href} className={linkClass}>
+									{link.label}
+								</Link>
+							</li>
+						))}
+					</ul>
+				</nav>
+			</Container>
+
+			<Container>
+				<div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t border-line py-5">
+					<p className="text-xs tabular text-fg-3">
+						© {new Date().getFullYear()} {appConfig.fullName}
+					</p>
+					<ul aria-label="Feeds" className="flex gap-5">
+						{FEED_LINKS.map((link) => (
+							<li key={link.href}>
+								<a
+									href={link.href}
+									className="inline-flex min-h-11 items-center text-xs text-fg-3 transition-colors duration-150 hover:text-fg-2 md:min-h-0"
+								>
+									{link.label}
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			</Container>
 		</footer>
 	);
 }

@@ -1,25 +1,97 @@
 {
-  "version": 1,
-  "skills": {
-    "next-best-practices": {
-      "source": "vercel-labs/next-skills",
-      "sourceType": "github",
-      "computedHash": "515ba75178bd44875812d9a560bdf14651f86709f89cf1d4f209638e879807f3"
-    },
-    "social-content": {
-      "source": "coreyhaines31/marketingskills",
-      "sourceType": "github",
-      "computedHash": "85ffbc05cf88939ba3ff643a315928185af16181470349dfbaad2880047c9900"
-    },
-    "vercel-react-best-practices": {
-      "source": "vercel-labs/agent-skills",
-      "sourceType": "github",
-      "computedHash": "3462ec83f862abb2d532953df33a4dbf87f4616849da5d4b5cc7c13601aaf997"
-    },
-    "web-design-guidelines": {
-      "source": "vercel-labs/agent-skills",
-      "sourceType": "github",
-      "computedHash": "a6a44d5498f7e8f68289902f3dedfc6f38ae0cee1e96527c80724cf27f727c2a"
-    }
-  }
+	"version": 1,
+	"skills": {
+		"a11y": {
+			"source": "paragonhq/stealth-skills",
+			"sourceType": "github",
+			"skillPath": "skills/a11y/SKILL.md",
+			"computedHash": "c21ddaef909cdf99b3ac476ab7b2034126377d22ec92277a100fc1040e8cecf9"
+		},
+		"agent-ui": {
+			"source": "paragonhq/stealth-skills",
+			"sourceType": "github",
+			"skillPath": "skills/agent-ui/SKILL.md",
+			"computedHash": "31c388d1ca5a4db1d532e395bb8978cb6ded337d9800b2a30695cc2b1199f7a2"
+		},
+		"components": {
+			"source": "paragonhq/stealth-skills",
+			"sourceType": "github",
+			"skillPath": "skills/components/SKILL.md",
+			"computedHash": "9a7caca615ea11f527383fbd47ba775a995ba7342b56fc6d08b6935faf86b3a6"
+		},
+		"mobile-feel": {
+			"source": "paragonhq/stealth-skills",
+			"sourceType": "github",
+			"skillPath": "skills/mobile-feel/SKILL.md",
+			"computedHash": "8b518480d4c5b7a71d84d26bb6ed0dc830322ed461f0342894c003bd6f97b1e1"
+		},
+		"motion": {
+			"source": "paragonhq/stealth-skills",
+			"sourceType": "github",
+			"skillPath": "skills/motion/SKILL.md",
+			"computedHash": "21ea89db8002b4f4275af4caef0509e8b444d24569ef47911adbcf4fbe4f4ca0"
+		},
+		"next-best-practices": {
+			"source": "vercel-labs/next-skills",
+			"sourceType": "github",
+			"computedHash": "515ba75178bd44875812d9a560bdf14651f86709f89cf1d4f209638e879807f3"
+		},
+		"polish": {
+			"source": "paragonhq/stealth-skills",
+			"sourceType": "github",
+			"skillPath": "skills/polish/SKILL.md",
+			"computedHash": "051daa5c8341b44cd048d61b29531232cf569f340799dcf67a4f69675d518f5c"
+		},
+		"review": {
+			"source": "paragonhq/stealth-skills",
+			"sourceType": "github",
+			"skillPath": "skills/review/SKILL.md",
+			"computedHash": "2b6ec1b64e5adc64295cc2ef26cddd63d3bd23cfb93e0c932e0c0938295064f2"
+		},
+		"scroll-and-webgl": {
+			"source": "paragonhq/stealth-skills",
+			"sourceType": "github",
+			"skillPath": "skills/scroll-and-webgl/SKILL.md",
+			"computedHash": "752085bffbe7940898e840d6f0d6de14c3317e948fcce5634081445e51f5483e"
+		},
+		"social-content": {
+			"source": "coreyhaines31/marketingskills",
+			"sourceType": "github",
+			"computedHash": "85ffbc05cf88939ba3ff643a315928185af16181470349dfbaad2880047c9900"
+		},
+		"space": {
+			"source": "paragonhq/stealth-skills",
+			"sourceType": "github",
+			"skillPath": "skills/space/SKILL.md",
+			"computedHash": "25ca97926cf5c546ee7c3c33bb3c7abfa4d0aa5439aca9eceb4d872c4e8cb21e"
+		},
+		"states": {
+			"source": "paragonhq/stealth-skills",
+			"sourceType": "github",
+			"skillPath": "skills/states/SKILL.md",
+			"computedHash": "8f603ae312c4ca9506ac33f37ebb8d1204f4496258368bebe4bf749a40a14ba3"
+		},
+		"surface": {
+			"source": "paragonhq/stealth-skills",
+			"sourceType": "github",
+			"skillPath": "skills/surface/SKILL.md",
+			"computedHash": "1c3f795fad9becfe5ecef3b0f31bacebcffe58703c93c71cb79340b71da1121c"
+		},
+		"type": {
+			"source": "paragonhq/stealth-skills",
+			"sourceType": "github",
+			"skillPath": "skills/type/SKILL.md",
+			"computedHash": "84ee321e94eafe53b121cc9564ce27cd1b5c93f4363cc1c2c521f911d7baf7c2"
+		},
+		"vercel-react-best-practices": {
+			"source": "vercel-labs/agent-skills",
+			"sourceType": "github",
+			"computedHash": "3462ec83f862abb2d532953df33a4dbf87f4616849da5d4b5cc7c13601aaf997"
+		},
+		"web-design-guidelines": {
+			"source": "vercel-labs/agent-skills",
+			"sourceType": "github",
+			"computedHash": "a6a44d5498f7e8f68289902f3dedfc6f38ae0cee1e96527c80724cf27f727c2a"
+		}
+	}
 }

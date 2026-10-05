@@ -1,23 +1,30 @@
-import { Button } from "@/components/button";
 import { Container } from "@/components/container";
+import { GlassWing } from "@/components/glass-wing";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function NotFound() {
 	return (
-		<Container className="flex h-full items-center pt-16 sm:pt-32">
-			<div className="flex flex-col items-center">
-				<p className="text-base font-semibold text-muted-foreground">
-					404
-				</p>
-				<h1 className="font-heading mt-4 text-4xl font-medium tracking-tight text-foreground sm:text-5xl">
+		<section className="relative overflow-hidden border-b border-line">
+			<GlassWing className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 md:block" />
+			<Container className="relative py-32 sm:py-40">
+				<p className="text-xs tabular text-fg-3">404</p>
+				<h1 className="mt-5 text-4xl leading-[1.05] font-medium tracking-[-0.05em] text-fg sm:text-6xl">
 					Page not found
 				</h1>
-				<p className="mt-4 text-base text-muted-foreground">
-					Sorry, we couldn't find the page you're looking for.
+				<p className="mt-6 max-w-md text-base leading-7 text-fg-2">
+					This address doesn’t point anywhere. It may have moved, or the link
+					has a typo.
 				</p>
-				<Button href="/" variant="secondary" className="mt-4">
-					Go back home
-				</Button>
-			</div>
-		</Container>
+				<div className="mt-10 flex flex-wrap gap-2">
+					<Button size="lg" asChild>
+						<Link href="/">Go to home</Link>
+					</Button>
+					<Button size="lg" variant="secondary" asChild>
+						<Link href="/articles">Browse writing</Link>
+					</Button>
+				</div>
+			</Container>
+		</section>
 	);
 }

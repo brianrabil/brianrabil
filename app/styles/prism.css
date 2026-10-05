@@ -1,5 +1,6 @@
+/* Syntax colours from Stealth tokens: monochrome, one muted hue for literals. Works in both themes. */
 pre[class*="language-"] {
-	color: var(--color-zinc-100);
+	color: var(--fg);
 }
 
 .token.tag,
@@ -7,41 +8,39 @@ pre[class*="language-"] {
 .token.selector,
 .token.selector .class,
 .token.selector.class,
-.token.function {
-	color: var(--color-pink-400);
+.token.function,
+.token.module {
+	color: var(--fg);
+	font-weight: 500;
 }
 
 .token.attr-name,
 .token.keyword,
 .token.rule,
 .token.pseudo-class,
-.token.important {
-	color: var(--color-zinc-300);
-}
-
-.token.module {
-	color: var(--color-pink-400);
+.token.important,
+.token.unit,
+.language-css .token.function {
+	color: var(--fg-2);
 }
 
 .token.attr-value,
 .token.class,
 .token.string,
-.token.property {
-	color: var(--color-teal-300);
+.token.property,
+.token.number,
+.token.boolean {
+	color: color-mix(in oklab, var(--success) 70%, var(--fg));
 }
 
 .token.punctuation,
-.token.attr-equals {
-	color: var(--color-zinc-500);
-}
-
-.token.unit,
-.language-css .token.function {
-	color: var(--color-sky-200);
-}
-
-.token.comment,
+.token.attr-equals,
 .token.operator,
 .token.combinator {
-	color: var(--color-zinc-400);
+	color: var(--fg-3);
+}
+
+.token.comment {
+	color: var(--fg-3);
+	font-style: italic;
 }

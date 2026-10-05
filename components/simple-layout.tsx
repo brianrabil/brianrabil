@@ -1,4 +1,5 @@
 import { Container } from "@/components/container";
+import { StealthField } from "@/components/stealth-field";
 
 export function SimpleLayout({
 	title,
@@ -6,20 +7,29 @@ export function SimpleLayout({
 	children,
 }: {
 	title: string;
-	intro: string;
+	intro?: string;
 	children?: React.ReactNode;
 }) {
 	return (
-		<Container className="mt-16 sm:mt-32">
-			<header className="max-w-2xl">
-				<h1 className="font-heading text-balance text-4xl font-medium text-foreground sm:text-5xl">
-					{title}
-				</h1>
-				<p className="mt-5 text-base text-muted-foreground text-pretty">
-					{intro}
-				</p>
+		<>
+			<header className="relative overflow-hidden border-b border-line">
+				<StealthField variant="band" seed={title} />
+				<Container className="relative pt-24 pb-16 sm:pt-32 lg:pb-20">
+					<h1 className="max-w-3xl text-4xl leading-[1.05] font-medium tracking-[-0.05em] text-fg sm:text-6xl">
+						{title}
+					</h1>
+					{intro ? (
+						<p className="mt-6 max-w-xl text-base leading-7 text-fg-2 sm:text-lg sm:leading-8">
+							{intro}
+						</p>
+					) : null}
+				</Container>
 			</header>
-			{children && <div className="mt-10 sm:mt-14">{children}</div>}
-		</Container>
+			{children ? (
+				<div className="border-b border-line">
+					<Container className="py-16 lg:py-20">{children}</Container>
+				</div>
+			) : null}
+		</>
 	);
 }

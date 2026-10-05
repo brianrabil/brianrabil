@@ -1,0 +1,541 @@
+/**
+ * The tools the products are built with, read from each product's code
+ * (package.json, configs, imports) on 2026-10-05. A product is listed
+ * only where its repo has a direct dependency or import.
+ */
+import type { StackIconName } from "@/components/stack-icons";
+
+export type StackEntry = {
+	name: string;
+	icon: StackIconName;
+	role: string;
+	href: string;
+	/** Products whose code depends on it. Left out for tools used to write the code. */
+	products?: string[];
+};
+
+export type StackLayer = {
+	id: string;
+	label: string;
+	entries: StackEntry[];
+};
+
+export const STACK: StackLayer[] = [
+	{
+		id: "agents",
+		label: "Agents",
+		entries: [
+			{
+				name: "AI SDK",
+				icon: "vercel",
+				role: "Model calls, tool use, and agents.",
+				href: "https://ai-sdk.dev",
+				products: [
+					"Hyperpost",
+					"Workbot",
+					"Brain",
+					"vswarm",
+					"Arcwrite",
+					"ui",
+					"RSSX",
+					"Media Server",
+				],
+			},
+			{
+				name: "Ax",
+				icon: "ax",
+				role: "Typed prompt signatures and prompt optimization, like DSPy.",
+				href: "https://axllm.dev",
+				products: ["Brain"],
+			},
+			{
+				name: "Workflow",
+				icon: "workflow",
+				role: "Durable functions for long-running agent work.",
+				href: "https://workflow-sdk.dev",
+				products: [
+					"Hyperpost",
+					"Workbot",
+					"vswarm",
+					"Arcwrite",
+					"RSSX",
+					"Media Server",
+				],
+			},
+			{
+				name: "AI Gateway",
+				icon: "vercel",
+				role: "One API for every model provider.",
+				href: "https://vercel.com/ai-gateway",
+				products: [
+					"Hyperpost",
+					"vswarm",
+					"Arcwrite",
+					"ui",
+					"RSSX",
+					"Media Server",
+				],
+			},
+			{
+				name: "eve",
+				icon: "eve",
+				role: "Framework for durable agents defined as files.",
+				href: "https://eve.dev",
+				products: ["Hyperpost", "Brain", "Arcwrite", "ui", "RSSX"],
+			},
+			{
+				name: "Sandbox",
+				icon: "vercel",
+				role: "Isolated VMs for running generated code.",
+				href: "https://vercel.com/docs/sandbox",
+				products: ["vswarm"],
+			},
+			{
+				name: "Chat SDK",
+				icon: "vercel",
+				role: "Chat bots on Slack, Discord, and more.",
+				href: "https://chat-sdk.dev",
+				products: ["Workbot"],
+			},
+		],
+	},
+	{
+		id: "server",
+		label: "Server",
+		entries: [
+			{
+				name: "Nitro",
+				icon: "nitro",
+				role: "Server framework for the API apps.",
+				href: "https://nitro.build",
+				products: ["Workbot", "Arcwrite", "Command Center"],
+			},
+			{
+				name: "Drizzle",
+				icon: "drizzle",
+				role: "Typed SQL and migrations.",
+				href: "https://orm.drizzle.team",
+				products: [
+					"Hyperpost",
+					"vswarm",
+					"Workbot",
+					"Command Center",
+					"Arcwrite",
+					"RSSX",
+					"Brain",
+				],
+			},
+			{
+				name: "TypeGraph",
+				icon: "typegraph",
+				role: "Embedded knowledge graph for TypeScript.",
+				href: "https://typegraph.dev",
+				products: ["Brain"],
+			},
+			{
+				name: "Better Auth",
+				icon: "betterauth",
+				role: "Sign-in and sessions.",
+				href: "https://better-auth.com",
+				products: ["Hyperpost", "vswarm", "Arcwrite", "RSSX", "Brain"],
+			},
+			{
+				name: "Better Call",
+				icon: "betterauth",
+				role: "Typed API endpoints.",
+				href: "https://github.com/Bekacru/better-call",
+				products: ["vswarm", "Workbot", "Arcwrite"],
+			},
+			{
+				name: "Better Fetch",
+				icon: "betterauth",
+				role: "Typed fetch client.",
+				href: "https://better-fetch.vercel.app",
+				products: ["vswarm", "Arcwrite"],
+			},
+			{
+				name: "Polar",
+				icon: "polar",
+				role: "Payments and subscriptions.",
+				href: "https://polar.sh",
+				products: ["Hyperpost", "Brain"],
+			},
+			{
+				name: "Zod",
+				icon: "zod",
+				role: "Schemas and runtime validation.",
+				href: "https://zod.dev",
+				products: [
+					"Hyperpost",
+					"vswarm",
+					"Workbot",
+					"Command Center",
+					"Arcwrite",
+					"RSSX",
+					"Brain",
+					"ui",
+					"Media Server",
+				],
+			},
+		],
+	},
+	{
+		id: "rust",
+		label: "Rust",
+		entries: [
+			{
+				name: "Tokio",
+				icon: "tokio",
+				role: "Async runtime.",
+				href: "https://tokio.rs",
+				products: ["Media Server"],
+			},
+			{
+				name: "SQLx",
+				icon: "rust",
+				role: "Async SQL with compile-time checked queries.",
+				href: "https://github.com/launchbadge/sqlx",
+				products: ["Media Server"],
+			},
+			{
+				name: "Apalis",
+				icon: "rust",
+				role: "Background job queues.",
+				href: "https://github.com/geofmureithi/apalis",
+				products: ["Media Server"],
+			},
+			{
+				name: "Serde",
+				icon: "rust",
+				role: "Serialization.",
+				href: "https://serde.rs",
+				products: ["Media Server"],
+			},
+			{
+				name: "Tracing",
+				icon: "tokio",
+				role: "Structured logs and spans.",
+				href: "https://github.com/tokio-rs/tracing",
+				products: ["Media Server"],
+			},
+		],
+	},
+	{
+		id: "python",
+		label: "Python and ML",
+		entries: [
+			{
+				name: "uv",
+				icon: "uv",
+				role: "Python packages, environments, and builds.",
+				href: "https://docs.astral.sh/uv",
+				products: ["Workbot"],
+			},
+			{
+				name: "Ruff",
+				icon: "ruff",
+				role: "Python linter and formatter.",
+				href: "https://docs.astral.sh/ruff",
+				products: ["Workbot"],
+			},
+			{
+				name: "ty",
+				icon: "ty",
+				role: "Python type checker.",
+				href: "https://docs.astral.sh/ty",
+				products: ["Workbot"],
+			},
+			{
+				name: "Pydantic",
+				icon: "pydantic",
+				role: "Typed data models and validation.",
+				href: "https://docs.pydantic.dev",
+				products: ["Workbot"],
+			},
+			{
+				name: "Transformers",
+				icon: "huggingface",
+				role: "Hugging Face’s library for loading and running models.",
+				href: "https://huggingface.co/docs/transformers",
+				products: ["Workbot"],
+			},
+			{
+				name: "MLX LM",
+				icon: "mlx",
+				role: "Fine-tuning and running models on Apple silicon.",
+				href: "https://github.com/ml-explore/mlx-lm",
+				products: ["Workbot"],
+			},
+			{
+				name: "Inspect AI",
+				icon: "inspect",
+				role: "Model evals.",
+				href: "https://inspect.aisi.org.uk",
+				products: ["Workbot"],
+			},
+			{
+				name: "LangGraph",
+				icon: "langgraph",
+				role: "Agent workflows as graphs.",
+				href: "https://www.langchain.com/langgraph",
+			},
+		],
+	},
+	{
+		id: "interface",
+		label: "Interface",
+		entries: [
+			{
+				name: "Next.js",
+				icon: "nextjs",
+				role: "React framework for the web apps.",
+				href: "https://nextjs.org",
+				products: [
+					"Hyperpost",
+					"Brain",
+					"vswarm",
+					"Arcwrite",
+					"ui",
+					"RSSX",
+					"Media Server",
+				],
+			},
+			{
+				name: "shadcn/ui",
+				icon: "shadcn",
+				role: "Component library copied into each codebase.",
+				href: "https://ui.shadcn.com",
+				products: [
+					"Hyperpost",
+					"vswarm",
+					"Arcwrite",
+					"ui",
+					"RSSX",
+					"Media Server",
+				],
+			},
+			{
+				name: "Stealth",
+				icon: "stealth",
+				role: "Design skills for coding agents.",
+				href: "https://stealth.pm",
+				products: ["Hyperpost", "vswarm", "Command Center"],
+			},
+			{
+				name: "Motion",
+				icon: "motion",
+				role: "Animation library for React.",
+				href: "https://motion.dev",
+				products: [
+					"Hyperpost",
+					"vswarm",
+					"Workbot",
+					"Command Center",
+					"Arcwrite",
+					"RSSX",
+					"Brain",
+					"ui",
+					"Media Server",
+				],
+			},
+			{
+				name: "Canvas UI",
+				icon: "canvas-ui",
+				role: "WebGPU effects that run over live HTML.",
+				href: "https://canvasui.dev",
+			},
+			{
+				name: "Tailwind CSS",
+				icon: "tailwind",
+				role: "Styling, on shared design tokens.",
+				href: "https://tailwindcss.com",
+				products: [
+					"Hyperpost",
+					"vswarm",
+					"Media Server",
+					"Workbot",
+					"Command Center",
+					"Arcwrite",
+					"RSSX",
+					"Brain",
+					"ui",
+				],
+			},
+			{
+				name: "Geist",
+				icon: "vercel",
+				role: "Sans and mono typefaces.",
+				href: "https://vercel.com/font",
+				products: ["Hyperpost", "vswarm", "Arcwrite", "ui", "RSSX"],
+			},
+			{
+				name: "SWR",
+				icon: "swr",
+				role: "React hooks for data fetching and caching.",
+				href: "https://swr.vercel.app",
+				products: ["vswarm", "Arcwrite", "ui", "RSSX"],
+			},
+		],
+	},
+	{
+		id: "gpu-native",
+		label: "GPU, video, and native",
+		entries: [
+			{
+				name: "vgpu",
+				icon: "vgpu",
+				role: "WebGPU shaders. Renders this site’s backgrounds.",
+				href: "https://vgpu.sh",
+				products: ["Hyperpost", "vswarm", "Media Server"],
+			},
+			{
+				name: "Three.js",
+				icon: "threejs",
+				role: "3D rendering in the browser.",
+				href: "https://threejs.org",
+				products: ["Brain", "ui", "Media Server"],
+			},
+			{
+				name: "Remotion",
+				icon: "remotion",
+				role: "Videos written as React components.",
+				href: "https://www.remotion.dev",
+				products: ["Hyperpost", "Command Center"],
+			},
+			{
+				name: "Mux",
+				icon: "mux",
+				role: "Video hosting, clipping, and playback.",
+				href: "https://www.mux.com",
+				products: ["Hyperpost"],
+			},
+			{
+				name: "ComfyUI",
+				icon: "comfyui",
+				role: "Node graphs for running image and video models locally.",
+				href: "https://www.comfy.org",
+			},
+			{
+				name: "Native SDK",
+				icon: "vercel",
+				role: "Toolkit for native desktop apps in Zig.",
+				href: "https://github.com/vercel-labs/native",
+				products: ["Hyperpost", "Command Center"],
+			},
+		],
+	},
+	{
+		id: "languages",
+		label: "Languages and tooling",
+		entries: [
+			{
+				name: "Bun",
+				icon: "bun",
+				role: "TypeScript runtime and package manager.",
+				href: "https://bun.sh",
+				products: ["vswarm", "Media Server", "Command Center", "RSSX", "ui"],
+			},
+			{
+				name: "Zig",
+				icon: "zig",
+				role: "Desktop apps and the local runtime.",
+				href: "https://ziglang.org",
+				products: [
+					"Hyperpost",
+					"Media Server",
+					"Workbot",
+					"Command Center",
+					"Arcwrite",
+					"RSSX",
+				],
+			},
+			{
+				name: "Rust",
+				icon: "rust",
+				role: "Native components where Zig is not used.",
+				href: "https://www.rust-lang.org",
+				products: ["Hyperpost", "Media Server", "Workbot"],
+			},
+			{
+				name: "Turborepo",
+				icon: "turborepo",
+				role: "Build system for the monorepos.",
+				href: "https://turborepo.dev",
+				products: [
+					"Hyperpost",
+					"vswarm",
+					"Arcwrite",
+					"ui",
+					"RSSX",
+					"Media Server",
+				],
+			},
+		],
+	},
+	{
+		id: "harnesses",
+		label: "Harnesses and tools",
+		entries: [
+			{
+				name: "Claude Code",
+				icon: "claude-code",
+				role: "Anthropic's coding agent.",
+				href: "https://www.anthropic.com/claude-code",
+			},
+			{
+				name: "Codex",
+				icon: "codex",
+				role: "OpenAI's coding agent.",
+				href: "https://openai.com/codex",
+			},
+			{
+				name: "Cursor",
+				icon: "cursor",
+				role: "Code editor with built-in agents.",
+				href: "https://cursor.com",
+			},
+			{
+				name: "GrokBot",
+				icon: "grok",
+				role: "xAI's coding agent.",
+				href: "https://x.ai",
+			},
+			{
+				name: "Hermes Agent",
+				icon: "hermes",
+				role: "Nous Research's open-source agent.",
+				href: "https://hermes-agent.nousresearch.com",
+			},
+			{
+				name: "fx",
+				icon: "fx",
+				role: "Small native coding agent.",
+				href: "https://fx.sh",
+			},
+			{
+				name: "v0",
+				icon: "v0",
+				role: "Vercel's agent for building UI and apps.",
+				href: "https://v0.app",
+			},
+			{
+				name: "Ghostty",
+				icon: "ghostty",
+				role: "Terminal emulator.",
+				href: "https://ghostty.org",
+			},
+			{
+				name: "Obsidian",
+				icon: "obsidian",
+				role: "Notes, specs, and research, kept as markdown.",
+				href: "https://obsidian.md",
+			},
+			{
+				name: "X",
+				icon: "x",
+				role: "Where new AI libraries and launches get posted.",
+				href: "https://x.com/brianrabil",
+			},
+		],
+	},
+];

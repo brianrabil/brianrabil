@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .tile { fill: #080808; }
+    .mark { fill: #ededed; }
+    @media (prefers-color-scheme: light) {
+      .tile { fill: #151515; }
+    }
+  </style>
+  <rect class="tile" width="32" height="32" rx="7" />
+  <!-- Flying-wing chevron: the B-2 planform, reduced to six points. -->
+  <path class="mark" d="M16 9 L27 20.5 L22.5 20.5 L19.5 18 L16 20.5 L12.5 18 L9.5 20.5 L5 20.5 Z" />
+</svg>

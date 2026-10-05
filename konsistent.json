@@ -1,0 +1,50 @@
+{
+	"$schema": "node_modules/konsistent/konsistent.schema.json",
+	"version": "v1",
+	"conventions": [
+		{
+			"name": "no-javascript-source",
+			"description": "First-party source must use TypeScript on Bun, Zig, or Rust; JavaScript source files are banned, including configuration and tests.",
+			"severity": "error",
+			"paths": "**/*.{js,mjs,cjs}",
+			"excludeFiles": [
+				"**/node_modules/**",
+				"**/.next/**",
+				"**/out/**",
+				"**/dist/**",
+				"**/build/**",
+				"**/zig-out/**",
+				"**/.zig-cache/**",
+				"**/.native/**",
+				"**/vendor/**",
+				"**/third_party/**",
+				"**/.git/**"
+			],
+			"mustNot": {
+				"haveType": "file"
+			}
+		},
+		{
+			"name": "no-helper-script-directories",
+			"description": "First-party helper script directories are banned. Use framework and tool CLIs directly.",
+			"severity": "error",
+			"paths": ["scripts", "**/scripts"],
+			"excludeFiles": [
+				"**/node_modules/**",
+				"**/.next/**",
+				"**/out/**",
+				"**/dist/**",
+				"**/build/**",
+				"**/zig-out/**",
+				"**/.zig-cache/**",
+				"**/.native/**",
+				"**/vendor/**",
+				"**/third_party/**",
+				"**/.git/**"
+			],
+			"mustNot": {
+				"haveType": "directory"
+			}
+		}
+	]
+}

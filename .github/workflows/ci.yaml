@@ -34,3 +34,6 @@ jobs:
 
       - name: Lint
         run: bun run lint
+
+      - name: Konsistent
+        run: bun run konsistent

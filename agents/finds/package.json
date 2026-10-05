@@ -1,0 +1,29 @@
+{
+  "name": "finds",
+  "private": true,
+  "type": "module",
+  "description": "eve agent that researches new open-source AI projects and publishes finds to brianrabil.com.",
+  "imports": {
+    "#*": "./agent/*"
+  },
+  "scripts": {
+    "dev": "eve dev",
+    "build": "eve build",
+    "start": "eve start",
+    "eval": "eve eval",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "dependencies": {
+    "ai": "^7.0.105",
+    "eve": "0.71.0",
+    "yaml": "2.9.1",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "24",
+    "typescript": "5.9.3"
+  }
+}
