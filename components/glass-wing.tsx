@@ -21,7 +21,7 @@ export function GlassWing({ className }: { className?: string }) {
 	return (
 		<div aria-hidden="true" className={className}>
 			<GlassObject
-				src="/brand/b2-wing.svg"
+				src="/brand/wing.svg"
 				className="size-full"
 				scale={3.2}
 				depth={0.12}
