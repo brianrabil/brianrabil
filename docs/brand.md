@@ -35,6 +35,11 @@ Two tiers.
 
 Each folder holds `mark`, `wordmark`, and `lockup`, each in `-dark.svg` and `-light.svg`. Wordmarks are outlined to paths, so no font is required.
 
+The two flagships have opposite characters, and everything about them (set piece, motion, sound, UI density) should follow:
+
+- **Hyperpost is the fleet in the cloud:** long-horizon Eve agents running for hours or days. It should feel like scale: many units at once, long timelines, zooming from the whole fleet down to one agent's current step. Motion is smooth and sweeping, sound is distant and spacious, and the native side is Zig.
+- **vswarm is the edge:** an AI SDK server you embed and run yourself. It should feel rugged and mechanical, one machined unit up close: detents, gauges, gears engaging, nothing soft. Motion is short and hard-stopped, sound is close thunks and servo clicks, and the native side is Rust.
+
 **The rest of the fleet** are small stealth ships: flat, faceted silhouettes pointing up, one ink, with a shape that says what the product does in code. Workbot is the exception by design, a friendly reverse-knee mech walker in side profile with pointy feet that walks on its product card, because it is the helper that lives on your machine.
 
 | Product | Mark | Status |
@@ -90,8 +95,9 @@ Every product has one set piece: a single live visual that shows what the produc
 | Product | Set piece |
 | --- | --- |
 | Command Center | Agents working across the desktop canvas (distro site hero) |
-| Hyperpost | Comet streak along the wordmark |
-| vswarm | Warp-in streaks |
+| Hyperpost | Building: the posting interface. Marketing agents on the left write posts in place (party-style lanes); on the right a live vgpu Gantt, the zig-world devtools instrument, runs at a fast scale so published posts stream past the now line like tracer fire. Later: the fleet at scale, hundreds of long-running agent runs as a field of units on a timeline spanning days; the camera pulls in from the whole fleet to one agent's current step and back out |
+| vswarm | Now: warp-in streaks. Proposed: one embedded server up close as a machined instrument, with requests entering, harness adapters engaging like gears with hard detents, and tokens leaving through gauges |
+| Agent browser (Command Center; `agent-browser`) | The exploded page. A real agent-browser session drawn in vgpu as an exploded assembly drawing:<br>- The rendered page is the front plate. Behind it, the layout boxes and the accessibility tree float apart in depth, and every element carries its ref tag (`@e12`).<br>- When the agent runs `click @e12`, a beam runs from the command through the ref tag, through its box, to the pixel on the page. The click lands, the next screenshot crossfades in, and the tree re-snapshots in place (nodes added and removed morph; nothing is redrawn from scratch).<br>- Parallel sessions fan out in an arc, one per Recon unit.<br>- VR (WebXR) is screens and nothing more: create a screen, grab it to position it, pull its corner to resize it. Each screen is a live surface (an agent-browser session stream, a terminal, an app), and agents open screens too, so the ring of work around you fills as units deploy. The exploded page is one screen you can pull apart.<br>- Data is real: recorded from agent-browser runs on our own sites (screenshot, snapshot, box per ref, and command for each step, as JSONL), or live from `agent-browser stream` inside Command Center. |
 | Brain | Evolving knowledge graph |
 | RSSX | Radar globe, upgrading to a photoreal night Earth |
 | Workbot | The walker landing and walking the code graph |

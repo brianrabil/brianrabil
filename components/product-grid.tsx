@@ -3,6 +3,7 @@ import { BrandStage } from "@/components/brand-stage";
 import { CommandCenterMark } from "@/components/command-center-mark";
 import { CellCorners } from "@/components/crosshair";
 import { ProductLogo } from "@/components/fleet-index";
+import { HyperpostPosting } from "@/components/hyperpost-posting/hyperpost-posting";
 import { StatusBadge } from "@/components/status-badge";
 import { WorkbotMark } from "@/components/workbot-mark";
 import { type Product, getFleet } from "@/lib/fleet";
@@ -140,7 +141,16 @@ function ProductCard({ product }: { product: Product }) {
 
 	const body = (
 		<>
-			{isBrandStage(product.slug) ? (
+			{product.slug === "hyperpost" ? (
+				// The posting interface is Hyperpost's set piece, so the lockup sits
+				// still above it (one set piece per viewport).
+				<>
+					<div className={stageClass}>
+						<Lockup product={product} large={flagship} />
+					</div>
+					<HyperpostPosting />
+				</>
+			) : isBrandStage(product.slug) ? (
 				<BrandStage variant={product.slug} className={stageClass}>
 					<Lockup product={product} large={flagship} />
 				</BrandStage>
@@ -218,8 +228,9 @@ export function ProductGrid() {
 			{products.map((product) => (
 				<li
 					key={product.slug}
+					id={product.slug}
 					className={cn(
-						"min-w-0 shadow-[0_0_0_1px_var(--line)]",
+						"min-w-0 scroll-mt-20 shadow-[0_0_0_1px_var(--line)]",
 						isFeatured(product) && "sm:col-span-2 lg:col-span-3",
 					)}
 				>
